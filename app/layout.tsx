@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import Header from "../components/Header";
 import "./globals.css";
 import { Josefin_Sans } from "next/font/google";
 const josef = Josefin_Sans({ subsets: ["latin"] });
@@ -30,10 +29,9 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${josef.className} ${geistSans.variable} ${geistMono.variable} antialiased`}
-      >    <Header/>
+      >
 
         {children}
-
       </body>
     </html>
   );
