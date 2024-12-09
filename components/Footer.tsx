@@ -12,22 +12,23 @@ function Footer() {
       {/* Footer */}
       <footer className="px-6 py-10  text-base font-normal text-ç">
         {/* Hekto Section */}
-        <div className="mb-10 flex flex-col justify-center items-center  gap-6">
+        <div className="mb-10 p-4 flex flex-col text-center  justify-center items-center  gap-6">
           <h2 className="text-[38px] font-bold text-black">Hekto</h2>
 
-          <div className="mt-4 flex w-[300px] items-center justify-end gap-4 rounded-[3px] bg-white lg:h-[44px] lg:w-[377px]">
+          <div className="mt-4 flex w-full items-center justify-center gap-4 rounded-[3px] bg-white lg:h-[44px] lg:w-[377px]">
             <input
               type="email"
               placeholder="Enter Email Address"
               className={`${lato.className} px-4`}
             />
 
-            <button
-              className={`h-[39px] w-[70px] rounded-[3px] bg-[#FB2E86] font-medium text-white lg:w-[135px] ${roboto.className} `}
+           
+          </div> 
+          <button
+              className={`h-[39px] w-full rounded-[3px] bg-[#FB2E86] font-medium text-white lg:w-[135px] ${roboto.className} `}
             >
               Sign Up
             </button>
-          </div>
           <p>Contact Info</p>
           <p>17 Princess Road, London, Greater London NW1 8JR, UK</p>
         </div>
