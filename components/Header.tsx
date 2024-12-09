@@ -4,10 +4,10 @@ import Image from "next/image";
 
 function Header() {
   return (
-    <header className="w-screen sm:w-[1920px]  bg-[#7E33E0]">
-      <div className="flex flex-wrap items-center h-[44px] justify-between w-full  px-4 sm:px-10">
+    <header className="w-screen h-full p-4 flex 2xl:w-full xl:w-screen lg:w-[1280px] md:w-[1024px] sm:w-[768px] bg-[#7E33E0]">
+      <div className="flex flex-wrap items-center h-[44px]2xl:justify-between xl:gap-80 lg:gap-40 md:gap-10 w-full  px-4 sm:px-10">
         {/* Left Section */}
-        <div className="flex items-center gap-8 sm:ml-[21vh]">
+        <div className="flex items-center gap-8 sm:gap-30 md:gap-8 sm:flex-wrap md:ml-[0vh] xl:ml-[25vh]">
           <div className="flex items-center gap-2">
             <Image
               src="/uil_envelope-alt.png"
@@ -19,7 +19,7 @@ function Header() {
               mhhasanul@gmail.com
             </span>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="hidden  md:flex items-center gap-2">
             <Image
               src="/bx_bx-phone-call.png"
               alt="Phone Icon"
