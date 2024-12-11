@@ -1,13 +1,12 @@
-
 import React from "react";
 import Image from "next/image";
 
 function Header() {
   return (
-    <header className="w-screen h-full p-4 flex 2xl:w-full xl:w-screen lg:w-[1280px] md:w-[1024px] sm:w-[768px] bg-[#7E33E0]">
-      <div className="flex flex-wrap items-center h-[44px]2xl:justify-between xl:gap-80 lg:gap-40 md:gap-10 w-full  px-4 sm:px-10">
+    <header className="flex h-full w-screen bg-[#7E33E0] p-4 sm:w-[768px] md:w-[1024px] lg:w-[1280px] xl:w-screen 2xl:w-full">
+      <div className="h-[44px]2xl:justify-between flex w-full flex-wrap items-center px-4 sm:px-10 md:gap-10 lg:gap-40 xl:gap-80">
         {/* Left Section */}
-        <div className="flex items-center gap-8 sm:gap-30 md:gap-8 sm:flex-wrap md:ml-[0vh] xl:ml-[25vh]">
+        <div className="sm:gap-30 flex items-center gap-8 sm:flex-wrap md:ml-[0vh] md:gap-8 xl:ml-[25vh]">
           <div className="flex items-center gap-2">
             <Image
               src="/uil_envelope-alt.png"
@@ -19,7 +18,7 @@ function Header() {
               mhhasanul@gmail.com
             </span>
           </div>
-          <div className="hidden  md:flex items-center gap-2">
+          <div className="hidden items-center gap-2 md:flex">
             <Image
               src="/bx_bx-phone-call.png"
               alt="Phone Icon"
@@ -33,7 +32,7 @@ function Header() {
         </div>
 
         {/* Right Section */}
-        <ul className="flex flex-wrap items-center gap-2 sm:gap-4 text-[14px] text-[#F1F1F1] sm:text-[16px]">
+        <ul className="flex flex-wrap items-center gap-2 text-[14px] text-[#F1F1F1] sm:gap-4 sm:text-[16px]">
           <li className="flex items-center gap-1">
             English
             <Image
@@ -80,8 +79,3 @@ function Header() {
 }
 
 export default Header;
-
-
-
-
-
