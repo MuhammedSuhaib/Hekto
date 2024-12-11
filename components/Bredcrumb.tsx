@@ -9,10 +9,16 @@ import {
 } from "@/components/ui/breadcrumb";
 import { Dot } from "lucide-react";
 
-function Bredcrumb() {
+// Define the prop type for Bredcrumb
+interface BredcrumbProps {
+  pageName: string;
+}
+
+function Bredcrumb({ pageName }: BredcrumbProps) {
   return (
     <div className="h-fit bg-[#F6F5FF] p-4 text-xl font-medium text-[#101750] md:text-[36px] lg:h-[286px] lg:px-[371px] lg:py-24">
-      <h1 className="font-extrabold">404 Not Found</h1>
+      <h1 className="font-extrabold">{pageName}</h1>
+
       <Breadcrumb>
         <BreadcrumbList className="text-base text-black">
           <BreadcrumbItem>
@@ -29,7 +35,7 @@ function Bredcrumb() {
           </BreadcrumbSeparator>
           <BreadcrumbItem>
             <BreadcrumbPage className="text-[#FB2E86]">
-              404 Not Found
+              {pageName}{" "}
             </BreadcrumbPage>
           </BreadcrumbItem>
         </BreadcrumbList>
