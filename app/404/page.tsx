@@ -3,7 +3,7 @@ import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Mi from "@/components/Mi";
-import Nvbr from "@/components/Nvbr";
+import Nvbr from "@/components/Navbar";
 import Bredcrumb from "@/components/Bredcrumb";
 
 function ErrorPage() {
