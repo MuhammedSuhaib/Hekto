@@ -24,6 +24,9 @@ export default function Home() {
           <li>
             <Link href="/Cont">Contact Us</Link>
           </li>
+          <li>
+            <Link href="/About">About Us</Link>
+          </li>
         </ul>
       </div>
       <Footer />

@@ -8,7 +8,7 @@ import { Lato } from "next/font/google";
 import Image from "next/image";
 const lato = Lato({ subsets: ["latin"], weight: ["400", "700"] });
 
-function Page() {
+function ContactUsPage() {
   return (
     <div>
       <Header />
@@ -172,4 +172,4 @@ function Page() {
   );
 }
 
-export default Page;
+export default ContactUsPage;
