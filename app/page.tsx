@@ -6,7 +6,7 @@ import Bredcrumb from "@/components/Bredcrumb";
 import Link from "next/link";
 export default function Home() {
   return (
-    <div className="w-screen overflow-x-hidden bg-white">
+    <div className=" bg-white">
       <Header />
       <Nvbr />
       <Bredcrumb pageName="Home" />
