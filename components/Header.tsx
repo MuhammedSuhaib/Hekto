@@ -3,7 +3,7 @@ import Image from "next/image";
 
 function Header() {
   return (
-    <header className="flex h-full w-screen bg-[#7E33E0] p-4 sm:w-[768px] md:w-[1024px] lg:w-[1280px] xl:w-screen 2xl:w-full">
+    <header className="flex h-full w-full bg-[#7E33E0] p-4">
       <div className="h-[44px]2xl:justify-between flex w-full flex-wrap items-center px-4 sm:px-10 md:gap-10 lg:gap-40 xl:gap-80">
         {/* Left Section */}
         <div className="sm:gap-30 flex items-center gap-8 sm:flex-wrap md:ml-[0vh] md:gap-8 xl:ml-[25vh]">
