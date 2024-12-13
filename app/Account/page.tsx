@@ -1,19 +1,4 @@
-// import React from "react";
-// import Image from "next/image";
-// import Header from "@/components/Header";
-// import Footer from "@/components/Footer";
-// import Mi from "@/components/Mi";
-// import Nvbr from "@/components/Navbar";
-// import Bredcrumb from "@/components/Bredcrumb";
 
-// function AccountPage() {
-//   return (
-//     <div>
-//       <Header />
-//       <Nvbr />
-//       <Bredcrumb pageName="My Account" />
-//       <div className="flex flex-col items-center justify-center md:h-[905px]">
-//  <div>
 import React from "react";
 import Image from "next/image";
 import Header from "@/components/Header";

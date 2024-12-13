@@ -30,6 +30,9 @@ export default function Home() {
           <li>
             <Link href="/Account">Account</Link>
           </li>
+          <li>
+            <Link href="/Order">Order</Link>
+          </li>
         </ul>
       </div>
       <Footer />
