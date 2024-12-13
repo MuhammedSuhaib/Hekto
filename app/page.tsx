@@ -27,6 +27,9 @@ export default function Home() {
           <li>
             <Link href="/About">About Us</Link>
           </li>
+          <li>
+            <Link href="/Account">Account</Link>
+          </li>
         </ul>
       </div>
       <Footer />
