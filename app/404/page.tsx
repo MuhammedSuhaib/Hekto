@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import Mi from "@/components/Mi";
 import Nvbr from "@/components/Navbar";
 import Bredcrumb from "@/components/Bredcrumb";
+import Link from "next/link";
 
 function ErrorPage() {
   return (
@@ -30,7 +31,7 @@ function ErrorPage() {
         <button
           className={`h-[44px] rounded-[3px] bg-[#FB2E86] font-medium text-white lg:w-[165px]`}
         >
-          Back To Home
+          <Link href="/">Back To Home</Link>
         </button>
         <Image
           src="/image.png"

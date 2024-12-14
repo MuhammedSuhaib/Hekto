@@ -60,7 +60,7 @@ function AccountPage() {
           <p
             className={`${lato.className} mb-[37px] text-center text-[17px] font-normal text-[#9096B2]`}
           >
-            Don't have an Account?Create account
+            Don&rsquo;t have an Account?Create account
           </p>
         </div>
         <Image

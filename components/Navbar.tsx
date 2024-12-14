@@ -4,6 +4,13 @@ import { Lato } from "next/font/google";
 const lato = Lato({ subsets: ["latin"], weight: ["400", "700"] });
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
+import Link from "next/link";
+import {
+  Select,
+  SelectContent,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 function Nvbr() {
   return (
@@ -30,22 +37,55 @@ function Nvbr() {
                       className="size-3"
                     />
                   </li>
-                  <li>Pages</li>
-                  <li>Products</li>
-                  <li>Blog</li>
-                  <li>Shop</li>
-                  <li>Contact</li>
+                  <li className="hover:text-[#FB2E86]">
+                    <Select>
+                      <SelectTrigger>
+                        <SelectValue placeholder="Pages" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <ul>
+                          <li className="hover:text-[#FB2E86]">
+                            <Link href="/FAQ">FAQ</Link>
+                          </li>
+                          <li className="hover:text-[#FB2E86]">
+                            <Link href="/404">404</Link>
+                          </li>
+                          <li className="hover:text-[#FB2E86]">
+                            <Link href="/Cont">Contact Us</Link>
+                          </li>
+                          <li className="hover:text-[#FB2E86]">
+                            <Link href="/About">About Us</Link>
+                          </li>
+                          <li className="hover:text-[#FB2E86]">
+                            <Link href="/Account">Account</Link>
+                          </li>
+                          <li className="hover:text-[#FB2E86]">
+                            <Link href="/Order">Order</Link>
+                          </li>
+                          <li className="hover:text-[#FB2E86]">
+                            <Link href="/Demo">Demo</Link>
+                          </li>
+                        </ul>
+                      </SelectContent>
+                    </Select>
+                  </li>
+                  <li className="hover:text-[#FB2E86]">Products</li>
+                  <li className="hover:text-[#FB2E86]">Blog</li>
+                  <li className="hover:text-[#FB2E86]">Shop</li>
+                  <li className="hover:text-[#FB2E86]">
+                    <Link href="/Cont">Contact</Link>
+                  </li>
                 </ul>
               </SheetContent>
             </Sheet>
           </div>{" "}
         </h2>
 
-        <ul
-          className={`${lato.className} hidden items-center justify-center gap-[35px] text-base font-normal text-[#0D0E43] md:flex 2xl:ml-[88px]`}
+        <ul className={`${lato.className} hidden items-center justify-center gap-[35px] text-base font-normal text-[#0D0E43] md:flex 2xl:ml-[88px]`}
         >
-          <li className="flex items-center justify-center text-[#FB2E86]">
-            Home
+          <li className="flex items-center justify-center text-[#FB2E86] hover:text-[#FB2E86]">
+            <Link href="/">Home</Link>
+
             <Image
               src="/pinkdown.png"
               alt="Dropdown Icon"
@@ -54,11 +94,44 @@ function Nvbr() {
               className="size-3"
             />
           </li>
-          <li>Pages</li>
-          <li>Products</li>
-          <li>Blog</li>
-          <li>Shop</li>
-          <li>Contact</li>
+          <li className="hover:text-[#FB2E86]">
+            <Select>
+              <SelectTrigger>
+                <SelectValue placeholder="Pages" />
+              </SelectTrigger>
+              <SelectContent>
+                <ul>
+                  <li className="hover:text-[#FB2E86]">
+                    <Link href="/FAQ">FAQ</Link>
+                  </li>
+                  <li className="hover:text-[#FB2E86]">
+                    <Link href="/404">404</Link>
+                  </li>
+                  <li className="hover:text-[#FB2E86]">
+                    <Link href="/Cont">Contact Us</Link>
+                  </li>
+                  <li className="hover:text-[#FB2E86]">
+                    <Link href="/About">About Us</Link>
+                  </li>
+                  <li className="hover:text-[#FB2E86]">
+                    <Link href="/Account">Account</Link>
+                  </li>
+                  <li className="hover:text-[#FB2E86]">
+                    <Link href="/Order">Order</Link>
+                  </li>
+                  <li className="hover:text-[#FB2E86]">
+                    <Link href="/Demo">Demo</Link>
+                  </li>
+                </ul>
+              </SelectContent>
+            </Select>
+          </li>
+          <li className="hover:text-[#FB2E86]">Products</li>
+          <li className="hover:text-[#FB2E86]">Blog</li>
+          <li className="hover:text-[#FB2E86]">Shop</li>
+          <li className="hover:text-[#FB2E86]">
+            <Link href="/Cont">Contact</Link>
+          </li>
         </ul>
 
         <div className="flex items-center justify-between border-[2px] border-[#E7E6EF] sm:justify-end 2xl:ml-[110px]">
