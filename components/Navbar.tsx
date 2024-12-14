@@ -122,6 +122,10 @@ function Nvbr() {
                   <li className="hover:text-[#FB2E86]">
                     <Link href="/Demo">Demo</Link>
                   </li>
+                  <li className="hover:text-[#FB2E86]">
+                    <Link href="/Shopping">Shopping Curt</Link>
+                  </li>
+                  
                 </ul>
               </SelectContent>
             </Select>

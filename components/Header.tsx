@@ -72,6 +72,7 @@ function Header() {
           <li>
             <Image src="/crt.png" alt="Cart Icon" width={16} height={16} />
           </li>
+          
         </ul>
       </div>
     </header>
