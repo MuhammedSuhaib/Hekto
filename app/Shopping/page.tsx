@@ -73,7 +73,7 @@ function ShoppingCurtPage() {
             <p>Totals:</p>
             <p>£325.00</p>
           </div>
-          <p className="mt-4 text-xs text-[#C1C8E1]">
+          <p className={`${lato.className} mt-4 text-xs text-[#C1C8E1]`}>
             Shipping & taxes calculated at checkout
           </p>
           <button className="mt-4 w-full rounded bg-[#19D16F] py-2 text-white">
@@ -87,17 +87,17 @@ function ShoppingCurtPage() {
           <input
             type="text"
             placeholder="Bangladesh"
-            className="mb-4 w-full border-b bg-[#F6F5FF] p-2 text-sm text-[#A1A8C1]"
+            className={`mb-4 w-full border-b bg-[#F6F5FF] p-2 text-sm text-[#A1A8C1] ${lato.className} `}
           />
           <input
             type="text"
             placeholder="Mirpur Dhaka - 1200"
-            className="mb-4 w-full border-b bg-[#F6F5FF] p-2 text-sm text-[#A1A8C1]"
+            className={`mb-4 w-full border-b bg-[#F6F5FF] p-2 text-sm text-[#A1A8C1] ${lato.className} `}
           />
           <input
             type="number"
             placeholder="Postal Code"
-            className="mb-4 w-full border-b bg-[#F6F5FF] p-2 text-sm text-[#A1A8C1]"
+            className={`mb-4 w-full border-b bg-[#F6F5FF] p-2 text-sm text-[#A1A8C1] ${lato.className} `}
           />
           <button className="w-full rounded bg-[#FB2E86] py-2 text-white">
             Calculate Shipping
