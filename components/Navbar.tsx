@@ -65,6 +65,12 @@ function Nvbr() {
                           <li className="hover:text-[#FB2E86]">
                             <Link href="/Demo">Demo</Link>
                           </li>
+                          <li className="hover:text-[#FB2E86]">
+                            <Link href="/Shopping">Shopping Curt</Link>
+                          </li>
+                          <li className="hover:text-[#FB2E86]">
+                            <Link href="/Grid">Shop Grid page</Link>
+                          </li>
                         </ul>
                       </SelectContent>
                     </Select>
@@ -81,7 +87,8 @@ function Nvbr() {
           </div>{" "}
         </h2>
 
-        <ul className={`${lato.className} hidden items-center justify-center gap-[35px] text-base font-normal text-[#0D0E43] md:flex 2xl:ml-[88px]`}
+        <ul
+          className={`${lato.className} hidden items-center justify-center gap-[35px] text-base font-normal text-[#0D0E43] md:flex 2xl:ml-[88px]`}
         >
           <li className="flex items-center justify-center text-[#FB2E86] hover:text-[#FB2E86]">
             <Link href="/">Home</Link>
@@ -125,7 +132,9 @@ function Nvbr() {
                   <li className="hover:text-[#FB2E86]">
                     <Link href="/Shopping">Shopping Curt</Link>
                   </li>
-                  
+                  <li className="hover:text-[#FB2E86]">
+                    <Link href="/Grid">Shop Grid page</Link>
+                  </li>
                 </ul>
               </SelectContent>
             </Select>
