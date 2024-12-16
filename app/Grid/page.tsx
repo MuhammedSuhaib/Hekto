@@ -126,10 +126,10 @@ function Shop_Grid_page() {
                   width={42}
                   height={10}
                 />
-                <p className="mt-[15px] text-sm font-semibold text-[#151875]">
-                  $28.00{" "}
+              <p className="mt-[15px] text-sm font-semibold text-[#151875]">
+                  $26.00{" "}
                   <s className="ml-[10px] text-sm font-semibold text-[#FB2E86] line-through">
-                    $45.00
+                    $42.00
                   </s>
                 </p>
               </div>
@@ -153,10 +153,10 @@ function Shop_Grid_page() {
                   width={42}
                   height={10}
                 />
-                <p className="mt-[15px] text-sm font-semibold text-[#151875]">
-                  $30.00{" "}
+               <p className="mt-[15px] text-sm font-semibold text-[#151875]">
+                  $26.00{" "}
                   <s className="ml-[10px] text-sm font-semibold text-[#FB2E86] line-through">
-                    $50.00
+                    $42.00
                   </s>
                 </p>
               </div>
@@ -180,10 +180,10 @@ function Shop_Grid_page() {
                   width={42}
                   height={10}
                 />
-                <p className="mt-[15px] text-sm font-semibold text-[#151875]">
-                  $35.00{" "}
+               <p className="mt-[15px] text-sm font-semibold text-[#151875]">
+                  $26.00{" "}
                   <s className="ml-[10px] text-sm font-semibold text-[#FB2E86] line-through">
-                    $55.00
+                    $42.00
                   </s>
                 </p>
               </div>
@@ -208,10 +208,10 @@ function Shop_Grid_page() {
                   width={42}
                   height={10}
                 />
-                <p className="mt-[15px] text-sm font-semibold text-[#151875]">
-                  $35.00{" "}
+              <p className="mt-[15px] text-sm font-semibold text-[#151875]">
+                  $26.00{" "}
                   <s className="ml-[10px] text-sm font-semibold text-[#FB2E86] line-through">
-                    $55.00
+                    $42.00
                   </s>
                 </p>
               </div>
@@ -235,10 +235,10 @@ function Shop_Grid_page() {
                   width={42}
                   height={10}
                 />
-                <p className="mt-[15px] text-sm font-semibold text-[#151875]">
-                  $35.00{" "}
+              <p className="mt-[15px] text-sm font-semibold text-[#151875]">
+                  $26.00{" "}
                   <s className="ml-[10px] text-sm font-semibold text-[#FB2E86] line-through">
-                    $55.00
+                    $42.00
                   </s>
                 </p>
               </div>
@@ -262,10 +262,10 @@ function Shop_Grid_page() {
                   width={42}
                   height={10}
                 />
-                <p className="mt-[15px] text-sm font-semibold text-[#151875]">
-                  $35.00{" "}
+               <p className="mt-[15px] text-sm font-semibold text-[#151875]">
+                  $26.00{" "}
                   <s className="ml-[10px] text-sm font-semibold text-[#FB2E86] line-through">
-                    $55.00
+                    $42.00
                   </s>
                 </p>
               </div>
@@ -289,10 +289,10 @@ function Shop_Grid_page() {
                   width={42}
                   height={10}
                 />
-                <p className="mt-[15px] text-sm font-semibold text-[#151875]">
-                  $35.00{" "}
+               <p className="mt-[15px] text-sm font-semibold text-[#151875]">
+                  $26.00{" "}
                   <s className="ml-[10px] text-sm font-semibold text-[#FB2E86] line-through">
-                    $55.00
+                    $42.00
                   </s>
                 </p>
               </div>
@@ -317,10 +317,10 @@ function Shop_Grid_page() {
                   width={42}
                   height={10}
                 />
-                <p className="mt-[15px] text-sm font-semibold text-[#151875]">
-                  $35.00{" "}
+               <p className="mt-[15px] text-sm font-semibold text-[#151875]">
+                  $26.00{" "}
                   <s className="ml-[10px] text-sm font-semibold text-[#FB2E86] line-through">
-                    $55.00
+                    $42.00
                   </s>
                 </p>
               </div>
@@ -344,10 +344,10 @@ function Shop_Grid_page() {
                   width={42}
                   height={10}
                 />
-                <p className="mt-[15px] text-sm font-semibold text-[#151875]">
-                  $35.00{" "}
+              <p className="mt-[15px] text-sm font-semibold text-[#151875]">
+                  $26.00{" "}
                   <s className="ml-[10px] text-sm font-semibold text-[#FB2E86] line-through">
-                    $55.00
+                    $42.00
                   </s>
                 </p>
               </div>
@@ -372,9 +372,9 @@ function Shop_Grid_page() {
                   height={10}
                 />
                 <p className="mt-[15px] text-sm font-semibold text-[#151875]">
-                  $35.00{" "}
+                  $26.00{" "}
                   <s className="ml-[10px] text-sm font-semibold text-[#FB2E86] line-through">
-                    $55.00
+                    $42.00
                   </s>
                 </p>
               </div>
@@ -398,10 +398,10 @@ function Shop_Grid_page() {
                   width={42}
                   height={10}
                 />
-                <p className="mt-[15px] text-sm font-semibold text-[#151875]">
-                  $35.00{" "}
+               <p className="mt-[15px] text-sm font-semibold text-[#151875]">
+                  $26.00{" "}
                   <s className="ml-[10px] text-sm font-semibold text-[#FB2E86] line-through">
-                    $55.00
+                    $42.00
                   </s>
                 </p>
               </div>
@@ -428,10 +428,10 @@ function Shop_Grid_page() {
                   width={42}
                   height={10}
                 />
-                <p className="mt-[15px] text-sm font-semibold text-[#151875]">
-                  $35.00{" "}
+               <p className="mt-[15px] text-sm font-semibold text-[#151875]">
+                  $26.00{" "}
                   <s className="ml-[10px] text-sm font-semibold text-[#FB2E86] line-through">
-                    $55.00
+                    $42.00
                   </s>
                 </p>
               </div>
@@ -455,10 +455,10 @@ function Shop_Grid_page() {
                   width={42}
                   height={10}
                 />
-                <p className="mt-[15px] text-sm font-semibold text-[#151875]">
-                  $35.00{" "}
+             <p className="mt-[15px] text-sm font-semibold text-[#151875]">
+                  $26.00{" "}
                   <s className="ml-[10px] text-sm font-semibold text-[#FB2E86] line-through">
-                    $55.00
+                    $42.00
                   </s>
                 </p>
               </div>
@@ -482,10 +482,10 @@ function Shop_Grid_page() {
                   width={42}
                   height={10}
                 />
-                <p className="mt-[15px] text-sm font-semibold text-[#151875]">
-                  $35.00{" "}
+             <p className="mt-[15px] text-sm font-semibold text-[#151875]">
+                  $26.00{" "}
                   <s className="ml-[10px] text-sm font-semibold text-[#FB2E86] line-through">
-                    $55.00
+                    $42.00
                   </s>
                 </p>
               </div>
@@ -509,10 +509,10 @@ function Shop_Grid_page() {
                   width={42}
                   height={10}
                 />
-                <p className="mt-[15px] text-sm font-semibold text-[#151875]">
-                  $35.00{" "}
+             <p className="mt-[15px] text-sm font-semibold text-[#151875]">
+                  $26.00{" "}
                   <s className="ml-[10px] text-sm font-semibold text-[#FB2E86] line-through">
-                    $55.00
+                    $42.00
                   </s>
                 </p>
               </div>
@@ -537,10 +537,10 @@ function Shop_Grid_page() {
                   width={42}
                   height={10}
                 />
-                <p className="mt-[15px] text-sm font-semibold text-[#151875]">
-                  $35.00{" "}
+             <p className="mt-[15px] text-sm font-semibold text-[#151875]">
+                  $26.00{" "}
                   <s className="ml-[10px] text-sm font-semibold text-[#FB2E86] line-through">
-                    $55.00
+                    $42.00
                   </s>
                 </p>
               </div>
@@ -564,10 +564,10 @@ function Shop_Grid_page() {
                   width={42}
                   height={10}
                 />
-                <p className="mt-[15px] text-sm font-semibold text-[#151875]">
-                  $35.00{" "}
+             <p className="mt-[15px] text-sm font-semibold text-[#151875]">
+                  $26.00{" "}
                   <s className="ml-[10px] text-sm font-semibold text-[#FB2E86] line-through">
-                    $55.00
+                    $42.00
                   </s>
                 </p>
               </div>
@@ -591,10 +591,10 @@ function Shop_Grid_page() {
                   width={42}
                   height={10}
                 />
-                <p className="mt-[15px] text-sm font-semibold text-[#151875]">
-                  $35.00{" "}
+             <p className="mt-[15px] text-sm font-semibold text-[#151875]">
+                  $26.00{" "}
                   <s className="ml-[10px] text-sm font-semibold text-[#FB2E86] line-through">
-                    $55.00
+                    $42.00
                   </s>
                 </p>
               </div>
@@ -618,10 +618,10 @@ function Shop_Grid_page() {
                   width={42}
                   height={10}
                 />
-                <p className="mt-[15px] text-sm font-semibold text-[#151875]">
-                  $35.00{" "}
+             <p className="mt-[15px] text-sm font-semibold text-[#151875]">
+                  $26.00{" "}
                   <s className="ml-[10px] text-sm font-semibold text-[#FB2E86] line-through">
-                    $55.00
+                    $42.00
                   </s>
                 </p>
               </div>
