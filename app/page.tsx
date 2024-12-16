@@ -11,7 +11,7 @@ export default function Home() {
       <Header />
       <Nvbr />
       <div className="lg:h-[7795px]">
-        {/* promotional*/}
+        {/* promotionaloo*/}
         <div className="h-auto bg-[#F2F0FF] px-4 lg:pr-[173px]">
           <div className="flex flex-col items-center justify-between lg:flex-row lg:items-start">
             <Image
