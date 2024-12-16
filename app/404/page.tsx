@@ -33,20 +33,22 @@ function ErrorPage() {
         >
           <Link href="/">Back To Home</Link>
         </button>
-        <Image
-          src="/image.png"
-          alt="Partners"
-          width={1246}
-          height={128}
-          className="hidden h-[128px] w-[1246px] md:block"
-        />
-        <Image
-          src="/image.png"
-          alt="Partners"
-          width={260}
-          height={60}
-          className="m-4 h-[60px] w-[260px] md:hidden"
-        />
+        <div className="m-0 md:mb-[59px] md:mt-[124px]">
+          <Image
+            src="/image.png"
+            alt="Partners"
+            width={1246}
+            height={128}
+            className="hidden h-[128px] w-[1246px] md:block"
+          />
+          <Image
+            src="/image.png"
+            alt="Partners"
+            width={260}
+            height={60}
+            className="m-4 h-[60px] w-[260px] md:hidden"
+          />
+        </div>
       </div>
 
       <Footer />
