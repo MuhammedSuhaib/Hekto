@@ -71,6 +71,9 @@ function Nvbr() {
                           <li className="hover:text-[#FB2E86]">
                             <Link href="/Grid">Shop Grid page</Link>
                           </li>
+                          <li className="hover:text-[#FB2E86]">
+                            <Link href="/List">Shop List page</Link>
+                          </li>
                         </ul>
                       </SelectContent>
                     </Select>
@@ -134,6 +137,9 @@ function Nvbr() {
                   </li>
                   <li className="hover:text-[#FB2E86]">
                     <Link href="/Grid">Shop Grid page</Link>
+                  </li>
+                  <li className="hover:text-[#FB2E86]">
+                    <Link href="/List">Shop List page</Link>
                   </li>
                 </ul>
               </SelectContent>
