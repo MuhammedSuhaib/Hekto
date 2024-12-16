@@ -84,7 +84,7 @@ function Shop_Grid_page() {
               <div className="flex h-[363px] w-[270px] flex-col items-center p-4">
                 <div className="flex items-center justify-center bg-[#F6F7FB]">
                   <Image
-                    src="/Product1.png"
+                    src="/product1.png"
                     alt="Product 1"
                     width={201}
                     height={201}
