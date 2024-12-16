@@ -10,7 +10,7 @@ export default function Home() {
     <div className="bg-white">
       <Header />
       <Nvbr />
-      <div className="lg:h-[7395px]">
+      <div className="lg:h-[7795px]">
         {/* promotional  */}
         <div className="h-auto bg-[#F2F0FF] px-4 lg:pr-[173px]">
           <div className="flex flex-col items-center justify-between lg:flex-row lg:items-start">
@@ -66,7 +66,7 @@ export default function Home() {
             <h1 className="mb-[48px] mt-[129px] text-center text-[42px] font-bold text-[#1A0B5B]">
               Featured Products
             </h1>
-            <div className="flex flex-col justify-center gap-7 md:flex-row">
+            <div className="flex flex-col justify-center gap-7 pl-[5vh] md:flex-row md:pl-0">
               {/* Product 1 */}
               <div className="flex h-[361px] w-[270px] flex-col items-center gap-4 bg-white py-[17px] drop-shadow-md">
                 <div className="flex h-[236px] w-[270px] items-center justify-center bg-[#F6F7FB]">
@@ -166,14 +166,14 @@ export default function Home() {
               Leatest Products
             </h1>
             <ul
-              className={`${lato.className} mb-[62px] flex items-center justify-center gap-[58px] text-lg font-normal text-[#151875]`}
+              className={`${lato.className} mb-[62px] flex items-center justify-center gap-5 text-lg font-normal text-[#151875] md:gap-[58px]`}
             >
               <li className="text-[#FB2E86] underline">New Arrival</li>
-              <li>Best Seller</li>
+              <li className="hidden md:flex">Best Seller</li>
               <li>Featured</li>
               <li>Special Offer</li>
             </ul>
-            <div className="flex flex-col justify-center md:flex-row">
+            <div className="flex flex-col justify-center gap-[37px] md:flex-row">
               {/* Product 1 */}
               <div className="flex h-[306px] w-[360px] flex-col items-center">
                 <div className="flex h-[306px] w-[360px] items-center justify-center bg-[#F6F7FB]">
@@ -184,7 +184,7 @@ export default function Home() {
                     height={229}
                   />
                 </div>
-                <div className="mt-4 flex gap-20">
+                <div className="mt-4 flex flex-col md:flex-row md:gap-20">
                   <div className="text-base text-[#151875] shadow-md">
                     Comfort Handy Craft
                   </div>
@@ -195,12 +195,12 @@ export default function Home() {
                     <s className="ml-2 text-xs text-[#FB2448] line-through">
                       $65.00
                     </s>
-                  </div>{" "}
+                  </div>
                 </div>
               </div>
 
               {/* Product 2 */}
-              <div className="flex h-[306px] w-[360px] flex-col items-center">
+              <div className="mb-9 flex h-[306px] w-[360px] flex-col items-center md:mb-0">
                 <div className="flex h-[306px] w-[360px] items-center justify-center bg-[#F6F7FB]">
                   <Image
                     src="/Frame1.png"
@@ -209,7 +209,7 @@ export default function Home() {
                     height={306}
                   />
                 </div>
-                <div className="mt-4 flex gap-20">
+                <div className="mt-4 flex flex-col md:flex-row md:gap-20">
                   <div className="text-base text-[#151875] shadow-md">
                     Comfort Handy Craft
                   </div>
@@ -220,7 +220,7 @@ export default function Home() {
                     <s className="ml-2 text-xs text-[#FB2448] line-through">
                       $65.00
                     </s>
-                  </div>{" "}
+                  </div>
                 </div>
               </div>
               {/* Product 3 */}
@@ -233,7 +233,7 @@ export default function Home() {
                     height={229}
                   />
                 </div>
-                <div className="mt-4 flex gap-20">
+                <div className="mt-4 flex flex-col md:flex-row md:gap-20">
                   <div className="text-base text-[#151875] shadow-md">
                     Comfort Handy Craft
                   </div>
@@ -244,11 +244,11 @@ export default function Home() {
                     <s className="ml-2 text-xs text-[#FB2448] line-through">
                       $65.00
                     </s>
-                  </div>{" "}
+                  </div>
                 </div>
               </div>
             </div>
-            <div className="mt-[120px] flex flex-col justify-center md:flex-row">
+            <div className="mt-[120px] flex flex-col justify-center gap-[37px] md:flex-row">
               {/* Product 1 */}
               <div className="flex h-[306px] w-[360px] flex-col items-center">
                 <div className="flex h-[306px] w-[360px] items-center justify-center bg-[#F6F7FB]">
@@ -259,7 +259,7 @@ export default function Home() {
                     height={229}
                   />
                 </div>
-                <div className="mt-4 flex gap-20">
+                <div className="mt-4 flex flex-col md:flex-row md:gap-20">
                   <div className="text-base text-[#151875] shadow-md">
                     Comfort Handy Craft
                   </div>
@@ -270,7 +270,7 @@ export default function Home() {
                     <s className="ml-2 text-xs text-[#FB2448] line-through">
                       $65.00
                     </s>
-                  </div>{" "}
+                  </div>
                 </div>
               </div>
 
@@ -284,7 +284,7 @@ export default function Home() {
                     height={229}
                   />
                 </div>
-                <div className="mt-4 flex gap-20">
+                <div className="mt-4 flex flex-col md:flex-row md:gap-20">
                   <div className="text-base text-[#151875] shadow-md">
                     Comfort Handy Craft
                   </div>
@@ -295,7 +295,7 @@ export default function Home() {
                     <s className="ml-2 text-xs text-[#FB2448] line-through">
                       $65.00
                     </s>
-                  </div>{" "}
+                  </div>
                 </div>
               </div>
 
@@ -309,7 +309,7 @@ export default function Home() {
                     height={229}
                   />
                 </div>
-                <div className="mt-4 flex gap-20">
+                <div className="mt-4 flex flex-col md:flex-row md:gap-20">
                   <div className="text-base text-[#151875] shadow-md">
                     Comfort Handy Craft
                   </div>
@@ -320,7 +320,7 @@ export default function Home() {
                     <s className="ml-2 text-xs text-[#FB2448] line-through">
                       $65.00
                     </s>
-                  </div>{" "}
+                  </div>
                 </div>
               </div>
             </div>
@@ -387,14 +387,14 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <div className="flex w-screen flex-col items-center justify-center bg-[#F1F0FF] md:h-[579px] md:flex-row">
+            <div className="flex w-screen flex-col items-center justify-center bg-[#F1F0FF] p-4 md:h-[579px] md:flex-row">
               <Image src="/153.png" alt="sofa" width={558} height={550} />
               <div className="flex flex-col gap-8">
-                <h1 className="w-[507px] pl-[15vh] text-center text-[35px] font-bold text-[#1A0B5B] md:pl-0 md:text-left">
+                <h1 className="w-[50vh] pl-[1vh] text-center text-[35px] font-bold text-[#1A0B5B] md:w-[507px] md:text-left">
                   Unique Features Of leatest & Trending Poducts{" "}
                 </h1>
                 <ul
-                  className={`${lato.className} flex w-[461px] flex-col gap-3 pl-[19vh] text-base font-medium text-[#ACABC3] md:pl-0`}
+                  className={`${lato.className} flex w-[50vh] flex-col gap-3 pl-[10vh] text-base font-medium text-[#ACABC3] md:w-[461px] md:pl-0`}
                 >
                   <li className="flex items-center gap-3">
                     <Image
@@ -428,9 +428,9 @@ export default function Home() {
                     Arms, backs and seats are structurally reinforced
                   </li>
                 </ul>{" "}
-                <div className="flex flex-col gap-5 pl-[19vh] md:flex-row md:pl-0">
+                <div className="flex flex-col gap-5 pl-[15vh] md:flex-row md:pl-0">
                   <button
-                    className={`h-[39px] w-[50vh] rounded-[2px] bg-[#FB2E86] font-medium text-white lg:w-[135px]`}
+                    className={`h-[39px] w-[135px] rounded-[2px] bg-[#FB2E86] font-medium text-white`}
                   >
                     Add To Cart{" "}
                   </button>
@@ -453,7 +453,7 @@ export default function Home() {
             <h1 className="mb-[48px] mt-[129px] text-center text-[42px] font-bold text-[#1A0B5B]">
               Trending Products
             </h1>
-            <div className="flex flex-col justify-center md:flex-row">
+            <div className="flex flex-col justify-center pl-[5vh] md:flex-row md:pl-0">
               {/* Product 1 */}
               <div className="flex h-[350px] w-[270px] flex-col items-center p-4">
                 <div className="flex items-center justify-center bg-[#F5F6F8]">
@@ -547,7 +547,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="flex items-center justify-center gap-7">
+            <div className="hidden flex-col items-center justify-center gap-7 md:flex md:flex-row">
               <div className="h-[270px] w-[420px] bg-[#FFF6FB] p-6">
                 {" "}
                 <p className="text-[26px] font-semibold text-[#151875]">
@@ -621,102 +621,537 @@ export default function Home() {
           </>
           {/* Discount Item */}
           <>
-          <h1 className="mb-[33px] mt-[126px] text-center text-[42px] font-bold text-[#1A0B5B]">
-            Discount Item{" "}
-          </h1>
-          <ul
-            className={`${lato.className} mb-[62px] flex items-center justify-center gap-7 text-lg font-normal text-[#151875]`}
-          >
-            <li className="flex items-center justify-center text-[#FB2E86] underline">
-              Wood Chair{" "}
-              <div className="ml-2 size-[5px] rounded-full bg-[#FB2E86]"></div>
-            </li>
-            <li>Plastic Chair</li>
-            <li>Sofa Colletion</li>
-          </ul>
-          <div className="flex flex-col items-center justify-center  md:flex-row">
-            {/* Left Text Section */}
-            <div className="flex flex-col gap-4">
-              <h2 className="text-[35px] font-bold text-[#1D3178]">
-                20% Discount Of All Products
-              </h2>
-              <h3 className="text-[21px] font-semibold text-[#FB2E86]">
-                Eams Sofa Compact
-              </h3>
-              <p
-                className={`${lato.className} w-[523px] text-base font-normal text-[#B7BACB]`}
-              >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eu eget
-                feugiat habitasse nec, bibendum condimentum.
-              </p>
-              {/* Features List */}
-              <div className="flex flex-col gap-2">
-                <ul
-                  className={`${lato.className} flex gap-12 text-base font-normal text-[#B7BACB]`}
+            <h1 className="mb-[33px] mt-[126px] text-center text-[42px] font-bold text-[#1A0B5B]">
+              Discount Item{" "}
+            </h1>
+            <ul
+              className={`${lato.className} mb-[62px] flex items-center justify-center gap-7 pl-[5vh] text-lg font-normal text-[#151875] md:pl-0`}
+            >
+              <li className="flex items-center justify-center text-[#FB2E86] underline">
+                Wood Chair{" "}
+                <div className="ml-2 size-[5px] rounded-full bg-[#FB2E86]"></div>
+              </li>
+              <li>Plastic Chair</li>
+              <li>Sofa Colletion</li>
+            </ul>
+            <div className="flex flex-col items-center justify-center md:flex-row">
+              {/* Left Text Section */}
+              <div className="flex flex-col gap-4 pl-[10vh] md:pl-0">
+                <h2 className="w-[50vh] text-[35px] font-bold text-[#1A0B5B] md:w-full">
+                  20% Discount Of All Products
+                </h2>
+                <h3 className="text-[21px] font-semibold text-[#FB2E86]">
+                  Eams Sofa Compact
+                </h3>
+                <p
+                  className={`${lato.className} w-[60vh] text-base font-normal text-[#B7BACB] md:w-[523px]`}
                 >
-                  <li className="flex items-center justify-center">
-                    <Image
-                      src={"/check.png"}
-                      alt="check"
-                      width={24}
-                      height={24}
-                    />
-                    Material expose like metals
-                  </li>
-                  <li className="flex items-center justify-center">
-                    {" "}
-                    <Image
-                      src={"/check.png"}
-                      alt="check"
-                      width={24}
-                      height={24}
-                    />{" "}
-                    Clear lines and geomatric figures
-                  </li>
-                </ul>
-                <ul
-                  className={`${lato.className} flex gap-20 text-base font-normal text-[#B7BACB]`}
-                >
-                  <li className="flex items-center justify-center">
-                    <Image
-                      src={"/check.png"}
-                      alt="check"
-                      width={24}
-                      height={24}
-                    />
-                    Simple neutral colours.
-                  </li>
-                  <li className="flex items-center justify-center">
-                    {" "}
-                    <Image
-                      src={"/check.png"}
-                      alt="check"
-                      width={24}
-                      height={24}
-                    />{" "}
-                    Material expose like metals
-                  </li>
-                </ul>
-              </div>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eu
+                  eget feugiat habitasse nec, bibendum condimentum.
+                </p>
+                {/* Features List */}
+                <div className="flex flex-col gap-2">
+                  <ul
+                    className={`${lato.className} flex flex-wrap text-base font-normal text-[#B7BACB] md:flex-nowrap md:gap-12`}
+                  >
+                    <li className="flex items-center justify-center">
+                      <Image
+                        src={"/check.png"}
+                        alt="check"
+                        width={24}
+                        height={24}
+                      />
+                      Material expose like metals
+                    </li>
+                    <li className="flex items-center justify-center">
+                      {" "}
+                      <Image
+                        src={"/check.png"}
+                        alt="check"
+                        width={24}
+                        height={24}
+                      />{" "}
+                      Clear lines and geomatric figures
+                    </li>
+                  </ul>
+                  <ul
+                    className={`${lato.className} flex flex-wrap text-base font-normal text-[#B7BACB] md:flex-nowrap md:gap-20`}
+                  >
+                    <li className="flex items-center justify-center">
+                      <Image
+                        src={"/check.png"}
+                        alt="check"
+                        width={24}
+                        height={24}
+                      />
+                      Simple neutral colours.
+                    </li>
+                    <li className="flex items-center justify-center">
+                      {" "}
+                      <Image
+                        src={"/check.png"}
+                        alt="check"
+                        width={24}
+                        height={24}
+                      />{" "}
+                      Material expose like metals
+                    </li>
+                  </ul>
+                </div>
 
+                {/* Button */}
+                <button className="mt-4 w-[150px] rounded-[2px] bg-[#FB2E86] p-2 text-white">
+                  Shop Now
+                </button>
+              </div>
+              {/* Right Section */}
+              <div>
+                <Image
+                  src="/tortuga.png"
+                  alt="chair"
+                  width={699}
+                  height={567}
+                />
+              </div>
+            </div>
+          </>
+          {/* Top Categories*/}
+          <>
+            <div className="flex flex-col items-center justify-center gap-14">
+              <h1 className="mt-[79px] text-center text-[42px] font-bold text-[#1A0B5B]">
+                Top Categories{" "}
+              </h1>
+              <div className="flex flex-col items-center justify-center gap-10 md:flex-row">
+                <div className="flex flex-col items-center justify-center gap-4">
+                  {" "}
+                  <div className="flex size-[269px] items-center justify-center rounded-full bg-[#F6F7FB]">
+                    {" "}
+                    <Image
+                      src="/look.png"
+                      alt="chair"
+                      width={269}
+                      height={269}
+                    />
+                  </div>{" "}
+                  <p className="text-xl font-normal text-[#151875]">
+                    Mini LCW Chair
+                  </p>{" "}
+                  <span className="text-base font-normal text-[#151875]">
+                    $56.00
+                  </span>{" "}
+                </div>
+                <div className="flex flex-col items-center justify-center gap-4">
+                  <div className="flex size-[269px] items-center justify-center rounded-full bg-[#F6F7FB]">
+                    <Image
+                      src="/im68.png"
+                      alt="chair"
+                      width={158}
+                      height={157}
+                    />
+                  </div>{" "}
+                  <p className="text-xl font-normal text-[#151875]">
+                    Mini LCW Chair
+                  </p>{" "}
+                  <span className="text-base font-normal text-[#151875]">
+                    $56.00
+                  </span>{" "}
+                </div>
+                <div className="flex flex-col items-center justify-center gap-4">
+                  {" "}
+                  <div className="flex size-[269px] items-center justify-center rounded-full bg-[#F6F7FB]">
+                    <Image
+                      src="/im1171.png"
+                      alt="chair"
+                      width={149}
+                      height={149}
+                    />
+                  </div>{" "}
+                  <p className="text-xl font-normal text-[#151875]">
+                    Mini LCW Chair
+                  </p>{" "}
+                  <span className="text-base font-normal text-[#151875]">
+                    $56.00
+                  </span>{" "}
+                </div>
+                <div className="flex flex-col items-center justify-center gap-4">
+                  <div className="flex size-[269px] items-center justify-center rounded-full bg-[#F6F7FB]">
+                    <Image
+                      src="/im20.png"
+                      alt="chair"
+                      width={178}
+                      height={178}
+                    />
+                  </div>{" "}
+                  <p className="text-xl font-normal text-[#151875]">
+                    Mini LCW Chair
+                  </p>{" "}
+                  <span className="text-base font-normal text-[#151875]">
+                    $56.00
+                  </span>{" "}
+                </div>
+              </div>
+              <Image
+                src="/promo.png"
+                alt="promo"
+                width={66.07}
+                height={14.6}
+                className="mb-[125.4px]"
+              />
+            </div>
+            <div className="flex h-[462px] w-screen flex-col items-center justify-center bg-[url('/Rectangle.png')]">
+              <h1 className="mb-[28px] w-[1/2] text-center text-[35px] font-bold text-[#1A0B5B] md:w-[574px]">
+                Get Leatest Update By Subscribe 0ur Newslater
+              </h1>
               {/* Button */}
-              <button className="mt-4 w-[150px] rounded-[2px] bg-[#FB2E86] p-2 text-white">
+              <button className="w-[150px] rounded-[2px] bg-[#FB2E86] p-2 text-white">
                 Shop Now
               </button>
             </div>
-            {/* Right Section */}
-            <div>
-              <Image src="/tortuga.png" alt="chair" width={699} height={567} />
-            </div>
-          </div>
           </>
-          {/* Top Categories*/}
-          <h1 className="mb-[56px] mt-[79px] text-center text-[42px] font-bold text-[#1A0B5B]">Top Categories </h1>
-          
+          <div className="my-[96px] flex items-center justify-center">
+            <Image
+              src="/image.png"
+              alt="Partners"
+              width={1246}
+              height={128}
+              className="hidden h-[128px] w-[1246px] md:block"
+            />
+            <Image
+              src="/image.png"
+              alt="Partners"
+              width={260}
+              height={60}
+              className="m-4 h-[60px] w-[260px] md:hidden"
+            />
+          </div>
+          <h1 className="mb-[80px] text-center text-[42px] font-bold text-[#1A0B5B]">
+            Leatest Blog{" "}
+          </h1>
+          <ul className="hidden flex-col items-center justify-center gap-14 md:flex md:flex-row">
+            <li>
+              <div className="h-[493px] w-[370px] overflow-hidden rounded-lg bg-white shadow-lg">
+                <Image
+                  src="/livi.png"
+                  alt="Living Room"
+                  width={370}
+                  height={255}
+                  className="rounded-lg"
+                />
+
+                {/* Content Section */}
+                <div className="p-6">
+                  {/* Meta Info */}
+                  <div className="mb-3 flex items-center space-x-4 text-sm text-gray-400">
+                    <span className="flex items-center">
+                      <Image
+                        src="/vector.png"
+                        alt="pen"
+                        width={11.33}
+                        height={11.33}
+                        className="mr-2"
+                      />
+                      Surfauxion
+                    </span>
+                    <span className="flex items-center">
+                      <Image
+                        src="/calendar.png"
+                        alt="pen"
+                        width={11}
+                        height={11}
+                        className="mr-2"
+                      />
+                      21 August, 2020
+                    </span>
+                  </div>
+                  <div className="flex flex-col gap-4">
+                    <h2 className="mb-2 text-xl font-bold text-[#1A0B5B]">
+                      Top essential trends in 2021{" "}
+                    </h2>
+
+                    {/* Description */}
+                    <p className="text-base font-normal text-[#72718F]">
+                      More off this less hello samlande lied much over tightly
+                      circa horse taped mightly
+                    </p>
+
+                    {/* Read More */}
+                    <span className="text-sm font-semibold text-[#1A0B5B] underline">
+                      Read More
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div className="h-[493px] w-[370px] overflow-hidden rounded-lg bg-white shadow-lg">
+                <Image
+                  src="/livi2.png"
+                  alt="Living Room"
+                  width={370}
+                  height={255}
+                  className="rounded-lg"
+                />
+
+                {/* Content Section */}
+                <div className="p-6">
+                  {/* Meta Info */}
+                  <div className="mb-3 flex items-center space-x-4 text-sm text-gray-400">
+                    <span className="flex items-center">
+                      <Image
+                        src="/vector.png"
+                        alt="pen"
+                        width={11.33}
+                        height={11.33}
+                        className="mr-2"
+                      />
+                      Surfauxion
+                    </span>
+                    <span className="flex items-center">
+                      <Image
+                        src="/calendar.png"
+                        alt="pen"
+                        width={11}
+                        height={11}
+                        className="mr-2"
+                      />
+                      21 August, 2020
+                    </span>
+                  </div>
+                  <div className="flex flex-col gap-4">
+                    <h2 className="mb-2 text-xl font-bold text-[#FB2E86]">
+                      Top essential trends in 2021{" "}
+                    </h2>
+
+                    {/* Description */}
+                    <p className="text-base font-normal text-[#72718F]">
+                      More off this less hello samlande lied much over tightly
+                      circa horse taped mightly
+                    </p>
+
+                    {/* Read More */}
+                    <span className="text-sm font-semibold text-[#FB2E86] underline">
+                      Read More
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div className="h-[493px] w-[370px] overflow-hidden rounded-lg bg-white shadow-lg">
+                <Image
+                  src="/livi3.png"
+                  alt="Living Room"
+                  width={370}
+                  height={255}
+                  className="rounded-lg"
+                />
+
+                {/* Content Section */}
+                <div className="p-6">
+                  {/* Meta Info */}
+                  <div className="mb-3 flex items-center space-x-4 text-sm text-gray-400">
+                    <span className="flex items-center">
+                      <Image
+                        src="/vector.png"
+                        alt="pen"
+                        width={11.33}
+                        height={11.33}
+                        className="mr-2"
+                      />
+                      Surfauxion
+                    </span>
+                    <span className="flex items-center">
+                      <Image
+                        src="/calendar.png"
+                        alt="pen"
+                        width={11}
+                        height={11}
+                        className="mr-2"
+                      />
+                      21 August, 2020
+                    </span>
+                  </div>
+                  <div className="flex flex-col gap-4">
+                    <h2 className="mb-2 text-xl font-bold text-[#1A0B5B]">
+                      Top essential trends in 2021{" "}
+                    </h2>
+
+                    {/* Description */}
+                    <p className="text-base font-normal text-[#72718F]">
+                      More off this less hello samlande lied much over tightly
+                      circa horse taped mightly
+                    </p>
+
+                    {/* Read More */}
+                    <span className="text-sm font-semibold text-[#1A0B5B] underline">
+                      Read More
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+          <ul className="flex flex-col items-center justify-center gap-10 px-4 sm:gap-6 md:hidden">
+            <li>
+              <div className="h-[350px] w-[280px] overflow-hidden rounded-lg bg-white shadow-lg sm:h-[400px] sm:w-[320px]">
+                <Image
+                  src="/livi.png"
+                  alt="Living Room"
+                  width={320}
+                  height={220}
+                  className="rounded-lg"
+                />
+                {/* Content Section */}
+                <div className="p-4 sm:p-6">
+                  {/* Meta Info */}
+                  <div className="mb-2 flex items-center space-x-3 text-sm text-gray-400">
+                    <span className="flex items-center">
+                      <Image
+                        src="/vector.png"
+                        alt="pen"
+                        width={11.33}
+                        height={11.33}
+                        className="mr-2"
+                      />
+                      Surfauxion
+                    </span>
+                    <span className="flex items-center">
+                      <Image
+                        src="/calendar.png"
+                        alt="calendar"
+                        width={11}
+                        height={11}
+                        className="mr-2"
+                      />
+                      21 August, 2020
+                    </span>
+                  </div>
+                  <div className="flex flex-col gap-3">
+                    <h2 className="mb-2 text-lg font-bold text-[#1A0B5B] sm:text-xl">
+                      Top essential trends in 2021
+                    </h2>
+                    {/* Description */}
+                    <p className="text-sm font-normal text-[#72718F] sm:text-base">
+                      More off this less hello samlande lied much over tightly
+                      circa horse taped mightly
+                    </p>
+                    {/* Read More */}
+                    <span className="text-sm font-semibold text-[#1A0B5B] underline">
+                      Read More
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div className="h-[350px] w-[280px] overflow-hidden rounded-lg bg-white shadow-lg sm:h-[400px] sm:w-[320px]">
+                <Image
+                  src="/livi2.png"
+                  alt="Living Room"
+                  width={320}
+                  height={220}
+                  className="rounded-lg"
+                />
+                {/* Content Section */}
+                <div className="p-4 sm:p-6">
+                  {/* Meta Info */}
+                  <div className="mb-2 flex items-center space-x-3 text-sm text-gray-400">
+                    <span className="flex items-center">
+                      <Image
+                        src="/vector.png"
+                        alt="pen"
+                        width={11.33}
+                        height={11.33}
+                        className="mr-2"
+                      />
+                      Surfauxion
+                    </span>
+                    <span className="flex items-center">
+                      <Image
+                        src="/calendar.png"
+                        alt="calendar"
+                        width={11}
+                        height={11}
+                        className="mr-2"
+                      />
+                      21 August, 2020
+                    </span>
+                  </div>
+                  <div className="flex flex-col gap-3">
+                    <h2 className="mb-2 text-lg font-bold text-[#FB2E86] sm:text-xl">
+                      Top essential trends in 2021
+                    </h2>
+                    {/* Description */}
+                    <p className="text-sm font-normal text-[#72718F] sm:text-base">
+                      More off this less hello samlande lied much over tightly
+                      circa horse taped mightly
+                    </p>
+                    {/* Read More */}
+                    <span className="text-sm font-semibold text-[#FB2E86] underline">
+                      Read More
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div className="h-[350px] w-[280px] overflow-hidden rounded-lg bg-white shadow-lg sm:h-[400px] sm:w-[320px]">
+                <Image
+                  src="/livi3.png"
+                  alt="Living Room"
+                  width={320}
+                  height={220}
+                  className="rounded-lg"
+                />
+                {/* Content Section */}
+                <div className="p-4 sm:p-6">
+                  {/* Meta Info */}
+                  <div className="mb-2 flex items-center space-x-3 text-sm text-gray-400">
+                    <span className="flex items-center">
+                      <Image
+                        src="/vector.png"
+                        alt="pen"
+                        width={11.33}
+                        height={11.33}
+                        className="mr-2"
+                      />
+                      Surfauxion
+                    </span>
+                    <span className="flex items-center">
+                      <Image
+                        src="/calendar.png"
+                        alt="calendar"
+                        width={11}
+                        height={11}
+                        className="mr-2"
+                      />
+                      21 August, 2020
+                    </span>
+                  </div>
+                  <div className="flex flex-col gap-3">
+                    <h2 className="mb-2 text-lg font-bold text-[#1A0B5B] sm:text-xl">
+                      Top essential trends in 2021
+                    </h2>
+                    {/* Description */}
+                    <p className="text-sm font-normal text-[#72718F] sm:text-base">
+                      More off this less hello samlande lied much over tightly
+                      circa horse taped mightly
+                    </p>
+                    {/* Read More */}
+                    <span className="text-sm font-semibold text-[#1A0B5B] underline">
+                      Read More
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
-      <Footer />
-      <Mi />
+      <div className="mt-[11500px] sm:mt-[12000px] md:mt-[5400px] lg:mt-0">
+        <Footer />
+        <Mi />
+      </div>
     </div>
   );
 }
