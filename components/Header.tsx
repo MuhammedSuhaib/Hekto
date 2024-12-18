@@ -1,39 +1,42 @@
 import React from "react";
 import Image from "next/image";
-
+import Link from "next/link";
 function Header() {
   return (
-    <header className="flex h-full w-full bg-[#7E33E0] p-4">
-      <div className="h-[44px]2xl:justify-between flex w-full flex-wrap items-center px-4 sm:px-10 md:gap-10 lg:gap-40 xl:gap-80">
-        {/* Left Section */}
-        <div className="sm:gap-30 flex items-center gap-8 sm:flex-wrap md:ml-[0vh] md:gap-8 xl:ml-[25vh]">
-          <div className="flex items-center gap-2">
-            <Image
-              src="/uil_envelope-alt.png"
-              alt="Email Icon"
-              width={16}
-              height={16}
-            />
-            <span className="text-[14px] font-semibold text-[#F1F1F1] sm:text-[16px]">
-              mhhasanul@gmail.com
-            </span>
-          </div>
-          <div className="hidden items-center gap-2 md:flex">
-            <Image
-              src="/bx_bx-phone-call.png"
-              alt="Phone Icon"
-              width={16}
-              height={16}
-            />
-            <span className="text-[14px] text-[#F1F1F1] sm:text-[16px]">
-              (12345)67890
-            </span>
-          </div>
-        </div>
-
-        {/* Right Section */}
-        <ul className="flex flex-wrap items-center gap-2 text-[14px] text-[#F1F1F1] sm:gap-4 sm:text-[16px]">
-          <li className="flex items-center gap-1">
+    <header className="flex h-11 w-full bg-[#7E33E0] justify-center p-4 sm:p-0 md:justify-normal md:pl-[19%] md:gap-[23.15%]">
+     <ul className="flex items-center justify-center gap-7">
+               <li className="hidden items-center gap-[0.104%] md:flex">
+                 <Image
+                   src="/uil_envelope-alt.png"
+                   alt="Email Icon"
+                   width={16}
+                   height={16}
+                 />
+                 <a
+                   className="text-[14px] font-semibold text-[#F1F1F1] sm:text-[16px]"
+                   href="mailto:mhhasanul@gmail.com"
+                 >
+                   mhhasanul@gmail.com
+                 </a>
+               </li>
+               <li className="hidden items-center gap-[0.104%] md:flex">
+                 <Image
+                   src="/bx_bx-phone-call.png"
+                   alt="Phone Icon"
+                   width={16}
+                   height={16}
+                 />
+                 <a
+                   className="text-[14px] font-semibold text-[#F1F1F1] sm:text-[16px]"
+                   href="tel:+ (12345)67890"
+                 >
+                   (12345)67890
+                 </a>
+               </li>
+             </ul>
+       {/* Right Section */}
+       <ul className="flex text-[14px] text-[#F1F1F1] gap-4 sm:text-[16px]">
+        <li className="flex items-center gap-[0.052%]">
             English
             <Image
               src="/Group.png"
@@ -42,7 +45,7 @@ function Header() {
               height={16}
             />
           </li>
-          <li className="flex items-center gap-1">
+          <li className="flex items-center gap-[0.052%]">
             USD
             <Image
               src="/Group.png"
@@ -51,8 +54,8 @@ function Header() {
               height={16}
             />
           </li>
-          <li className="flex items-center gap-1">
-            Login
+          <li className="flex items-center gap-[0.052%]">
+            <Link href="/Account">Login</Link>
             <Image
               src="/carbon_user.png"
               alt="User Icon"
@@ -60,7 +63,7 @@ function Header() {
               height={16}
             />
           </li>
-          <li className="flex items-center gap-1">
+          <li className="flex items-center gap-[0.052%]">
             Wishlist
             <Image
               src="/uil_heart-alt.png"
@@ -69,12 +72,12 @@ function Header() {
               height={16}
             />
           </li>
-          <li>
-            <Image src="/crt.png" alt="Cart Icon" width={16} height={16} />
+          <li className="flex items-center ml-2 gap-5">
+            <Link href="/Shopping">
+              <Image src="/crt.png" alt="Cart Icon" width={16} height={16} />
+            </Link>
           </li>
-          
         </ul>
-      </div>
     </header>
   );
 }
