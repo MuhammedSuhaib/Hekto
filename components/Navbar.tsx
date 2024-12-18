@@ -78,9 +78,12 @@ function Nvbr() {
                       </SelectContent>
                     </Select>
                   </li>
-                  <li className="hover:text-[#FB2E86]">Products</li>
+                  <li className="hover:text-[#FB2E86]">
+                    <Link href="/Grid">Products</Link>
+                  </li>
                   <li className="hover:text-[#FB2E86]">Blog</li>
-                  <li className="hover:text-[#FB2E86]">Shop</li>
+                  <li className="hover:text-[#FB2E86]"><Link href="/List">Shop</Link>
+                  </li>
                   <li className="hover:text-[#FB2E86]">
                     <Link href="/Cont">Contact</Link>
                   </li>
@@ -145,9 +148,14 @@ function Nvbr() {
               </SelectContent>
             </Select>
           </li>
-          <li className="hover:text-[#FB2E86]">Products</li>
+          <li className="hover:text-[#FB2E86]">
+         
+            <Link href="/Grid">Products</Link>
+          </li>
           <li className="hover:text-[#FB2E86]">Blog</li>
-          <li className="hover:text-[#FB2E86]">Shop</li>
+          <li className="hover:text-[#FB2E86]">
+            <Link href="/List">Shop</Link>
+          </li>
           <li className="hover:text-[#FB2E86]">
             <Link href="/Cont">Contact</Link>
           </li>
