@@ -7,7 +7,7 @@ import { Lato } from "next/font/google";
 const lato = Lato({ subsets: ["latin"], weight: ["400", "700"] });
 export default function Home() {
   return (
-    <div className="bg-white">
+    <div className="bg-white w-screen overflow-x-hidden ">
       <Header />
       <Nvbr />
       <div className="lg:h-[7795px]">
