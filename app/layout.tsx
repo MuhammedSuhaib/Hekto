@@ -30,7 +30,6 @@ export default function RootLayout({
       <body
         className={`${josef.className} ${geistSans.variable} ${geistMono.variable} antialiased w-screen overflow-x-hidden`}
       >
-
         {children}
       </body>
     </html>
