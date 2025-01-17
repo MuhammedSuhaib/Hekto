@@ -3,7 +3,7 @@
 ## Overview
 This project is a responsive UI clone of an e-commerce shopping website, built during a hackathon. It demonstrates advanced front-end development skills using modern web technologies.
 
-**Live URL:** [muhammedsuhaibhackathon2.vercel.app](https://muhammedsuhaibhackathon2.vercel.app)
+**Live URL:**  [muhammedsuhaibhackathon2.vercel.app](https://muhammedsuhaibhackathon2.vercel.app)
 
 ## Features
 - **Responsive Design**: Fully optimized for desktop and mobile.
