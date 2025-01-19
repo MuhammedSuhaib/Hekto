@@ -17,7 +17,7 @@ function Nvbr() {
     <div>
       <nav className="flex flex-col p-4 sm:flex-col sm:items-center sm:gap-7 lg:flex-row lg:justify-center xl:ml-[28vh] xl:justify-normal">
         <h2 className="flex justify-between text-[34px] font-bold text-[#0D0E43]">
-          Hekto
+           <Link href="/" >Hekto</Link>
           <div className="md:hidden">
             <Sheet>
               <SheetTrigger>

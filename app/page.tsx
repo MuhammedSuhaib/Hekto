@@ -5,9 +5,44 @@ import Nvbr from "@/components/Navbar";
 import Image from "next/image";
 import { Lato } from "next/font/google";
 const lato = Lato({ subsets: ["latin"], weight: ["400", "700"] });
-export default function Home() {
+import { client } from "@/sanity/lib/client";
+import { urlFor } from "@/sanity/lib/image";
+
+import { Card, CardContent } from "@/components/ui/card";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+interface Product {
+  _id: string;
+  name: string;
+  image: { asset: { url: string } };
+  price: string;
+  description: string;
+  discountPercentage: number;
+  isFeaturedProduct: boolean;
+  stockLevel: number;
+  category: "Chair" | "Sofa"; // Adjust this list as needed
+}
+
+export default async function Home() {
+  const data: Product[] =
+    await client.fetch(`*[_type == "product" && isFeaturedProduct == true]{
+  _id,
+  name,
+  image,
+  price,
+  description,
+  discountPercentage,
+  isFeaturedProduct,
+  stockLevel,
+  category
+  }`);
   return (
-    <div className="bg-white w-screen overflow-x-hidden ">
+    <div className="w-screen overflow-x-hidden bg-white">
       <Header />
       <Nvbr />
       <div className="lg:h-[7795px]">
@@ -28,7 +63,7 @@ export default function Home() {
                 Best Furniture For Your Castle....
               </p>
               <h1 className="text-[24px] font-bold text-black lg:text-[53px]">
-                New Furniture Collection Trends in 2020
+                New Furniture Collection Trends in 2025
               </h1>
               <p
                 className={`${lato.className} font-lato text-[14px] text-[#8A8FB9] md:text-[16px]`}
@@ -66,89 +101,56 @@ export default function Home() {
             <h1 className="mb-[48px] mt-[129px] text-center text-[42px] font-bold text-[#1A0B5B]">
               Featured Products
             </h1>
-            <div className="flex flex-col justify-center gap-7 pl-[5vh] md:flex-row md:pl-0">
-              {/* Product 1 */}
-              <div className="flex h-[361px] w-[270px] flex-col items-center gap-4 bg-white py-[17px] drop-shadow-md">
-                <div className="flex h-[236px] w-[270px] items-center justify-center bg-[#F6F7FB]">
-                  <Image
-                    src="/1168.png"
-                    alt="Product 1"
-                    width={178}
-                    height={178}
-                  />
-                </div>
-                <p className="text-center text-lg font-bold text-[#FB2E86]">
-                  Cantilever chair{" "}
-                </p>
-                <Image src="/141.png" alt="line" width={52} height={4} />
-                <p className="text-sm font-semibold text-[#151875]">
-                  Code - Y523201{" "}
-                </p>
-                <p className="text-sm font-semibold text-[#151875]">$42.00</p>
-              </div>
+            <>
+              <Carousel className="mx-auto">
+                <CarouselContent>
+                  {data.map((product) => (
+                    <CarouselItem
+                      key={product._id}
+                      className="flex flex-col items-stretch p-4 transition duration-300 ease-in-out hover:bg-[#f599c15b] hover:shadow-2xl md:basis-1/2 lg:basis-1/3 xl:basis-1/4"
+                    >
+                      <div className="flex h-full items-center justify-center">
+                        <Card className="flex h-full flex-col rounded-none">
+                          <CardContent className="flex h-full flex-col items-center justify-center">
+                            {/* head of card with img */}
+                            <div className="flex items-center justify-center bg-[#F6F7FB]">
+                              <img
+                                src={urlFor(product.image.asset).url()}
+                                alt={product.name}
+                                width={201}
+                                height={201}
+                                className="h-56 w-full object-cover"
+                              />
+                            </div>
+                            <span className="text-center text-lg font-bold text-[#FB2E86]">
+                              {product.name}
+                            </span>
+                            <Image
+                              src="/141.png"
+                              alt="line"
+                              width={52}
+                              height={4}
+                              className="my-4"
+                            />
+                            <span className="text-sm font-semibold text-[#151875]">
+                              Code - {product._id.slice(0, 7)}
+                            </span>
 
-              {/* Product 2 */}
-              <div className="flex h-[361px] w-[270px] flex-col items-center bg-[#2F1AC4] drop-shadow-md">
-                <div className="flex h-[236px] w-[270px] items-center justify-center bg-[#F6F7FB] pr-12">
-                  <Image
-                    src="/1111.png"
-                    alt="Product 1"
-                    width={236}
-                    height={270}
-                  />
-                </div>
-                <div className="flex h-full w-[270px] flex-col items-center justify-center gap-4">
-                  <p className="text-center text-lg font-bold text-white">
-                    Cantilever chair{" "}
-                  </p>
-                  <Image src="/141.png" alt="line" width={52} height={4} />
-                  <p className="text-sm font-semibold text-white">
-                    Code - Y523201{" "}
-                  </p>
-                  <p className="text-sm font-semibold text-white">$42.00</p>
-                </div>
-              </div>
-
-              {/* Product 3 */}
-              <div className="flex h-[361px] w-[270px] flex-col items-center gap-4 bg-white py-[17px] drop-shadow-md">
-                <div className="flex h-[236px] w-[270px] items-center justify-center bg-[#F6F7FB]">
-                  <Image
-                    src="/1169.png"
-                    alt="Product 1"
-                    width={178}
-                    height={178}
-                  />
-                </div>
-                <p className="text-center text-lg font-bold text-[#FB2E86]">
-                  Cantilever chair{" "}
-                </p>
-                <Image src="/141.png" alt="line" width={52} height={4} />
-                <p className="text-sm font-semibold text-[#151875]">
-                  Code - Y523201{" "}
-                </p>
-                <p className="text-sm font-semibold text-[#151875]">$42.00</p>
-              </div>
-              {/* Product 4 */}
-
-              <div className="flex h-[361px] w-[270px] flex-col items-center gap-4 bg-white py-[17px] drop-shadow-md">
-                <div className="flex h-[236px] w-[270px] items-center justify-center bg-[#F6F7FB]">
-                  <Image
-                    src="/rchr.png"
-                    alt="Product 1"
-                    width={178}
-                    height={178}
-                  />
-                </div>
-                <p className="text-center text-lg font-bold text-[#FB2E86]">
-                  Cantilever chair{" "}
-                </p>
-                <Image src="/141.png" alt="line" width={52} height={4} />
-                <p className="text-sm font-semibold text-[#151875]">
-                  Code - Y523201{" "}
-                </p>
-                <p className="text-sm font-semibold text-[#151875]">$42.00</p>
-              </div>
-            </div>
+                            <div className="mt-2 flex items-center">
+                              <span className="text-sm font-medium text-[#151875]">
+                                ${product.price}
+                              </span>
+                            </div>
+                          </CardContent>
+                        </Card>
+                      </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious />
+                <CarouselNext />
+              </Carousel>
+            </>
             <div className="flex items-center justify-center">
               <Image
                 src="/89.png"

@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { Lato } from "next/font/google";
 import { Roboto } from "next/font/google";
+import Link from "next/link";
 
 const roboto = Roboto({ subsets: ["latin"], weight: ["400", "700"] });
 const lato = Lato({ subsets: ["latin"], weight: ["400", "700"] });
@@ -13,7 +14,10 @@ function Footer() {
       <footer className="text-ç px-6 py-10 text-base font-normal">
         {/* Hekto Section */}
         <div className="mb-10 flex flex-col items-center justify-center gap-6 p-4 text-center">
-          <h2 className="text-[38px] font-bold text-black">Hekto</h2>
+          <h2 className="text-[38px] font-bold text-black">
+            {" "}
+            <Link href="/">Hekto</Link>
+          </h2>
 
           <div className="mt-4 flex w-full items-center justify-center gap-4 rounded-[3px] bg-white lg:h-[44px] lg:w-[377px]">
             <input

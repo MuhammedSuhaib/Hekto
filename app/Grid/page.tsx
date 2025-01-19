@@ -6,16 +6,40 @@ import Mi from "@/components/Mi";
 import Nvbr from "@/components/Navbar";
 import Bredcrumb from "@/components/Bredcrumb";
 import { Lato } from "next/font/google";
+import { client } from "@/sanity/lib/client";
+import { urlFor } from "@/sanity/lib/image";
 
+interface Product {
+  _id: string;
+  name: string;
+  image: { asset: { url: string } };
+  price: string;
+  description: string;
+  discountPercentage: number;
+  isFeaturedProduct: boolean;
+  stockLevel: number;
+  category: "Chair" | "Sofa"; // Adjust this list as needed
+}
 const lato = Lato({ subsets: ["latin"], weight: ["400", "700"] });
 
-function Shop_Grid_page() {
+async function Shop_Grid_page() {
+  const data: Product[] = await client.fetch(`*[_type == "product"]{
+      _id,
+      name,
+      image,
+      price,
+      description,
+      discountPercentage,
+      isFeaturedProduct,
+      stockLevel,
+      category
+    }`);
   return (
     <div>
       <Header />
       <Nvbr />
       <Bredcrumb pageName="Shop Grid page" />
-      <div className="flex flex-col items-center justify-center  md:h-[1822px]">
+      <div className="flex flex-col items-center justify-center md:h-[1822px]">
         {/* Top Section */}
         <div className="mb-[144px] mt-[124px] flex flex-col justify-between p-4 md:flex-row md:items-center md:gap-[180px]">
           {/* Left Section */}
@@ -75,560 +99,51 @@ function Shop_Grid_page() {
           </div>
         </div>
 
-        {/* Grid Section */}
+        {/* Grid Section  */}
 
-        <>
-          <div className="flex  md:flex-col">
-            <div className="flex flex-col md:flex-row">
-              {/* Product 1 */}
-              <div className="flex h-[363px] w-[270px] flex-col items-center p-4">
-                <div className="flex items-center justify-center bg-[#F6F7FB]">
-                  <Image
-                    src="/product1.png"
-                    alt="Product 1"
+        <div className="flex flex-col items-center justify-center">
+          <div className="mt-4 grid grid-cols-1 gap-6 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4">
+            {data.slice(0, 12).map((product) => (
+              <div
+                key={product._id}
+                className="flex w-[270px] flex-col items-center p-4 transition duration-300 ease-in-out hover:shadow-xl hover:bg-[#51d0f715]">
+                {/* head of card with img */}
+                <div className="flex items-center justify-center ">
+                  <img
+                    src={urlFor(product.image.asset).url()}
+                    alt={product.name}
                     width={201}
                     height={201}
+                    className="h-56 w-full rounded-t-lg object-cover"
                   />
                 </div>
-                <p className="mb-[8px] mt-[47px] text-center text-lg font-bold text-[#151875]">
-                  Vel elit euismod
-                </p>
+                <span className="mb-[8px] mt-[47px] text-center text-lg font-bold text-[#151875]">
+                  {product.name}
+                </span>
                 <Image
                   src="/Group44.png"
                   alt="circles"
                   width={42}
                   height={10}
                 />
-                <p className="mt-[15px] text-sm font-semibold text-[#151875]">
-                  $26.00{" "}
-                  <s className="ml-[10px] text-sm font-semibold text-[#FB2E86] line-through">
-                    $42.00
-                  </s>
-                </p>
-              </div>
-
-              {/* Product 2 */}
-              <div className="flex h-[363px] w-[270px] flex-col items-center p-4">
-                <div className="flex items-center justify-center bg-[#EBF4F3]">
-                  <Image
-                    src="/Product2.png"
-                    alt="Product 2"
-                    width={201}
-                    height={201}
-                  />
+                <div className="mt-2 flex items-center">
+                  <span className="text-lg font-bold text-[#151875]">
+                    ${product.price}
+                  </span>
+                  {product.discountPercentage > 0 && (
+                    <span className="ml-2 text-sm text-[#FB2E86] line-through">
+                      $
+                      {(
+                        parseFloat(product.price) *
+                        (1 + product.discountPercentage / 100)
+                      ).toFixed(2)}
+                    </span>
+                  )}
                 </div>
-                <p className="mb-[8px] mt-[47px] text-center text-lg font-bold text-[#151875]">
-                  Ultricies condimentum imperdiet{" "}
-                </p>
-                <Image
-                  src="/Group44.png"
-                  alt="circles"
-                  width={42}
-                  height={10}
-                />
-              <p className="mt-[15px] text-sm font-semibold text-[#151875]">
-                  $26.00{" "}
-                  <s className="ml-[10px] text-sm font-semibold text-[#FB2E86] line-through">
-                    $42.00
-                  </s>
-                </p>
               </div>
-
-              {/* Product 3 */}
-              <div className="flex h-[363px] w-[270px] flex-col items-center p-4">
-                <div className="flex items-center justify-center bg-[#F6F7FB]">
-                  <Image
-                    src="/Product3.png"
-                    alt="Product 3"
-                    width={201}
-                    height={201}
-                  />
-                </div>
-                <p className="mb-[8px] mt-[47px] text-center text-lg font-bold text-[#151875]">
-                  Vitae suspendisse sed{" "}
-                </p>
-                <Image
-                  src="/Group44.png"
-                  alt="circles"
-                  width={42}
-                  height={10}
-                />
-               <p className="mt-[15px] text-sm font-semibold text-[#151875]">
-                  $26.00{" "}
-                  <s className="ml-[10px] text-sm font-semibold text-[#FB2E86] line-through">
-                    $42.00
-                  </s>
-                </p>
-              </div>
-
-              {/* Product 4 */}
-              <div className="flex h-[363px] w-[270px] flex-col items-center p-4">
-                <div className="flex items-center justify-center bg-[#F6F7FB]">
-                  <Image
-                    src="/Product4.png"
-                    alt="Product 4"
-                    width={201}
-                    height={201}
-                  />
-                </div>
-                <p className="mb-[8px] mt-[47px] text-center text-lg font-bold text-[#151875]">
-                  Sed at fermentum{" "}
-                </p>
-                <Image
-                  src="/Group44.png"
-                  alt="circles"
-                  width={42}
-                  height={10}
-                />
-               <p className="mt-[15px] text-sm font-semibold text-[#151875]">
-                  $26.00{" "}
-                  <s className="ml-[10px] text-sm font-semibold text-[#FB2E86] line-through">
-                    $42.00
-                  </s>
-                </p>
-              </div>
-            </div>
-            <div className="hidden md:flex">
-              {/* Product 5 */}
-              <div className="flex h-[363px] w-[270px] flex-col items-center p-4">
-                <div className="flex items-center justify-center bg-[#F6F7FB]">
-                  <Image
-                    src="/Product5.png"
-                    alt="Product 4"
-                    width={201}
-                    height={201}
-                  />
-                </div>
-                <p className="mb-[8px] mt-[47px] text-center text-lg font-bold text-[#151875]">
-                  Fusce pellentesque at{" "}
-                </p>
-                <Image
-                  src="/Group44.png"
-                  alt="circles"
-                  width={42}
-                  height={10}
-                />
-              <p className="mt-[15px] text-sm font-semibold text-[#151875]">
-                  $26.00{" "}
-                  <s className="ml-[10px] text-sm font-semibold text-[#FB2E86] line-through">
-                    $42.00
-                  </s>
-                </p>
-              </div>
-
-              {/* Product 6 */}
-              <div className="flex h-[363px] w-[270px] flex-col items-center p-4">
-                <div className="flex items-center justify-center bg-[#F6F7FB]">
-                  <Image
-                    src="/Product6.png"
-                    alt="Product 4"
-                    width={201}
-                    height={201}
-                  />
-                </div>
-                <p className="mb-[8px] mt-[47px] text-center text-lg font-bold text-[#151875]">
-                  Vestibulum magna laoreet{" "}
-                </p>
-                <Image
-                  src="/Group44.png"
-                  alt="circles"
-                  width={42}
-                  height={10}
-                />
-              <p className="mt-[15px] text-sm font-semibold text-[#151875]">
-                  $26.00{" "}
-                  <s className="ml-[10px] text-sm font-semibold text-[#FB2E86] line-through">
-                    $42.00
-                  </s>
-                </p>
-              </div>
-
-              {/* Product 7 */}
-              <div className="flex h-[363px] w-[270px] flex-col items-center p-4">
-                <div className="flex items-center justify-center bg-[#F6F7FB]">
-                  <Image
-                    src="/Product7.png"
-                    alt="Product 4"
-                    width={201}
-                    height={201}
-                  />
-                </div>
-                <p className="mb-[8px] mt-[47px] text-center text-lg font-bold text-[#151875]">
-                  Sollicitudin amet orci{" "}
-                </p>
-                <Image
-                  src="/Group44.png"
-                  alt="circles"
-                  width={42}
-                  height={10}
-                />
-               <p className="mt-[15px] text-sm font-semibold text-[#151875]">
-                  $26.00{" "}
-                  <s className="ml-[10px] text-sm font-semibold text-[#FB2E86] line-through">
-                    $42.00
-                  </s>
-                </p>
-              </div>
-
-              {/* Product 8 */}
-              <div className="flex h-[363px] w-[270px] flex-col items-center p-4">
-                <div className="flex items-center justify-center bg-[#F6F7FB]">
-                  <Image
-                    src="/Product8.png"
-                    alt="Product 4"
-                    width={201}
-                    height={201}
-                  />
-                </div>
-                <p className="mb-[8px] mt-[47px] text-center text-lg font-bold text-[#151875]">
-                  Ultrices mauris sit{" "}
-                </p>
-                <Image
-                  src="/Group44.png"
-                  alt="circles"
-                  width={42}
-                  height={10}
-                />
-               <p className="mt-[15px] text-sm font-semibold text-[#151875]">
-                  $26.00{" "}
-                  <s className="ml-[10px] text-sm font-semibold text-[#FB2E86] line-through">
-                    $42.00
-                  </s>
-                </p>
-              </div>
-            </div>
-            <div className="hidden md:flex">
-              {/* Product 9 */}
-              <div className="flex h-[363px] w-[270px] flex-col items-center p-4">
-                <div className="flex items-center justify-center bg-[#F6F7FB]">
-                  <Image
-                    src="/Product9.png"
-                    alt="Product 4"
-                    width={201}
-                    height={201}
-                  />
-                </div>
-                <p className="mb-[8px] mt-[47px] text-center text-lg font-bold text-[#151875]">
-                  Pellentesque condimentum ac{" "}
-                </p>
-                <Image
-                  src="/Group44.png"
-                  alt="circles"
-                  width={42}
-                  height={10}
-                />
-               <p className="mt-[15px] text-sm font-semibold text-[#151875]">
-                  $26.00{" "}
-                  <s className="ml-[10px] text-sm font-semibold text-[#FB2E86] line-through">
-                    $42.00
-                  </s>
-                </p>
-              </div>
-
-              {/* Product 10 */}
-              <div className="flex h-[363px] w-[270px] flex-col items-center p-4">
-                <div className="flex items-center justify-center bg-[#F6F7FB]">
-                  <Image
-                    src="/Product10.png"
-                    alt="Product 4"
-                    width={201}
-                    height={201}
-                  />
-                </div>
-                <p className="mb-[8px] mt-[47px] text-center text-lg font-bold text-[#151875]">
-                  Cras scelerisque velit{" "}
-                </p>
-                <Image
-                  src="/Group44.png"
-                  alt="circles"
-                  width={42}
-                  height={10}
-                />
-              <p className="mt-[15px] text-sm font-semibold text-[#151875]">
-                  $26.00{" "}
-                  <s className="ml-[10px] text-sm font-semibold text-[#FB2E86] line-through">
-                    $42.00
-                  </s>
-                </p>
-              </div>
-
-              {/* Product 11 */}
-              <div className="flex h-[363px] w-[270px] flex-col items-center p-4">
-                <div className="flex items-center justify-center bg-[#F6F7FB]">
-                  <Image
-                    src="/Product11.png"
-                    alt="Product 4"
-                    width={201}
-                    height={201}
-                  />
-                </div>
-                <p className="mb-[8px] mt-[47px] text-center text-lg font-bold text-[#151875]">
-                  Lectus vulputate faucibus{" "}
-                </p>
-                <Image
-                  src="/Group44.png"
-                  alt="circles"
-                  width={42}
-                  height={10}
-                />
-                <p className="mt-[15px] text-sm font-semibold text-[#151875]">
-                  $26.00{" "}
-                  <s className="ml-[10px] text-sm font-semibold text-[#FB2E86] line-through">
-                    $42.00
-                  </s>
-                </p>
-              </div>
-
-              {/* Product 12 */}
-              <div className="flex h-[363px] w-[270px] flex-col items-center p-4">
-                <div className="flex items-center justify-center bg-[#F6F7FB]">
-                  <Image
-                    src="/Product4.png"
-                    alt="Product 4"
-                    width={201}
-                    height={201}
-                  />
-                </div>
-                <p className="mb-[8px] mt-[47px] text-center text-lg font-bold text-[#151875]">
-                  Purus risus, ut{" "}
-                </p>
-                <Image
-                  src="/Group44.png"
-                  alt="circles"
-                  width={42}
-                  height={10}
-                />
-               <p className="mt-[15px] text-sm font-semibold text-[#151875]">
-                  $26.00{" "}
-                  <s className="ml-[10px] text-sm font-semibold text-[#FB2E86] line-through">
-                    $42.00
-                  </s>
-                </p>
-              </div>
-            </div>
+            ))}
           </div>
-          <>
-            <div className="flex flex-col md:hidden">
-              {/* Product 5 */}
-              <div className="flex h-[363px] w-[270px] flex-col items-center p-4">
-                <div className="flex items-center justify-center bg-[#F6F7FB]">
-                  <Image
-                    src="/Product5.png"
-                    alt="Product 4"
-                    width={201}
-                    height={201}
-                  />
-                </div>
-                <p className="mb-[8px] mt-[47px] text-center text-lg font-bold text-[#151875]">
-                  Fusce pellentesque at{" "}
-                </p>
-                <Image
-                  src="/Group44.png"
-                  alt="circles"
-                  width={42}
-                  height={10}
-                />
-               <p className="mt-[15px] text-sm font-semibold text-[#151875]">
-                  $26.00{" "}
-                  <s className="ml-[10px] text-sm font-semibold text-[#FB2E86] line-through">
-                    $42.00
-                  </s>
-                </p>
-              </div>
-
-              {/* Product 6 */}
-              <div className="flex h-[363px] w-[270px] flex-col items-center p-4">
-                <div className="flex items-center justify-center bg-[#F6F7FB]">
-                  <Image
-                    src="/Product6.png"
-                    alt="Product 4"
-                    width={201}
-                    height={201}
-                  />
-                </div>
-                <p className="mb-[8px] mt-[47px] text-center text-lg font-bold text-[#151875]">
-                  Vestibulum magna laoreet{" "}
-                </p>
-                <Image
-                  src="/Group44.png"
-                  alt="circles"
-                  width={42}
-                  height={10}
-                />
-             <p className="mt-[15px] text-sm font-semibold text-[#151875]">
-                  $26.00{" "}
-                  <s className="ml-[10px] text-sm font-semibold text-[#FB2E86] line-through">
-                    $42.00
-                  </s>
-                </p>
-              </div>
-
-              {/* Product 7 */}
-              <div className="flex h-[363px] w-[270px] flex-col items-center p-4">
-                <div className="flex items-center justify-center bg-[#F6F7FB]">
-                  <Image
-                    src="/Product7.png"
-                    alt="Product 4"
-                    width={201}
-                    height={201}
-                  />
-                </div>
-                <p className="mb-[8px] mt-[47px] text-center text-lg font-bold text-[#151875]">
-                  Sollicitudin amet orci{" "}
-                </p>
-                <Image
-                  src="/Group44.png"
-                  alt="circles"
-                  width={42}
-                  height={10}
-                />
-             <p className="mt-[15px] text-sm font-semibold text-[#151875]">
-                  $26.00{" "}
-                  <s className="ml-[10px] text-sm font-semibold text-[#FB2E86] line-through">
-                    $42.00
-                  </s>
-                </p>
-              </div>
-
-              {/* Product 8 */}
-              <div className="flex h-[363px] w-[270px] flex-col items-center p-4">
-                <div className="flex items-center justify-center bg-[#F6F7FB]">
-                  <Image
-                    src="/Product8.png"
-                    alt="Product 4"
-                    width={201}
-                    height={201}
-                  />
-                </div>
-                <p className="mb-[8px] mt-[47px] text-center text-lg font-bold text-[#151875]">
-                  Ultrices mauris sit{" "}
-                </p>
-                <Image
-                  src="/Group44.png"
-                  alt="circles"
-                  width={42}
-                  height={10}
-                />
-             <p className="mt-[15px] text-sm font-semibold text-[#151875]">
-                  $26.00{" "}
-                  <s className="ml-[10px] text-sm font-semibold text-[#FB2E86] line-through">
-                    $42.00
-                  </s>
-                </p>
-              </div>
-            </div>
-            <div className="flex flex-col md:hidden">
-              {/* Product 9 */}
-              <div className="flex h-[363px] w-[270px] flex-col items-center p-4">
-                <div className="flex items-center justify-center bg-[#F6F7FB]">
-                  <Image
-                    src="/Product9.png"
-                    alt="Product 4"
-                    width={201}
-                    height={201}
-                  />
-                </div>
-                <p className="mb-[8px] mt-[47px] text-center text-lg font-bold text-[#151875]">
-                  Pellentesque condimentum ac{" "}
-                </p>
-                <Image
-                  src="/Group44.png"
-                  alt="circles"
-                  width={42}
-                  height={10}
-                />
-             <p className="mt-[15px] text-sm font-semibold text-[#151875]">
-                  $26.00{" "}
-                  <s className="ml-[10px] text-sm font-semibold text-[#FB2E86] line-through">
-                    $42.00
-                  </s>
-                </p>
-              </div>
-
-              {/* Product 10 */}
-              <div className="flex h-[363px] w-[270px] flex-col items-center p-4">
-                <div className="flex items-center justify-center bg-[#F6F7FB]">
-                  <Image
-                    src="/Product10.png"
-                    alt="Product 4"
-                    width={201}
-                    height={201}
-                  />
-                </div>
-                <p className="mb-[8px] mt-[47px] text-center text-lg font-bold text-[#151875]">
-                  Cras scelerisque velit{" "}
-                </p>
-                <Image
-                  src="/Group44.png"
-                  alt="circles"
-                  width={42}
-                  height={10}
-                />
-             <p className="mt-[15px] text-sm font-semibold text-[#151875]">
-                  $26.00{" "}
-                  <s className="ml-[10px] text-sm font-semibold text-[#FB2E86] line-through">
-                    $42.00
-                  </s>
-                </p>
-              </div>
-
-              {/* Product 11 */}
-              <div className="flex h-[363px] w-[270px] flex-col items-center p-4">
-                <div className="flex items-center justify-center bg-[#F6F7FB]">
-                  <Image
-                    src="/Product11.png"
-                    alt="Product 4"
-                    width={201}
-                    height={201}
-                  />
-                </div>
-                <p className="mb-[8px] mt-[47px] text-center text-lg font-bold text-[#151875]">
-                  Lectus vulputate faucibus{" "}
-                </p>
-                <Image
-                  src="/Group44.png"
-                  alt="circles"
-                  width={42}
-                  height={10}
-                />
-             <p className="mt-[15px] text-sm font-semibold text-[#151875]">
-                  $26.00{" "}
-                  <s className="ml-[10px] text-sm font-semibold text-[#FB2E86] line-through">
-                    $42.00
-                  </s>
-                </p>
-              </div>
-
-              {/* Product 12 */}
-              <div className="flex h-[363px] w-[270px] flex-col items-center p-4">
-                <div className="flex items-center justify-center bg-[#F6F7FB]">
-                  <Image
-                    src="/Product4.png"
-                    alt="Product 4"
-                    width={201}
-                    height={201}
-                  />
-                </div>
-                <p className="mb-[8px] mt-[47px] text-center text-lg font-bold text-[#151875]">
-                  Purus risus, ut{" "}
-                </p>
-                <Image
-                  src="/Group44.png"
-                  alt="circles"
-                  width={42}
-                  height={10}
-                />
-             <p className="mt-[15px] text-sm font-semibold text-[#151875]">
-                  $26.00{" "}
-                  <s className="ml-[10px] text-sm font-semibold text-[#FB2E86] line-through">
-                    $42.00
-                  </s>
-                </p>
-              </div>
-            </div>
-          </>
-        </>
-
+        </div>
         {/* Bottom Section */}
         <div className="my-[83px] hidden md:block">
           <Image
@@ -649,7 +164,6 @@ function Shop_Grid_page() {
           />
         </div>
       </div>
-
       <Footer />
       <Mi />
     </div>
