@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { Lato } from "next/font/google";
 import { Roboto } from "next/font/google";
+import Link from "next/link";
 
 const roboto = Roboto({ subsets: ["latin"], weight: ["400", "700"] });
 const lato = Lato({ subsets: ["latin"], weight: ["400", "700"] });
@@ -14,7 +15,8 @@ function Mi() {
           <div className="mx-auto mr-[446px] mt-[94px] flex max-w-full gap-12 sm:grid-cols-4">
             {/* Hekto Section */}
             <div>
-              <h2 className="mb-4 text-[38px] font-bold text-black">Hekto</h2>
+              <h2 className="mb-4 text-[38px] font-bold text-black">           <Link href="/" >Hekto</Link>
+              </h2>
               <div className="mt-4 flex w-[300px] items-center justify-end gap-4 rounded-[3px] bg-white lg:h-[44px] lg:w-[377px]">
                 <input
                   type="email"
