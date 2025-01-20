@@ -482,6 +482,7 @@ category
                         alt={product.name}
                         width={201}
                         height={201}
+                        loading="lazy"
                         className="h-56 w-full rounded-t-lg object-cover"
                       />
                     </div>

@@ -4,7 +4,7 @@ interface ButtonProps {
     children?: ReactNode;
   }
 
-function Button({ label = "Shop Now",children  }: ButtonProps) {
+function Button({ label = "Shop Now"  }: ButtonProps) {
 return (
 <div>
 {/* hover:scale-105 makes the button slightly bigger on hover.

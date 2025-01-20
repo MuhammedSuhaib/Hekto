@@ -7,7 +7,6 @@ import Nvbr from "@/components/Navbar";
 import Bredcrumb from "@/components/Bredcrumb";
 import { Lato } from "next/font/google";
 const lato = Lato({ subsets: ["latin"], weight: ["400", "700"] });
-import Clock from "@/components/Clock";
 import Link from "next/link";
 
 function OrderPage() {
