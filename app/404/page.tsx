@@ -28,10 +28,9 @@ function ErrorPage() {
           height={300}
           className="h-[300px] w-[277px] md:hidden"
         />
-        <button
-          className={`h-[44px] rounded-[3px] bg-[#FB2E86] font-medium text-white lg:w-[165px]`}
-        >
-          <Link href="/">Back To Home</Link>
+
+        <button className="mx-auto h-[39px] w-[90%] rounded-[2px] bg-[#FB2E86] font-medium text-white transition-transform duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#7E33E0] lg:mx-0 lg:w-[135px]">
+        <Link href="/">Back To Home</Link>
         </button>
         <div className="m-0 md:mb-[59px] md:mt-[124px]">
           <Image
@@ -50,7 +49,6 @@ function ErrorPage() {
           />
         </div>
       </div>
-
       <Footer />
       <Mi />
     </div>

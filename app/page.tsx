@@ -13,9 +13,8 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel";
+import Button from "@/components/Button";
 interface Product {
   _id: string;
   name: string;
@@ -24,23 +23,88 @@ interface Product {
   description: string;
   discountPercentage: number;
   isFeaturedProduct: boolean;
+  isLeatestProduct: boolean;
+  isTrendingProduct: boolean;
   stockLevel: number;
   category: "Chair" | "Sofa"; // Adjust this list as needed
 }
 
 export default async function Home() {
-  const data: Product[] =
-    await client.fetch(`*[_type == "product" && isFeaturedProduct == true]{
-  _id,
-  name,
-  image,
-  price,
-  description,
-  discountPercentage,
-  isFeaturedProduct,
-  stockLevel,
-  category
-  }`);
+  let data: Product[] = [];
+  let dataL: Product[] = [];
+  let dataT: Product[] = [];
+  let dataTC: Product[] = [];
+  try {
+    data =
+      await client.fetch(`*[_type == "product" && isFeaturedProduct == true]{
+_id,
+name,
+image,
+price,
+description,
+discountPercentage,
+isFeaturedProduct,
+stockLevel,
+category
+}`);
+  } catch (error) {
+    console.error("Error fetching featured products:", error);
+  }
+  try {
+    dataL =
+      await client.fetch(`*[_type == "product" && isLeatestProduct == true]{
+_id,
+name,
+image,
+price,
+description,
+discountPercentage,
+isFeaturedProduct,
+isLeatestProduct,
+stockLevel,
+category
+}`);
+  } catch (error) {
+    console.error("Error fetching latest products:", error);
+  }
+
+  try {
+    dataT =
+      await client.fetch(`*[_type == "product" && isTrendingProduct == true]{
+_id,
+name,
+image,
+price,
+description,
+discountPercentage,
+isFeaturedProduct,
+isTrendingProduct,
+isLeatestProduct,
+stockLevel,
+category
+}`);
+  } catch (error) {
+    console.error("Error fetching trending products:", error);
+  }
+
+  try {
+    dataTC = await client.fetch(`*[_type == "product" && topCategories == true]{
+_id,
+name,
+image,
+price,
+description,
+discountPercentage,
+isFeaturedProduct,
+topCategories,
+isTrendingProduct,
+isLeatestProduct,
+stockLevel,
+category
+}`);
+  } catch (error) {
+    console.error("Error fetching featured products:", error);
+  }
   return (
     <div className="w-screen overflow-x-hidden bg-white">
       <Header />
@@ -71,9 +135,7 @@ export default async function Home() {
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna
                 in est adipiscing in phasellus non in justo.
               </p>
-              <button className="mx-auto h-[39px] w-full rounded-[2px] bg-[#FB2E86] font-medium text-white lg:mx-0 lg:w-[135px]">
-                Shop Now
-              </button>
+            <Button/>
             </div>
             <Image
               src="/sofa.png"
@@ -104,10 +166,12 @@ export default async function Home() {
             <>
               <Carousel className="mx-auto">
                 <CarouselContent>
-                  {data.map((product) => (
+                  {data.map((product, index) => (
                     <CarouselItem
                       key={product._id}
-                      className="flex flex-col items-stretch p-4 transition duration-300 ease-in-out hover:bg-[#f599c15b] hover:shadow-2xl md:basis-1/2 lg:basis-1/3 xl:basis-1/4"
+                      className={`flex flex-col items-stretch p-4 transition duration-300 ease-in-out hover:bg-[#f599c15b] hover:shadow-2xl md:basis-1/2 lg:basis-1/3 xl:basis-1/4 ${
+                        index === 0 ? "animate-nudge" : ""
+                      } `}
                     >
                       <div className="flex h-full items-center justify-center">
                         <Card className="flex h-full flex-col rounded-none">
@@ -119,6 +183,7 @@ export default async function Home() {
                                 alt={product.name}
                                 width={201}
                                 height={201}
+                                loading="lazy"
                                 className="h-56 w-full object-cover"
                               />
                             </div>
@@ -147,8 +212,6 @@ export default async function Home() {
                     </CarouselItem>
                   ))}
                 </CarouselContent>
-                <CarouselPrevious />
-                <CarouselNext />
               </Carousel>
             </>
             <div className="flex items-center justify-center">
@@ -162,7 +225,6 @@ export default async function Home() {
             </div>
           </>
           {/*Leatest Products*/}
-
           <>
             <h1 className="mb-[19px] text-center text-[42px] font-bold text-[#1A0B5B]">
               Leatest Products
@@ -170,225 +232,180 @@ export default async function Home() {
             <ul
               className={`${lato.className} mb-[62px] flex items-center justify-center gap-5 text-lg font-normal text-[#151875] md:gap-[58px]`}
             >
-              <li className="text-[#FB2E86] underline">New Arrival</li>
-              <li className="hidden md:flex">Best Seller</li>
-              <li>Featured</li>
-              <li>Special Offer</li>
+              <li className="hover:text-[#FB2E86] hover:underline">
+                New Arrival
+              </li>
+              <li className="hidden hover:text-[#FB2E86] hover:underline md:flex">
+                Best Seller
+              </li>
+              <li className="hover:text-[#FB2E86] hover:underline">Featured</li>
+              <li className="hover:text-[#FB2E86] hover:underline">
+                Special Offer
+              </li>
             </ul>
-            <div className="flex flex-col justify-center gap-[37px] md:flex-row">
-              {/* Product 1 */}
-              <div className="flex h-[306px] w-[360px] flex-col items-center">
-                <div className="flex h-[306px] w-[360px] items-center justify-center bg-[#F6F7FB]">
+            <>
+              <Carousel className={`${"animate-nudge"} mx-auto`}>
+                <CarouselContent>
+                  {dataL.map((product) => (
+                    <CarouselItem
+                      key={product._id}
+                      className={`flex flex-col items-stretch p-4 transition duration-300 ease-in-out hover:bg-[#f599c15b] hover:shadow-2xl md:basis-1/2 lg:basis-1/3 xl:basis-1/4`}
+                    >
+                      <div className="flex h-full items-center justify-center">
+                        <Card className="flex h-full flex-col rounded-none">
+                          <CardContent className="flex h-full flex-col items-center justify-center">
+                            {/* head of card with img */}
+                            <div className="flex items-center justify-center bg-[#F6F7FB]">
+                              <img
+                                src={urlFor(product.image.asset).url()}
+                                alt={product.name}
+                                width={201}
+                                height={201}
+                                loading="lazy"
+                                className="h-56 w-full object-cover"
+                              />
+                            </div>
+                            <div className="flex items-center justify-between">
+                              <span className="text-base text-[#151875]">
+                                Comfort Handy Craft
+                              </span>
+                              <span className="ml-7 text-sm font-medium text-[#151875]">
+                                ${product.price}{" "}
+                                {product.discountPercentage > 0 && (
+                                  <span className="ml-1 text-sm text-[#FB2E86] line-through">
+                                    $
+                                    {(
+                                      parseFloat(product.price) *
+                                      (1 + product.discountPercentage / 100)
+                                    ).toFixed(2)}
+                                  </span>
+                                )}
+                              </span>
+                            </div>
+                          </CardContent>
+                        </Card>
+                      </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+              </Carousel>
+            </>
+            <>
+              <Carousel className="md:mx-auto">
+                <CarouselContent>
+                  {dataL.toReversed().map((product, index) => (
+                    <CarouselItem
+                      key={product._id}
+                      className={`flex flex-col items-stretch p-4 transition duration-300 ease-in-out hover:bg-[#f599c15b] hover:shadow-2xl md:basis-1/2 lg:basis-1/3 xl:basis-1/4 ${
+                        index === 0 ? "animate-nudge" : ""
+                      }`}
+                    >
+                      <div className="flex h-full items-center justify-center">
+                        <Card className="flex h-full flex-col rounded-none">
+                          <CardContent className="flex h-full flex-col items-center justify-center">
+                            {/* head of card with img */}
+                            <div className="flex items-center justify-center bg-[#F6F7FB]">
+                              <img
+                                src={urlFor(product.image.asset).url()}
+                                alt={product.name}
+                                width={201}
+                                height={201}
+                                loading="lazy"
+                                className="h-56 w-full object-cover"
+                              />
+                            </div>
+                            <div className="flex items-center justify-between">
+                              <span className="text-base text-[#151875]">
+                                Comfort Handy Craft
+                              </span>
+                              <span className="ml-7 text-sm font-medium text-[#151875]">
+                                ${product.price}{" "}
+                                {product.discountPercentage > 0 && (
+                                  <span className="ml-1 text-sm text-[#FB2E86] line-through">
+                                    $
+                                    {(
+                                      parseFloat(product.price) *
+                                      (1 + product.discountPercentage / 100)
+                                    ).toFixed(2)}
+                                  </span>
+                                )}
+                              </span>
+                            </div>
+                          </CardContent>
+                        </Card>
+                      </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+              </Carousel>
+            </>
+            {/* What Shopex Offer! */}
+            <>
+              <h1 className="mb-[55px] mt-[58px] text-center text-[42px] font-bold text-[#1A0B5B]">
+                What Shopex Offer!{" "}
+              </h1>
+              <div
+                className={`mb-[135px] flex flex-col items-center justify-center gap-7 text-center font-bold text-[#8A8FB9] lg:flex-row ${lato.className}`}
+              >
+                <div className="flex h-[320px] w-[270px] max-w-full flex-col items-center justify-center gap-[21px] shadow-md hover:shadow-2xl">
                   <Image
-                    src="/1166.png"
-                    alt="Product 1"
-                    width={223}
-                    height={229}
+                    src="/delivery.png"
+                    width={65}
+                    height={65}
+                    alt="free delivery"
                   />
+                  <h3 className="text-[22px] font-bold text-[#151875]">
+                    Free Delivery
+                  </h3>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Massa purus gravida.
+                  </p>
                 </div>
-                <div className="mt-4 flex flex-col md:flex-row md:gap-20">
-                  <div className="text-base text-[#151875] shadow-md">
-                    Comfort Handy Craft
-                  </div>
-                  <div className=" ">
-                    <span className="ml-2 text-sm text-[#151875] line-through">
-                      $42.00
-                    </span>
-                    <s className="ml-2 text-xs text-[#FB2448] line-through">
-                      $65.00
-                    </s>
-                  </div>
-                </div>
-              </div>
-
-              {/* Product 2 */}
-              <div className="mb-9 flex h-[306px] w-[360px] flex-col items-center md:mb-0">
-                <div className="flex h-[306px] w-[360px] items-center justify-center bg-[#F6F7FB]">
+                <div className="flex h-[320px] w-[270px] max-w-full flex-col items-center justify-center gap-[21px] shadow-md hover:shadow-2xl">
                   <Image
-                    src="/Frame1.png"
-                    alt="Product 1"
-                    width={360}
-                    height={306}
+                    src="/cashback.png"
+                    width={65}
+                    height={65}
+                    alt="cashback"
                   />
+                  <h3 className="text-[22px] font-bold text-[#151875]">
+                    100% Cash Back
+                  </h3>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Massa purus gravida.
+                  </p>
                 </div>
-                <div className="mt-4 flex flex-col md:flex-row md:gap-20">
-                  <div className="text-base text-[#151875] shadow-md">
-                    Comfort Handy Craft
-                  </div>
-                  <div className=" ">
-                    <span className="ml-2 text-sm text-[#151875] line-through">
-                      $42.00
-                    </span>
-                    <s className="ml-2 text-xs text-[#FB2448] line-through">
-                      $65.00
-                    </s>
-                  </div>
-                </div>
-              </div>
-              {/* Product 3 */}
-              <div className="flex h-[306px] w-[360px] flex-col items-center">
-                <div className="flex h-[306px] w-[360px] items-center justify-center bg-[#F6F7FB]">
+                <div className="flex h-[320px] w-[270px] max-w-full flex-col items-center justify-center gap-[21px] shadow-md hover:shadow-2xl">
                   <Image
-                    src="/im.png"
-                    alt="Product 1"
-                    width={223}
-                    height={229}
+                    src="/quality.png"
+                    width={65}
+                    height={65}
+                    alt="free delivery"
                   />
+                  <h3 className="text-[22px] font-bold text-[#151875]">
+                    {" "}
+                    Quality Product
+                  </h3>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Massa purus gravida.
+                  </p>
                 </div>
-                <div className="mt-4 flex flex-col md:flex-row md:gap-20">
-                  <div className="text-base text-[#151875] shadow-md">
-                    Comfort Handy Craft
-                  </div>
-                  <div className=" ">
-                    <span className="ml-2 text-sm text-[#151875] line-through">
-                      $42.00
-                    </span>
-                    <s className="ml-2 text-xs text-[#FB2448] line-through">
-                      $65.00
-                    </s>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="mt-[120px] flex flex-col justify-center gap-[37px] md:flex-row">
-              {/* Product 1 */}
-              <div className="flex h-[306px] w-[360px] flex-col items-center">
-                <div className="flex h-[306px] w-[360px] items-center justify-center bg-[#F6F7FB]">
-                  <Image
-                    src="/img23.png"
-                    alt="Product 1"
-                    width={223}
-                    height={229}
-                  />
-                </div>
-                <div className="mt-4 flex flex-col md:flex-row md:gap-20">
-                  <div className="text-base text-[#151875] shadow-md">
-                    Comfort Handy Craft
-                  </div>
-                  <div className=" ">
-                    <span className="ml-2 text-sm text-[#151875] line-through">
-                      $42.00
-                    </span>
-                    <s className="ml-2 text-xs text-[#FB2448] line-through">
-                      $65.00
-                    </s>
-                  </div>
+                <div className="flex h-[320px] w-[270px] max-w-full flex-col items-center justify-center gap-[21px] shadow-md hover:shadow-2xl">
+                  <Image src="/24.png" width={65} height={65} alt="24/7" />
+                  <h3 className="text-[22px] font-bold text-[#151875]">
+                    24/7 Support
+                  </h3>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Massa purus gravida.
+                  </p>
                 </div>
               </div>
-
-              {/* Product 2 */}
-              <div className="flex h-[306px] w-[360px] flex-col items-center">
-                <div className="flex h-[306px] w-[360px] items-center justify-center bg-[#F6F7FB]">
-                  <Image
-                    src="/ima32.png"
-                    alt="Product 1"
-                    width={223}
-                    height={229}
-                  />
-                </div>
-                <div className="mt-4 flex flex-col md:flex-row md:gap-20">
-                  <div className="text-base text-[#151875] shadow-md">
-                    Comfort Handy Craft
-                  </div>
-                  <div className=" ">
-                    <span className="ml-2 text-sm text-[#151875] line-through">
-                      $42.00
-                    </span>
-                    <s className="ml-2 text-xs text-[#FB2448] line-through">
-                      $65.00
-                    </s>
-                  </div>
-                </div>
-              </div>
-
-              {/* Product 3 */}
-              <div className="flex h-[306px] w-[360px] flex-col items-center">
-                <div className="flex h-[306px] w-[360px] items-center justify-center bg-[#F6F7FB]">
-                  <Image
-                    src="/sofchr.png"
-                    alt="Product 1"
-                    width={223}
-                    height={229}
-                  />
-                </div>
-                <div className="mt-4 flex flex-col md:flex-row md:gap-20">
-                  <div className="text-base text-[#151875] shadow-md">
-                    Comfort Handy Craft
-                  </div>
-                  <div className=" ">
-                    <span className="ml-2 text-sm text-[#151875] line-through">
-                      $42.00
-                    </span>
-                    <s className="ml-2 text-xs text-[#FB2448] line-through">
-                      $65.00
-                    </s>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <h1 className="mb-[55px] mt-[58px] text-center text-[42px] font-bold text-[#1A0B5B]">
-              What Shopex Offer!{" "}
-            </h1>
-            <div
-              className={`mb-[135px] flex flex-col items-center justify-center gap-7 text-center font-bold text-[#8A8FB9] lg:flex-row ${lato.className}`}
-            >
-              <div className="flex h-[320px] w-[270px] max-w-full flex-col items-center justify-center gap-[21px] shadow-md">
-                <Image
-                  src="/delivery.png"
-                  width={65}
-                  height={65}
-                  alt="free delivery"
-                />
-                <h3 className="text-[22px] font-bold text-[#151875]">
-                  Free Delivery
-                </h3>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa
-                  purus gravida.
-                </p>
-              </div>
-              <div className="flex h-[320px] w-[270px] max-w-full flex-col items-center justify-center gap-[21px] shadow-md">
-                <Image
-                  src="/cashback.png"
-                  width={65}
-                  height={65}
-                  alt="cashback"
-                />
-                <h3 className="text-[22px] font-bold text-[#151875]">
-                  100% Cash Back
-                </h3>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa
-                  purus gravida.
-                </p>
-              </div>
-              <div className="flex h-[320px] w-[270px] max-w-full flex-col items-center justify-center gap-[21px] shadow-md">
-                <Image
-                  src="/quality.png"
-                  width={65}
-                  height={65}
-                  alt="free delivery"
-                />
-                <h3 className="text-[22px] font-bold text-[#151875]">
-                  {" "}
-                  Quality Product
-                </h3>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa
-                  purus gravida.
-                </p>
-              </div>
-              <div className="flex h-[320px] w-[270px] max-w-full flex-col items-center justify-center gap-[21px] shadow-md">
-                <Image src="/24.png" width={65} height={65} alt="24/7" />
-                <h3 className="text-[22px] font-bold text-[#151875]">
-                  24/7 Support
-                </h3>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa
-                  purus gravida.
-                </p>
-              </div>
-            </div>
+            </>
+            {/* banner */}
             <div className="flex w-screen flex-col items-center justify-center bg-[#F1F0FF] p-4 md:h-[579px] md:flex-row">
               <Image src="/153.png" alt="sofa" width={558} height={550} />
               <div className="flex flex-col gap-8">
@@ -431,11 +448,7 @@ export default async function Home() {
                   </li>
                 </ul>{" "}
                 <div className="flex flex-col gap-5 pl-[15vh] md:flex-row md:pl-0">
-                  <button
-                    className={`h-[39px] w-[135px] rounded-[2px] bg-[#FB2E86] font-medium text-white`}
-                  >
-                    Add To Cart{" "}
-                  </button>
+                  <Button label="Add To Cart"/>
                   <div>
                     <p className={`text-sm font-semibold text-[#151875]`}>
                       B&B Italian Sofa{" "}
@@ -455,101 +468,45 @@ export default async function Home() {
             <h1 className="mb-[48px] mt-[129px] text-center text-[42px] font-bold text-[#1A0B5B]">
               Trending Products
             </h1>
-            <div className="flex flex-col justify-center pl-[5vh] md:flex-row md:pl-0">
-              {/* Product 1 */}
-              <div className="flex h-[350px] w-[270px] flex-col items-center p-4">
-                <div className="flex items-center justify-center bg-[#F5F6F8]">
-                  <Image
-                    src="/1171.png"
-                    alt="Product 1"
-                    width={201}
-                    height={201}
-                  />
-                </div>
-                <p
-                  className={`mb-2 mt-4 text-center text-base font-bold text-[#151875] ${lato.className}`}
-                >
-                  Cantilever chair
-                </p>
-                <span className="text-sm font-normal text-[#151875]">
-                  $26.00{" "}
-                  <s className="ml-3 text-xs font-normal text-[#ACABC3] line-through">
-                    $42.00
-                  </s>
-                </span>
-              </div>
-
-              {/* Product 2 */}
-              <div className="flex h-[350px] w-[270px] flex-col items-center p-4">
-                <div className="flex items-center justify-center bg-[#F5F6F8]">
-                  <Image
-                    src="/1170.png"
-                    alt="Product 2"
-                    width={201}
-                    height={201}
-                  />
-                </div>
-                <p
-                  className={`mb-2 mt-4 text-center text-base font-bold text-[#151875] ${lato.className}`}
-                >
-                  Cantilever chair
-                </p>
-                <span className="text-sm font-normal text-[#151875]">
-                  $26.00{" "}
-                  <s className="ml-3 text-xs font-normal text-[#ACABC3] line-through">
-                    $42.00
-                  </s>
-                </span>
-              </div>
-
-              {/* Product 3 */}
-              <div className="flex h-[350px] w-[270px] flex-col items-center p-4">
-                <div className="flex items-center justify-center bg-[#F5F6F8]">
-                  <Image
-                    src="/31.png"
-                    alt="Product 3"
-                    width={201}
-                    height={201}
-                  />
-                </div>
-                <p
-                  className={`mb-2 mt-4 text-center text-base font-bold text-[#151875] ${lato.className}`}
-                >
-                  Cantilever chair
-                </p>
-                <span className="text-sm font-normal text-[#151875]">
-                  $26.00{" "}
-                  <s className="ml-3 text-xs font-normal text-[#ACABC3] line-through">
-                    $42.00
-                  </s>
-                </span>
-              </div>
-
-              {/* Product 4 */}
-              <div className="flex h-[350px] w-[270px] flex-col items-center p-4">
-                <div className="flex items-center justify-center bg-[#F5F6F8]">
-                  <Image
-                    src="/32.png"
-                    alt="Product 4"
-                    width={201}
-                    height={201}
-                  />
-                </div>
-                <p
-                  className={`mb-2 mt-4 text-center text-base font-bold text-[#151875] ${lato.className}`}
-                >
-                  Cantilever chair
-                </p>
-                <span className="text-sm font-normal text-[#151875]">
-                  $26.00{" "}
-                  <s className="ml-3 text-xs font-normal text-[#ACABC3] line-through">
-                    $42.00
-                  </s>
-                </span>
+            <div className="flex flex-col items-center justify-center">
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4">
+                {dataT.map((product) => (
+                  <div
+                    key={product._id}
+                    className="flexh-fit w-fit flex-col items-center transition duration-300 ease-in-out hover:bg-[#51d0f715] hover:shadow-xl"
+                  >
+                    {/* head of card with img */}
+                    <div className="flex items-center justify-center">
+                      <img
+                        src={urlFor(product.image.asset).url()}
+                        alt={product.name}
+                        width={201}
+                        height={201}
+                        className="h-56 w-full rounded-t-lg object-cover"
+                      />
+                    </div>
+                    <span className="mb-[8px] mt-[47px] text-center text-lg font-bold text-[#151875]">
+                      {product.name}
+                    </span>
+                    <div className="mt-2 flex items-center">
+                      <span className="text-lg font-bold text-[#151875]">
+                        ${product.price}
+                      </span>
+                      {product.discountPercentage > 0 && (
+                        <span className="ml-2 text-sm text-[#FB2E86] line-through">
+                          $
+                          {(
+                            parseFloat(product.price) *
+                            (1 + product.discountPercentage / 100)
+                          ).toFixed(2)}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
-
-            <div className="hidden flex-col items-center justify-center gap-7 md:flex md:flex-row">
+            <div className="mt-4 hidden flex-col items-center justify-center gap-7 md:flex md:flex-row">
               <div className="h-[270px] w-[420px] bg-[#FFF6FB] p-6">
                 {" "}
                 <p className="text-[26px] font-semibold text-[#151875]">
@@ -700,11 +657,7 @@ export default async function Home() {
                     </li>
                   </ul>
                 </div>
-
-                {/* Button */}
-                <button className="mt-4 w-[150px] rounded-[2px] bg-[#FB2E86] p-2 text-white">
-                  Shop Now
-                </button>
+                <Button/>
               </div>
               {/* Right Section */}
               <div>
@@ -723,74 +676,30 @@ export default async function Home() {
               <h1 className="mt-[79px] text-center text-[42px] font-bold text-[#1A0B5B]">
                 Top Categories{" "}
               </h1>
-              <div className="flex flex-col items-center justify-center gap-10 md:flex-row">
-                <div className="flex flex-col items-center justify-center gap-4">
-                  {" "}
-                  <div className="flex size-[269px] items-center justify-center rounded-full bg-[#F6F7FB]">
-                    {" "}
-                    <Image
-                      src="/look.png"
-                      alt="chair"
-                      width={269}
-                      height={269}
-                    />
-                  </div>{" "}
-                  <p className="text-xl font-normal text-[#151875]">
-                    Mini LCW Chair
-                  </p>{" "}
-                  <span className="text-base font-normal text-[#151875]">
-                    $56.00
-                  </span>{" "}
-                </div>
-                <div className="flex flex-col items-center justify-center gap-4">
-                  <div className="flex size-[269px] items-center justify-center rounded-full bg-[#F6F7FB]">
-                    <Image
-                      src="/im68.png"
-                      alt="chair"
-                      width={158}
-                      height={157}
-                    />
-                  </div>{" "}
-                  <p className="text-xl font-normal text-[#151875]">
-                    Mini LCW Chair
-                  </p>{" "}
-                  <span className="text-base font-normal text-[#151875]">
-                    $56.00
-                  </span>{" "}
-                </div>
-                <div className="flex flex-col items-center justify-center gap-4">
-                  {" "}
-                  <div className="flex size-[269px] items-center justify-center rounded-full bg-[#F6F7FB]">
-                    <Image
-                      src="/im1171.png"
-                      alt="chair"
-                      width={149}
-                      height={149}
-                    />
-                  </div>{" "}
-                  <p className="text-xl font-normal text-[#151875]">
-                    Mini LCW Chair
-                  </p>{" "}
-                  <span className="text-base font-normal text-[#151875]">
-                    $56.00
-                  </span>{" "}
-                </div>
-                <div className="flex flex-col items-center justify-center gap-4">
-                  <div className="flex size-[269px] items-center justify-center rounded-full bg-[#F6F7FB]">
-                    <Image
-                      src="/im20.png"
-                      alt="chair"
-                      width={178}
-                      height={178}
-                    />
-                  </div>{" "}
-                  <p className="text-xl font-normal text-[#151875]">
-                    Mini LCW Chair
-                  </p>{" "}
-                  <span className="text-base font-normal text-[#151875]">
-                    $56.00
-                  </span>{" "}
-                </div>
+              <div className="flex flex-col items-center justify-center gap-4 md:flex-row">
+                {dataTC.map((product) => (
+                  <div
+                    key={product._id}
+                    className="flex flex-col items-center justify-center gap-4"
+                  >
+                    {/* Image container */}
+                    <div className="flex items-center justify-center rounded-full bg-[#F6F7FB]">
+                      <img
+                        src={urlFor(product.image.asset).url()}
+                        alt={product.name}
+                        width={269}
+                        height={269}
+                        loading="lazy"
+                      />
+                    </div>
+                    <span className="text-xl font-normal text-[#151875]">
+                      {product.name}
+                    </span>
+                    <span className="text-base font-normal text-[#151875]">
+                      ${product.price}
+                    </span>
+                  </div>
+                ))}
               </div>
               <Image
                 src="/promo.png"
@@ -804,10 +713,7 @@ export default async function Home() {
               <h1 className="mb-[28px] w-[1/2] text-center text-[35px] font-bold text-[#1A0B5B] md:w-[574px]">
                 Get Leatest Update By Subscribe 0ur Newslater
               </h1>
-              {/* Button */}
-              <button className="w-[150px] rounded-[2px] bg-[#FB2E86] p-2 text-white">
-                Shop Now
-              </button>
+            < Button/>
             </div>
           </>
           <div className="my-[96px] flex items-center justify-center">

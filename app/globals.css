@@ -76,3 +76,30 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+
+
+/* Responsive styles and animations */
+@keyframes nudge {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(10px);
+  }
+  50% {
+    transform: translateX(0);
+  }
+  75% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .animate-nudge:hover {
+    animation: nudge 1.5s ease-in-out;
+  }
+}

@@ -7,6 +7,7 @@ import Bredcrumb from "@/components/Bredcrumb";
 import { Lato } from "next/font/google";
 const lato = Lato({ subsets: ["latin"], weight: ["400", "700"] });
 import Image from "next/image";
+import Link from "next/link";
 function DemoPage() {
   return (
     <div>
@@ -115,10 +116,10 @@ function DemoPage() {
                 <div className="px-[30px] sm:px-0">
                   {" "}
                   <button
-                    className={`h-[39px] w-full rounded-[3px] bg-[#FB2E86] font-medium text-white lg:w-[182px]`}
+                    className={`h-[39px] w-full rounded-[3px] bg-[#FB2E86] font-medium text-white transition-transform duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#7E33E0] lg:mx-0 lg:w-[182px]`}
                   >
-                    Continue Shipping
-                  </button>{" "}
+                    <Link href="/Grid">Continue Shipping</Link>
+                  </button>
                 </div>
               </div>
             </form>
@@ -225,8 +226,7 @@ function DemoPage() {
                   </label>
                 </div>
                 <button
-                  className={`mt-[35px] h-[39px] w-full rounded-[3px] bg-[#19D16F] font-bold text-white lg:w-[312px] ${lato.className} `}
-                >
+                  className={`mt-[35px] h-[39px] w-full rounded-[3px] bg-[#19D16F] font-bold text-white lg:w-[312px] ${lato.className} transition-transform duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#7E33E0] `}>
                   Proceed To Checkout{" "}
                 </button>
               </div>

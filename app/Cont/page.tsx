@@ -14,7 +14,7 @@ function ContactUsPage() {
       <Header />
       <Nvbr />
       <Bredcrumb pageName="Contact Us" />
-      <div className="flex flex-col px-4 pt-[120px] xl:pl-[10vh]  2xl:pl-[375px] ">
+      <div className="flex flex-col px-4 pt-[120px] xl:pl-[10vh] 2xl:pl-[375px]">
         {/* up */}
         <div className="flex flex-col gap-8 lg:flex-row lg:gap-[117px]">
           {/* left */}
@@ -60,12 +60,13 @@ function ContactUsPage() {
                 </div>
                 <div className="flex">
                   <div className="flex items-center gap-[5px]">
-                  <Image
-                    src="/pink.png"
-                    width={45}
-                    height={45}
-                    alt="Picture of the author"
-                  />                    <div>
+                    <Image
+                      src="/pink.png"
+                      width={45}
+                      height={45}
+                      alt="Picture of the author"
+                    />{" "}
+                    <div>
                       <p>Support Forum</p>
                       <p>For over 24hr</p>
                     </div>
@@ -74,24 +75,26 @@ function ContactUsPage() {
               </div>
               <div className="flex flex-col gap-[37px] lg:flex-row">
                 <div className="flex items-center gap-[5px]">
-                <Image
+                  <Image
                     src="/yellow.png"
                     width={45}
                     height={45}
                     alt="Picture of the author"
-                  />                  <div>
+                  />{" "}
+                  <div>
                     <p>20 Margaret st, London</p>
                     <p>Great britain, 3NM98-LK</p>
                   </div>
                 </div>
                 <div className="flex">
                   <div className="flex items-center gap-[5px]">
-                  <Image
-                    src="/green.png"
-                    width={45}
-                    height={45}
-                    alt="Picture of the author"
-                  />                    <div>
+                    <Image
+                      src="/green.png"
+                      width={45}
+                      height={45}
+                      alt="Picture of the author"
+                    />{" "}
+                    <div>
                       <p>Free standard shipping</p>
                       <p>on all orders.</p>
                     </div>
@@ -152,10 +155,8 @@ function ContactUsPage() {
                   className="h-[197px] w-[200px] rounded-[5px] border p-2 sm:w-[534px]"
                 ></textarea>
               </div>
-              <button
-                type="submit"
-                className="mt-[41px] h-[48px] w-[157px] rounded-[3px] bg-[#FB2E86] px-10 py-2 text-base font-medium text-white"
-              >
+          
+              <button className="mx-auto h-[41px]  w-[157px] rounded-[2px] bg-[#FB2E86] font-medium text-white transition-transform duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#7E33E0] lg:mx-0 lg:w-[135px]">
                 Send Mail
               </button>
             </form>
