@@ -17,7 +17,8 @@ function Nvbr() {
     <div>
       <nav className="flex flex-col p-4 sm:flex-col sm:items-center sm:gap-7 lg:flex-row lg:justify-center xl:ml-[28vh] xl:justify-normal">
         <h2 className="flex justify-between text-[34px] font-bold text-[#0D0E43]">
-           <Link href="/" >Hekto</Link>
+          <Link href="/">Hekto</Link>
+          {/* Mobile Hamburger */}
           <div className="md:hidden">
             <Sheet>
               <SheetTrigger>
@@ -26,8 +27,9 @@ function Nvbr() {
               <SheetContent
                 className={`${lato.className} bg-[#E7E6EF] text-black`}
               >
+                {/* Mobile ul for nav */}
                 <ul className="space-y-3">
-                  <li className="flex text-[#FB2E86]">
+                  <li className="flex hover:text-[#FB2E86]">
                     Home
                     <Image
                       src="/pinkdown.png"
@@ -81,7 +83,7 @@ function Nvbr() {
                   <li className="hover:text-[#FB2E86]">
                     <Link href="/Grid">Products</Link>
                   </li>
-                  <li className="hover:text-[#FB2E86]">Blog</li>
+                  {/* <li className="hover:text-[#FB2E86]">Blog</li> */}
                   <li className="hover:text-[#FB2E86]">
                     <Link href="/List">Shop</Link>
                   </li>
@@ -93,11 +95,11 @@ function Nvbr() {
             </Sheet>
           </div>{" "}
         </h2>
-
+        {/* Pc navbar  */}
         <ul
           className={`${lato.className} hidden items-center justify-center gap-[35px] text-base font-normal text-[#0D0E43] md:flex 2xl:ml-[88px]`}
         >
-          <li className="flex items-center justify-center text-[#FB2E86] hover:text-[#FB2E86]">
+          <li className="flex items-center justify-center hover:text-[#FB2E86]">
             <Link href="/">Home</Link>
 
             <Image
@@ -152,7 +154,7 @@ function Nvbr() {
           <li className="hover:text-[#FB2E86]">
             <Link href="/Grid">Products</Link>
           </li>
-          <li className="hover:text-[#FB2E86]">Blog</li>
+          {/* <li className="hover:text-[#FB2E86]">Blog</li> */}
           <li className="hover:text-[#FB2E86]">
             <Link href="/List">Shop</Link>
           </li>
@@ -160,9 +162,15 @@ function Nvbr() {
             <Link href="/Cont">Contact</Link>
           </li>
         </ul>
-
-        <div className="flex items-center justify-between border-[2px] border-[#E7E6EF] sm:justify-end 2xl:ml-[110px]">
-          <input type="text" className={`${lato.className} px-4`} />
+        {/* Search bar  */}
+        <div className="flex items-center justify-between border-[2px] border-[#E7E6EF] sm:justify-end">
+          <div className="w-full px-4">
+            {" "}
+            <input
+              type="text"
+              className={`${lato.className} w-full lg:pl-[50px] 2xl:pl-[110px] `}
+            />
+          </div>
           <div className="flex size-[40px] items-center justify-center bg-[#FB2E86]">
             <Image
               src="/uil_search.png"
