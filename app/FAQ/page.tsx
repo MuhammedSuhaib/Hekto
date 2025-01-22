@@ -26,22 +26,22 @@ function FAQ_Page() {
                 {
                   question: "Eu dictumst cum at sed euismood condimentum?",
                   answer:
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt sed tristique mollis vitae, consequat gravida sagittis.",
+ "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt sed tristique mollis vitae, consequat gravida sagittis.",
                 },
                 {
                   question: "Magna bibendum est fermentum eros.",
                   answer:
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt sed tristique mollis vitae, consequat gravida sagittis.",
+ "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt sed tristique mollis vitae, consequat gravida sagittis.",
                 },
                 {
                   question: "Odio muskana hak eris conseekin sceleton?",
                   answer:
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt sed tristique mollis vitae, consequat gravida sagittis.",
+ "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt sed tristique mollis vitae, consequat gravida sagittis.",
                 },
                 {
                   question: "Elit id blandit sabara boi velit gua mara?",
                   answer:
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt sed tristique mollis vitae, consequat gravida sagittis.",
+ "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt sed tristique mollis vitae, consequat gravida sagittis.",
                 },
               ].map(({ question, answer }, index) => (
                 <div
@@ -50,7 +50,7 @@ function FAQ_Page() {
                 >
                   {/* Question */}
                   <p className="w-full text-[17px] font-semibold text-[#1D3178] md:w-[395px]">
-                    {question}
+ {question}
                   </p>
                   {/* Answer */}
                   <p className="w-full text-[#A1ABCC] md:w-[499px]">{answer}</p>
@@ -69,28 +69,28 @@ function FAQ_Page() {
               >
                 <div>
                   <input
-                    type="text"
-                    id="name"
-                    placeholder="Your Name*"
-                    className="mb-[35px] h-[50px] w-[200px] rounded-[5px] border p-2 md:w-[445px]"
+ type="text"
+ id="name"
+ placeholder="Your Name*"
+ className="mb-[35px] h-[50px] w-[200px] rounded-[5px] border p-2 md:w-[445px]"
                   />
                 </div>
 
                 <div>
                   <input
-                    type="text"
-                    id="subject"
-                    placeholder="Subject*"
-                    className="mb-[45px] h-[50px] w-[200px] rounded-[5px] border p-2 md:w-[445px]"
+ type="text"
+ id="subject"
+ placeholder="Subject*"
+ className="mb-[45px] h-[50px] w-[200px] rounded-[5px] border p-2 md:w-[445px]"
                   />
                 </div>
 
                 <div>
                   <textarea
-                    id="message"
-                    placeholder="Type Your Message*"
-                    rows={5}
-                    className="h-[197px] w-[200px] rounded-[5px] border p-2 md:w-[445px]"
+ id="message"
+ placeholder="Type Your Message*"
+ rows={5}
+ className="h-[197px] w-[200px] rounded-[5px] border p-2 md:w-[445px]"
                   ></textarea>
                 </div>
               </form>

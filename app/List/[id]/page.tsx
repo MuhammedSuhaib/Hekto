@@ -162,9 +162,9 @@ async function page({ params }: Params) {
               >
                 <img
                   src={
-                    product.image
-                      ? urlFor(product.image).url()
-                      : "/placeholder.png"
+ product.image
+   ? urlFor(product.image).url()
+   : "/placeholder.png"
                   }
                   alt={product.name}
                   className="h-48 w-full rounded-t-lg object-cover"
@@ -177,11 +177,11 @@ async function page({ params }: Params) {
                 </p>
                 {product.discountPercentage > 0 && (
                   <p className="text-sm text-gray-500 line-through">
-                    $
-                    {(
-                      parseFloat(product.price) *
-                      (1 + product.discountPercentage / 100)
-                    ).toFixed(2)}
+ $
+ {(
+   parseFloat(product.price) *
+   (1 + product.discountPercentage / 100)
+ ).toFixed(2)}
                   </p>
                 )}
                 <button className="mt-4 rounded-lg bg-[#FB2E86] px-4 py-2 text-white transition hover:bg-[#e02174]">
