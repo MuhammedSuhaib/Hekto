@@ -7,13 +7,8 @@ import { Lato } from "next/font/google";
 const lato = Lato({ subsets: ["latin"], weight: ["400", "700"] });
 import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
-
 import { Card, CardContent } from "@/components/ui/card";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-} from "@/components/ui/carousel";
+import {Carousel,CarouselContent,CarouselItem,} from "@/components/ui/carousel";
 import Button from "@/components/Button";
 import Link from "next/link";
 interface Product {
@@ -27,7 +22,7 @@ interface Product {
   isLeatestProduct: boolean;
   isTrendingProduct: boolean;
   stockLevel: number;
-  category: "Chair" | "Sofa"; // Adjust this list as needed
+  category: "Chair" | "Sofa"; 
 }
 
 export default async function Home() {
@@ -276,7 +271,7 @@ category
                                 <span className="ml-7 text-sm font-medium text-[#151875]">
                                   ${product.price}{" "}
                                   {product.discountPercentage > 0 && (
-                                    <span className="ml-1 text-sm text-[#FB2E86] line-through">
+                                    <span className="ml-1 text-xs text-[#FB2E86] line-through">
                                       $
                                       {(
                                         parseFloat(product.price) *
@@ -326,7 +321,7 @@ category
                                 <span className="ml-7 text-sm font-medium text-[#151875]">
                                   ${product.price}{" "}
                                   {product.discountPercentage > 0 && (
-                                    <span className="ml-1 text-sm text-[#FB2E86] line-through">
+                                    <span className="ml-1 text-xs text-[#FB2E86] line-through">
                                       $
                                       {(
                                         parseFloat(product.price) *
@@ -413,7 +408,8 @@ category
             </>
             {/* banner */}
             <div className="flex w-screen flex-col items-center justify-center bg-[#F1F0FF] p-4 md:h-[579px] md:flex-row">
-              <Image src="/153.png" alt="sofa" width={558} height={550} />
+              <Link href={"/BQj9k9W1Mf2GlcuUg3OakX"} >
+              <Image src="/153.png" alt="sofa" width={558} height={550} /></Link>
               <div className="flex flex-col gap-8">
                 <h1 className="w-[50vh] pl-[1vh] text-center text-[35px] font-bold text-[#1A0B5B] md:w-[507px] md:text-left">
                   Unique Features Of leatest & Trending Poducts{" "}
@@ -608,7 +604,7 @@ View Collection{" "}
               {/* Left Text Section */}
               <div className="flex flex-col gap-4 pl-[10vh] md:pl-0">
                 <h2 className="w-[50vh] text-[35px] font-bold text-[#1A0B5B] md:w-full">
-                  20% Discount Of All Products
+                  20% Discount On All Products
                 </h2>
                 <h3 className="text-[21px] font-semibold text-[#FB2E86]">
                   Eams Sofa Compact
@@ -672,12 +668,13 @@ View Collection{" "}
               </div>
               {/* Right Section */}
               <div>
+                <Link href={"/YjFIo1g1LQZHJZg27Q0Unp"}> 
                 <Image
                   src="/tortuga.png"
                   alt="chair"
                   width={699}
                   height={567}
-                />
+                /></Link>
               </div>
             </div>
           </>

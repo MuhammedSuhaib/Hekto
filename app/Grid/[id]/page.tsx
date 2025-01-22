@@ -6,6 +6,7 @@ import Nvbr from "@/components/Navbar";
 import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
 import Image from "next/image";
+import Link from "next/link";
 
 interface Product {
   _id: string;
@@ -16,7 +17,7 @@ interface Product {
   discountPercentage: number;
   isFeaturedProduct: boolean;
   stockLevel: number;
-  category: "Chair" | "Sofa"; // Adjust this list as needed
+  category: "Chair" | "Sofa"; 
 }
 
 interface Params {
@@ -151,46 +152,49 @@ async function page({ params }: Params) {
 
         {/* Similar Products Section */}
         <div className="mt-12">
-          <h2 className="mb-6 text-xl font-bold text-gray-800">
-            Similar Products
-          </h2>
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-            {similarProducts.slice(0, 4).map((product) => (
-              <div
-                key={product._id}
-                className="flex flex-col items-center rounded-lg bg-white p-4 shadow-md transition hover:shadow-xl"
-              >
-                <img
-                  src={
-                    product.image
-                      ? urlFor(product.image).url()
-                      : "/placeholder.png"
-                  }
-                  alt={product.name}
-                  className="h-48 w-full rounded-t-lg object-cover"
-                />
-                <h3 className="mt-4 text-lg font-bold text-gray-800">
-                  {product.name}
-                </h3>
-                <p className="text-gray-700">
-                  Price: ${parseFloat(product.price).toFixed(2)}
-                </p>
-                {product.discountPercentage > 0 && (
-                  <p className="text-sm text-gray-500 line-through">
-                    $
-                    {(
-                      parseFloat(product.price) *
-                      (1 + product.discountPercentage / 100)
-                    ).toFixed(2)}
-                  </p>
-                )}
-                <button className="mt-4 rounded-lg bg-[#FB2E86] px-4 py-2 text-white transition hover:bg-[#e02174]">
-                  View Details
-                </button>
-              </div>
-            ))}
-          </div>
-        </div>
+  <h2 className="mb-6 text-xl font-bold text-gray-800">Similar Products</h2>
+  <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+    {similarProducts.slice(0, 4).map((product) => (
+      <div
+        key={product._id}
+        className="flex flex-col items-center rounded-lg bg-white p-4 shadow-md transition hover:shadow-xl"
+      >
+        <img
+          src={
+            product.image
+              ? urlFor(product.image).url()
+              : "/placeholder.png"
+          }
+          alt={product.name}
+          className="h-48 w-full rounded-t-lg object-cover"
+        />
+        <h3 className="mt-4 text-lg font-bold text-gray-800">
+          {product.name}
+        </h3>
+        <p className="text-gray-700">
+          Price: ${parseFloat(product.price).toFixed(2)}
+        </p>
+        {product.discountPercentage > 0 && (
+          <p className="text-sm text-gray-500 line-through">
+            $
+            {(
+              parseFloat(product.price) *
+              (1 + product.discountPercentage / 100)
+            ).toFixed(2)}
+          </p>
+        )}
+        
+        <Link
+          href={`/${product._id}`}
+          className="mt-4 rounded-lg bg-[#FB2E86] px-4 py-2 text-white transition hover:bg-[#e02174]"
+        >
+          View Details
+        </Link>
+      </div>
+    ))}
+  </div>
+</div>
+
       </div>
       <Footer />
       <Mi />

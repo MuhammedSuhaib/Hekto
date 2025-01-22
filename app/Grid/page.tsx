@@ -19,7 +19,7 @@ interface Product {
   discountPercentage: number;
   isFeaturedProduct: boolean;
   stockLevel: number;
-  category: "Chair" | "Sofa"; // Adjust this list as needed
+  category: "Chair" | "Sofa";
 }
 const lato = Lato({ subsets: ["latin"], weight: ["400", "700"] });
 
@@ -99,57 +99,57 @@ async function Shop_Grid_page() {
             </div>
           </div>
         </div>
-{/* Grid Section */}
-<div className="flex flex-col items-center justify-center">
-  <div className="mt-4 grid grid-cols-1 gap-6 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4">
-    {data.slice(0, 12).map((product) => (
-      <Link
-        href={`/Grid/${product._id}`}
-        key={product._id}
-        className="flex w-[270px] flex-col items-center p-4 transition duration-300 ease-in-out hover:shadow-xl hover:bg-[#51d0f715]"
-      >
-        {/* Card Header with Image */}
-        <div className="flex items-center justify-center ">
-          <img
-            src={
-              product.image && product.image.asset
-                ? urlFor(product.image.asset).url()
-                : "/placeholder.png"
-            }
-            alt={product.name}
-            width={201}
-            height={201}
-            loading="lazy"
-            className="h-56 w-full rounded-t-lg object-cover"
-          />
+        {/* Grid Section */}
+        <div className="flex flex-col items-center justify-center">
+          <div className="mt-4 grid grid-cols-1 gap-6 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4">
+            {data.slice(0, 12).map((product) => (
+              <Link
+                href={`/Grid/${product._id}`}
+                key={product._id}
+                className="flex w-[270px] flex-col items-center p-4 transition duration-300 ease-in-out hover:shadow-xl hover:bg-[#51d0f715]"
+              >
+                {/* Card Header with Image */}
+                <div className="flex items-center justify-center ">
+                  <img
+                    src={
+                      product.image && product.image.asset
+                        ? urlFor(product.image.asset).url()
+                        : "/placeholder.png"
+                    }
+                    alt={product.name}
+                    width={201}
+                    height={201}
+                    loading="lazy"
+                    className="h-56 w-full rounded-t-lg object-cover"
+                  />
+                </div>
+                <span className="mb-[8px] mt-[47px] text-center text-lg font-bold text-[#151875]">
+                  {product.name}
+                </span>
+                <Image
+                  src="/Group44.png"
+                  alt="circles"
+                  width={42}
+                  height={10}
+                />
+                <div className="mt-2 flex items-center">
+                  <span className="text-lg font-bold text-[#151875]">
+                    ${parseFloat(product.price).toFixed(2)}
+                  </span>
+                  {product.discountPercentage > 0 && (
+                    <span className="ml-2 text-sm text-[#FB2E86] line-through">
+                      $
+                      {(
+                        parseFloat(product.price) *
+                        (1 + product.discountPercentage / 100)
+                      ).toFixed(2)}
+                    </span>
+                  )}
+                </div>
+              </Link>
+            ))}
+          </div>
         </div>
-        <span className="mb-[8px] mt-[47px] text-center text-lg font-bold text-[#151875]">
-          {product.name}
-        </span>
-        <Image
-          src="/Group44.png"
-          alt="circles"
-          width={42}
-          height={10}
-        />
-        <div className="mt-2 flex items-center">
-          <span className="text-lg font-bold text-[#151875]">
-            ${parseFloat(product.price).toFixed(2)}
-          </span>
-          {product.discountPercentage > 0 && (
-            <span className="ml-2 text-sm text-[#FB2E86] line-through">
-              $
-              {(
-                parseFloat(product.price) *
-                (1 + product.discountPercentage / 100)
-              ).toFixed(2)}
-            </span>
-          )}
-        </div>
-      </Link>
-    ))}
-  </div>
-</div>
 
         {/* Bottom Section */}
         <div className="my-[83px] hidden md:block">
