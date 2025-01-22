@@ -66,11 +66,11 @@ async function page() {
                 ${product.price}
                 {product.discountPercentage > 0 && (
                   <span className="ml-1 text-xs text-[#fb2e2e] line-through">
-                    $
-                    {(
-                      parseFloat(product.price) *
-                      (1 + product.discountPercentage / 100)
-                    ).toFixed(2)}
+ $
+ {(
+   parseFloat(product.price) *
+   (1 + product.discountPercentage / 100)
+ ).toFixed(2)}
                   </span>
                 )}
               </span>{" "}

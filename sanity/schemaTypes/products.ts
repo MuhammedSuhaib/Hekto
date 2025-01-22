@@ -76,8 +76,8 @@ export default {
             title: "Category",
             options: {
                 list: [
-                    { title: "Chair", value: "Chair" },
-                    { title: "Sofa", value: "Sofa" },
+ { title: "Chair", value: "Chair" },
+ { title: "Sofa", value: "Sofa" },
                 ],
             },
             validation: (Rule: any) => Rule.required().error("Category is required"),

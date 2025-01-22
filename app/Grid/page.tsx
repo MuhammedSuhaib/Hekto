@@ -111,16 +111,16 @@ async function Shop_Grid_page() {
                 {/* Card Header with Image */}
                 <div className="flex items-center justify-center ">
                   <img
-                    src={
-                      product.image && product.image.asset
-                        ? urlFor(product.image.asset).url()
-                        : "/placeholder.png"
-                    }
-                    alt={product.name}
-                    width={201}
-                    height={201}
-                    loading="lazy"
-                    className="h-56 w-full rounded-t-lg object-cover"
+ src={
+   product.image && product.image.asset
+     ? urlFor(product.image.asset).url()
+     : "/placeholder.png"
+ }
+ alt={product.name}
+ width={201}
+ height={201}
+ loading="lazy"
+ className="h-56 w-full rounded-t-lg object-cover"
                   />
                 </div>
                 <span className="mb-[8px] mt-[47px] text-center text-lg font-bold text-[#151875]">
@@ -134,16 +134,16 @@ async function Shop_Grid_page() {
                 />
                 <div className="mt-2 flex items-center">
                   <span className="text-lg font-bold text-[#151875]">
-                    ${parseFloat(product.price).toFixed(2)}
+ ${parseFloat(product.price).toFixed(2)}
                   </span>
                   {product.discountPercentage > 0 && (
-                    <span className="ml-2 text-sm text-[#FB2E86] line-through">
-                      $
-                      {(
-                        parseFloat(product.price) *
-                        (1 + product.discountPercentage / 100)
-                      ).toFixed(2)}
-                    </span>
+ <span className="ml-2 text-sm text-[#FB2E86] line-through">
+   $
+   {(
+     parseFloat(product.price) *
+     (1 + product.discountPercentage / 100)
+   ).toFixed(2)}
+ </span>
                   )}
                 </div>
               </Link>

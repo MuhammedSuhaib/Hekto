@@ -48,56 +48,56 @@ function ContactUsPage() {
               <div className="flex flex-col gap-[37px] lg:flex-row">
                 <div className="flex items-center gap-[5px]">
                   <Image
-                    src="/blue.png"
-                    width={45}
-                    height={45}
-                    alt="Picture of the author"
+ src="/blue.png"
+ width={45}
+ height={45}
+ alt="Picture of the author"
                   />
                   <div>
-                    <p>Tel: 877-67-88-99</p>
-                    <p>E-Mail: shop@store.com</p>
+ <p>Tel: 877-67-88-99</p>
+ <p>E-Mail: shop@store.com</p>
                   </div>
                 </div>
                 <div className="flex">
                   <div className="flex items-center gap-[5px]">
-                    <Image
-                      src="/pink.png"
-                      width={45}
-                      height={45}
-                      alt="Picture of the author"
-                    />{" "}
-                    <div>
-                      <p>Support Forum</p>
-                      <p>For over 24hr</p>
-                    </div>
+ <Image
+   src="/pink.png"
+   width={45}
+   height={45}
+   alt="Picture of the author"
+ />{" "}
+ <div>
+   <p>Support Forum</p>
+   <p>For over 24hr</p>
+ </div>
                   </div>
                 </div>
               </div>
               <div className="flex flex-col gap-[37px] lg:flex-row">
                 <div className="flex items-center gap-[5px]">
                   <Image
-                    src="/yellow.png"
-                    width={45}
-                    height={45}
-                    alt="Picture of the author"
+ src="/yellow.png"
+ width={45}
+ height={45}
+ alt="Picture of the author"
                   />{" "}
                   <div>
-                    <p>20 Margaret st, London</p>
-                    <p>Great britain, 3NM98-LK</p>
+ <p>20 Margaret st, London</p>
+ <p>Great britain, 3NM98-LK</p>
                   </div>
                 </div>
                 <div className="flex">
                   <div className="flex items-center gap-[5px]">
-                    <Image
-                      src="/green.png"
-                      width={45}
-                      height={45}
-                      alt="Picture of the author"
-                    />{" "}
-                    <div>
-                      <p>Free standard shipping</p>
-                      <p>on all orders.</p>
-                    </div>
+ <Image
+   src="/green.png"
+   width={45}
+   height={45}
+   alt="Picture of the author"
+ />{" "}
+ <div>
+   <p>Free standard shipping</p>
+   <p>on all orders.</p>
+ </div>
                   </div>
                 </div>
               </div>
@@ -124,18 +124,18 @@ function ContactUsPage() {
               <div className="flex flex-col gap-6 sm:flex-row">
                 <div>
                   <input
-                    type="text"
-                    id="name"
-                    placeholder="Your Name*"
-                    className="mb-[35px] h-[50px] w-[200px] rounded-[5px] border p-2 sm:w-[255px]"
+ type="text"
+ id="name"
+ placeholder="Your Name*"
+ className="mb-[35px] h-[50px] w-[200px] rounded-[5px] border p-2 sm:w-[255px]"
                   />
                 </div>
                 <div>
                   <input
-                    type="text"
-                    id="email"
-                    placeholder="Your E-mail*"
-                    className="mb-[35px] h-[50px] w-[200px] rounded-[5px] border p-2 sm:w-[255px]"
+ type="text"
+ id="email"
+ placeholder="Your E-mail*"
+ className="mb-[35px] h-[50px] w-[200px] rounded-[5px] border p-2 sm:w-[255px]"
                   />
                 </div>
               </div>
