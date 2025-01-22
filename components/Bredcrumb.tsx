@@ -16,7 +16,7 @@ interface BredcrumbProps {
 
 function Bredcrumb({ pageName }: BredcrumbProps) {
   return (
-    <div className="h-fit bg-[#F6F5FF] p-4 text-xl font-medium text-[#101750] md:text-[36px] lg:h-[286px] lg:px-[375px] lg:py-24">
+    <div className="h-fit bg-[#eeedf8] p-4 text-xl font-medium text-[#101750] md:text-[36px] lg:h-[286px] lg:px-[375px] lg:py-24">
       <h1 className="font-extrabold mb-2">{pageName}</h1>
 
       <Breadcrumb>

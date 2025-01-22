@@ -15,6 +15,7 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel";
 import Button from "@/components/Button";
+import Link from "next/link";
 interface Product {
   _id: string;
   name: string;
@@ -109,43 +110,44 @@ category
     <div className="w-screen overflow-x-hidden bg-white">
       <Header />
       <Nvbr />
-      <div className="lg:h-[7795px]">
+      <div className="lg:h-[6695px]">
         {/* promotional*/}
         <div className="h-auto bg-[#F2F0FF] px-4 lg:pr-[173px]">
-          <div className="flex flex-col items-center justify-between lg:flex-row lg:items-start">
-            <Image
-              src="/image32.png"
-              alt="Lamp"
-              width={387}
-              height={387}
-              className="h-[200px] w-[200px] md:h-[300px] md:w-[300px] lg:h-[387px] lg:w-[387px]"
-            />
-            <div className="mt-8 flex flex-col gap-6 text-center lg:-ml-[100px] lg:mt-[203px] lg:w-[644px] lg:text-left">
-              <p
-                className={`${lato.className} font-lato text-[14px] font-bold text-[#FB2E86] md:text-[16px]`}
-              >
-                Best Furniture For Your Castle....
-              </p>
-              <h1 className="text-[24px] font-bold text-black lg:text-[53px]">
-                New Furniture Collection Trends in 2025
-              </h1>
-              <p
-                className={`${lato.className} font-lato text-[14px] text-[#8A8FB9] md:text-[16px]`}
-              >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna
-                in est adipiscing in phasellus non in justo.
-              </p>
-            <Button/>
+          <Link href={`/0e0ztuJY6NWdyblBESqXIV`}>
+            <div className="flex flex-col items-center justify-between lg:flex-row lg:items-start">
+              <Image
+                src="/image32.png"
+                alt="Lamp"
+                width={387}
+                height={387}
+                className="h-[200px] w-[200px] md:h-[300px] md:w-[300px] lg:h-[387px] lg:w-[387px]"
+              />
+              <div className="mt-8 flex flex-col gap-6 text-center lg:-ml-[100px] lg:mt-[203px] lg:w-[644px] lg:text-left">
+                <p
+                  className={`${lato.className} font-lato text-[14px] font-bold text-[#FB2E86] md:text-[16px]`}
+                >
+                  Best Furniture For Your Castle....
+                </p>
+                <h1 className="text-[24px] font-bold text-black lg:text-[53px]">
+                  New Furniture Collection Trends in 2025
+                </h1>
+                <p
+                  className={`${lato.className} font-lato text-[14px] text-[#8A8FB9] md:text-[16px]`}
+                >
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna
+                  in est adipiscing in phasellus non in justo.
+                </p>
+                <Button />
+              </div>
+              <Image
+                src="/sofa.png"
+                alt="sofa"
+                width={706}
+                height={689}
+                className="h-auto w-[300px] md:w-[500px] lg:w-[706px]"
+              />
             </div>
-            <Image
-              src="/sofa.png"
-              alt="sofa"
-              width={706}
-              height={689}
-              className="h-auto w-[300px] md:w-[500px] lg:w-[706px]"
-            />
-          </div>
-
+          </Link>
           <div className="mt-6 flex justify-center pb-[52px] lg:mt-0">
             <Image
               src="/promotional.png"
@@ -156,7 +158,7 @@ category
             />
           </div>
         </div>
-        {/*Featured  */}
+        {/*Featured*/}
         <div className="h-[2195px]">
           {/*Featured Products */}
           <>
@@ -169,46 +171,47 @@ category
                   {data.map((product, index) => (
                     <CarouselItem
                       key={product._id}
-                      className={`flex flex-col items-stretch p-4 transition duration-300 ease-in-out hover:bg-[#f599c15b] hover:shadow-2xl md:basis-1/2 lg:basis-1/3 xl:basis-1/4 ${
-                        index === 0 ? "animate-nudge" : ""
-                      } `}
+                      className={`flex flex-col items-stretch p-4 transition duration-300 ease-in-out hover:bg-[#f599c15b] hover:shadow-2xl md:basis-1/2 lg:basis-1/3 xl:basis-1/4 ${index === 0 ? "animate-nudge" : ""
+                        } `}
                     >
-                      <div className="flex h-full items-center justify-center">
-                        <Card className="flex h-full flex-col rounded-none">
-                          <CardContent className="flex h-full flex-col items-center justify-center">
-                            {/* head of card with img */}
-                            <div className="flex items-center justify-center bg-[#F6F7FB]">
-                              <img
-                                src={urlFor(product.image.asset).url()}
-                                alt={product.name}
-                                width={201}
-                                height={201}
-                                loading="lazy"
-                                className="h-56 w-full object-cover"
-                              />
-                            </div>
-                            <span className="text-center text-lg font-bold text-[#FB2E86]">
-                              {product.name}
-                            </span>
-                            <Image
-                              src="/141.png"
-                              alt="line"
-                              width={52}
-                              height={4}
-                              className="my-4"
-                            />
-                            <span className="text-sm font-semibold text-[#151875]">
-                              Code - {product._id.slice(0, 7)}
-                            </span>
-
-                            <div className="mt-2 flex items-center">
-                              <span className="text-sm font-medium text-[#151875]">
-                                ${product.price}
+                      <Link href={`/${product._id}`} key={product._id}>
+                        <div className="flex h-full items-center justify-center">
+                          <Card className="flex h-full flex-col rounded-none">
+                            <CardContent className="flex h-full flex-col items-center justify-center">
+                              {/* head of card with img */}
+                              <div className="flex items-center justify-center bg-[#F6F7FB]">
+                                <img
+                                  src={urlFor(product.image.asset).url()}
+                                  alt={product.name}
+                                  width={201}
+                                  height={201}
+                                  loading="lazy"
+                                  className="h-56 w-full object-cover"
+                                />
+                              </div>
+                              <span className="text-center text-lg font-bold text-[#FB2E86]">
+                                {product.name}
                               </span>
-                            </div>
-                          </CardContent>
-                        </Card>
-                      </div>
+                              <Image
+                                src="/141.png"
+                                alt="line"
+                                width={52}
+                                height={4}
+                                className="my-4"
+                              />
+                              <span className="text-sm font-semibold text-[#151875]">
+                                Code - {product._id.slice(0, 7)}
+                              </span>
+
+                              <div className="mt-2 flex items-center">
+                                <span className="text-sm font-medium text-[#151875]">
+                                  ${product.price}
+                                </span>
+                              </div>
+                            </CardContent>
+                          </Card>
+                        </div>
+                      </Link>
                     </CarouselItem>
                   ))}
                 </CarouselContent>
@@ -251,40 +254,42 @@ category
                       key={product._id}
                       className={`flex flex-col items-stretch p-4 transition duration-300 ease-in-out hover:bg-[#f599c15b] hover:shadow-2xl md:basis-1/2 lg:basis-1/3 xl:basis-1/4`}
                     >
-                      <div className="flex h-full items-center justify-center">
-                        <Card className="flex h-full flex-col rounded-none">
-                          <CardContent className="flex h-full flex-col items-center justify-center">
-                            {/* head of card with img */}
-                            <div className="flex items-center justify-center bg-[#F6F7FB]">
-                              <img
-                                src={urlFor(product.image.asset).url()}
-                                alt={product.name}
-                                width={201}
-                                height={201}
-                                loading="lazy"
-                                className="h-56 w-full object-cover"
-                              />
-                            </div>
-                            <div className="flex items-center justify-between">
-                              <span className="text-base text-[#151875]">
-                                Comfort Handy Craft
-                              </span>
-                              <span className="ml-7 text-sm font-medium text-[#151875]">
-                                ${product.price}{" "}
-                                {product.discountPercentage > 0 && (
-                                  <span className="ml-1 text-sm text-[#FB2E86] line-through">
-                                    $
-                                    {(
-                                      parseFloat(product.price) *
-                                      (1 + product.discountPercentage / 100)
-                                    ).toFixed(2)}
-                                  </span>
-                                )}
-                              </span>
-                            </div>
-                          </CardContent>
-                        </Card>
-                      </div>
+                      <Link href={`/${product._id}`} key={product._id}>
+                        <div className="flex h-full items-center justify-center">
+                          <Card className="flex h-full flex-col rounded-none">
+                            <CardContent className="flex h-full flex-col items-center justify-center">
+                              {/* head of card with img */}
+                              <div className="flex items-center justify-center bg-[#F6F7FB]">
+                                <img
+                                  src={urlFor(product.image.asset).url()}
+                                  alt={product.name}
+                                  width={201}
+                                  height={201}
+                                  loading="lazy"
+                                  className="h-56 w-full object-cover"
+                                />
+                              </div>
+                              <div className="flex items-center justify-between">
+                                <span className="text-base text-[#151875]">
+                                  Comfort Handy Craft
+                                </span>
+                                <span className="ml-7 text-sm font-medium text-[#151875]">
+                                  ${product.price}{" "}
+                                  {product.discountPercentage > 0 && (
+                                    <span className="ml-1 text-sm text-[#FB2E86] line-through">
+                                      $
+                                      {(
+                                        parseFloat(product.price) *
+                                        (1 + product.discountPercentage / 100)
+                                      ).toFixed(2)}
+                                    </span>
+                                  )}
+                                </span>
+                              </div>
+                            </CardContent>
+                          </Card>
+                        </div>
+                      </Link>
                     </CarouselItem>
                   ))}
                 </CarouselContent>
@@ -296,44 +301,45 @@ category
                   {dataL.toReversed().map((product, index) => (
                     <CarouselItem
                       key={product._id}
-                      className={`flex flex-col items-stretch p-4 transition duration-300 ease-in-out hover:bg-[#f599c15b] hover:shadow-2xl md:basis-1/2 lg:basis-1/3 xl:basis-1/4 ${
-                        index === 0 ? "animate-nudge" : ""
-                      }`}
+                      className={`flex flex-col items-stretch p-4 transition duration-300 ease-in-out hover:bg-[#f599c15b] hover:shadow-2xl md:basis-1/2 lg:basis-1/3 xl:basis-1/4 ${index === 0 ? "animate-nudge" : ""
+                        }`}
                     >
-                      <div className="flex h-full items-center justify-center">
-                        <Card className="flex h-full flex-col rounded-none">
-                          <CardContent className="flex h-full flex-col items-center justify-center">
-                            {/* head of card with img */}
-                            <div className="flex items-center justify-center bg-[#F6F7FB]">
-                              <img
-                                src={urlFor(product.image.asset).url()}
-                                alt={product.name}
-                                width={201}
-                                height={201}
-                                loading="lazy"
-                                className="h-56 w-full object-cover"
-                              />
-                            </div>
-                            <div className="flex items-center justify-between">
-                              <span className="text-base text-[#151875]">
-                                Comfort Handy Craft
-                              </span>
-                              <span className="ml-7 text-sm font-medium text-[#151875]">
-                                ${product.price}{" "}
-                                {product.discountPercentage > 0 && (
-                                  <span className="ml-1 text-sm text-[#FB2E86] line-through">
-                                    $
-                                    {(
-                                      parseFloat(product.price) *
-                                      (1 + product.discountPercentage / 100)
-                                    ).toFixed(2)}
-                                  </span>
-                                )}
-                              </span>
-                            </div>
-                          </CardContent>
-                        </Card>
-                      </div>
+                      <Link href={`/${product._id}`} key={product._id}>
+                        <div className="flex h-full items-center justify-center">
+                          <Card className="flex h-full flex-col rounded-none">
+                            <CardContent className="flex h-full flex-col items-center justify-center">
+                              {/* head of card with img */}
+                              <div className="flex items-center justify-center bg-[#F6F7FB]">
+                                <img
+                                  src={urlFor(product.image.asset).url()}
+                                  alt={product.name}
+                                  width={201}
+                                  height={201}
+                                  loading="lazy"
+                                  className="h-56 w-full object-cover"
+                                />
+                              </div>
+                              <div className="flex items-center justify-between">
+                                <span className="text-base text-[#151875]">
+                                  Comfort Handy Craft
+                                </span>
+                                <span className="ml-7 text-sm font-medium text-[#151875]">
+                                  ${product.price}{" "}
+                                  {product.discountPercentage > 0 && (
+                                    <span className="ml-1 text-sm text-[#FB2E86] line-through">
+                                      $
+                                      {(
+                                        parseFloat(product.price) *
+                                        (1 + product.discountPercentage / 100)
+                                      ).toFixed(2)}
+                                    </span>
+                                  )}
+                                </span>
+                              </div>
+                            </CardContent>
+                          </Card>
+                        </div>
+                      </Link>
                     </CarouselItem>
                   ))}
                 </CarouselContent>
@@ -448,7 +454,7 @@ category
                   </li>
                 </ul>{" "}
                 <div className="flex flex-col gap-5 pl-[15vh] md:flex-row md:pl-0">
-                  <Button label="Add To Cart"/>
+                  <Button label="Add To Cart" />
                   <div>
                     <p className={`text-sm font-semibold text-[#151875]`}>
                       B&B Italian Sofa{" "}
@@ -475,109 +481,113 @@ category
                     key={product._id}
                     className="flexh-fit w-fit flex-col items-center transition duration-300 ease-in-out hover:bg-[#51d0f715] hover:shadow-xl"
                   >
-                    {/* head of card with img */}
-                    <div className="flex items-center justify-center">
-                      <img
-                        src={urlFor(product.image.asset).url()}
-                        alt={product.name}
-                        width={201}
-                        height={201}
-                        loading="lazy"
-                        className="h-56 w-full rounded-t-lg object-cover"
-                      />
-                    </div>
-                    <span className="mb-[8px] mt-[47px] text-center text-lg font-bold text-[#151875]">
-                      {product.name}
-                    </span>
-                    <div className="mt-2 flex items-center">
-                      <span className="text-lg font-bold text-[#151875]">
-                        ${product.price}
+                    <Link href={`/${product._id}`} key={product._id}>
+                      {/* head of card with img */}
+                      <div className="flex items-center justify-center">
+                        <img
+                          src={urlFor(product.image.asset).url()}
+                          alt={product.name}
+                          width={201}
+                          height={201}
+                          loading="lazy"
+                          className="h-56 w-full rounded-t-lg object-cover"
+                        />
+                      </div>
+                      <span className="mb-[8px] mt-[47px] text-center text-lg font-bold text-[#151875]">
+                        {product.name}
                       </span>
-                      {product.discountPercentage > 0 && (
-                        <span className="ml-2 text-sm text-[#FB2E86] line-through">
-                          $
-                          {(
-                            parseFloat(product.price) *
-                            (1 + product.discountPercentage / 100)
-                          ).toFixed(2)}
+                      <div className="mt-2 flex items-center">
+                        <span className="text-lg font-bold text-[#151875]">
+                          ${product.price}
                         </span>
-                      )}
-                    </div>
+                        {product.discountPercentage > 0 && (
+                          <span className="ml-2 text-sm text-[#FB2E86] line-through">
+                            $
+                            {(
+                              parseFloat(product.price) *
+                              (1 + product.discountPercentage / 100)
+                            ).toFixed(2)}
+                          </span>
+                        )}
+                      </div>
+                    </Link>
                   </div>
                 ))}
               </div>
             </div>
-            <div className="mt-4 hidden flex-col items-center justify-center gap-7 md:flex md:flex-row">
-              <div className="h-[270px] w-[420px] bg-[#FFF6FB] p-6">
-                {" "}
-                <p className="text-[26px] font-semibold text-[#151875]">
-                  23% off in all products
-                </p>
-                <p
-                  className={`${lato.className} text-base font-semibold text-[#FB2E86] underline`}
-                >
-                  Shop Now
-                </p>
-                <div className="flex justify-end">
-                  {" "}
-                  <Image
-                    src="/1162.png"
-                    alt="product"
-                    width={213}
-                    height={207}
-                  />
-                </div>
-              </div>
-              <div className="h-[270px] w-[420px] bg-[#EEEFFB]">
-                {" "}
-                <p className="text-[26px] font-semibold text-[#151875]">
-                  23% off in all products
-                </p>
-                <p
-                  className={`${lato.className} text-base font-semibold text-[#FB2E86] underline`}
-                >
-                  View Collection{" "}
-                </p>
-                <div className="flex justify-end">
-                  {" "}
-                  <Image
-                    src="/1161.png"
-                    alt="product"
-                    width={312}
-                    height={173}
-                  />
-                </div>
-              </div>
-              <div>
-                <div className="flex gap-2">
-                  <div className="flex h-[74px] w-[107px] items-center justify-center bg-[#F5F6F8]">
-                    <Image src="/2up.png" alt="chr" width={67} height={67} />
-                  </div>
-                  <div className="font-normal text-[#151875]">
-                    <p className="text-base">Executive Seat chair</p>
-                    <span className="text-xs line-through">$32.00</span>
-                  </div>
-                </div>
-                <div className="flex gap-2">
-                  <div className="flex h-[74px] w-[107px] items-center justify-center bg-[#F5F6F8]">
-                    <Image src="/mid.png" alt="chir" width={67} height={67} />
-                  </div>
-                  <div className="font-normal text-[#151875]">
-                    <p className="text-base">Executive Seat chair</p>
-                    <span className="text-xs line-through">$32.00</span>
-                  </div>{" "}
-                </div>
-                <div className="flex gap-2">
-                  <div className="flex h-[74px] w-[107px] items-center justify-center bg-[#F5F6F8]">
-                    <Image src="/bot.png" alt="chair" width={67} height={67} />
-                  </div>
-                  <div className="font-normal text-[#151875]">
-                    <p className="text-base">Executive Seat chair</p>
-                    <span className="text-xs line-through">$32.00</span>
-                  </div>{" "}
-                </div>
-              </div>
-            </div>
+
+{/* <div className="mt-4 hidden flex-col items-center justify-center gap-7 md:flex md:flex-row">
+  <div className="h-[270px] w-[420px] bg-[#FFF6FB] p-6">
+    {" "}
+    <p className="text-[26px] font-semibold text-[#151875]">
+23% off in all products
+    </p>
+    <p
+className={`${lato.className} text-base font-semibold text-[#FB2E86] underline`}
+    >
+Shop Now
+    </p>
+    <div className="flex justify-end">
+{" "}
+<Image
+  src="/1162.png"
+  alt="product"
+  width={213}
+  height={207}
+/>
+    </div>
+  </div>
+  <div className="h-[270px] w-[420px] bg-[#EEEFFB]">
+    {" "}
+    <p className="text-[26px] font-semibold text-[#151875]">
+23% off in all products
+    </p>
+    <p
+className={`${lato.className} text-base font-semibold text-[#FB2E86] underline`}
+    >
+View Collection{" "}
+    </p>
+    <div className="flex justify-end">
+{" "}
+<Image
+  src="/1161.png"
+  alt="product"
+  width={312}
+  height={173}
+/>
+    </div>
+  </div>
+  <div>
+    <div className="flex gap-2">
+<div className="flex h-[74px] w-[107px] items-center justify-center bg-[#F5F6F8]">
+  <Image src="/2up.png" alt="chr" width={67} height={67} />
+</div>
+<div className="font-normal text-[#151875]">
+  <p className="text-base">Executive Seat chair</p>
+  <span className="text-xs line-through">$32.00</span>
+</div>
+    </div>
+    <div className="flex gap-2">
+<div className="flex h-[74px] w-[107px] items-center justify-center bg-[#F5F6F8]">
+  <Image src="/mid.png" alt="chir" width={67} height={67} />
+</div>
+<div className="font-normal text-[#151875]">
+  <p className="text-base">Executive Seat chair</p>
+  <span className="text-xs line-through">$32.00</span>
+</div>{" "}
+    </div>
+    <div className="flex gap-2">
+<div className="flex h-[74px] w-[107px] items-center justify-center bg-[#F5F6F8]">
+  <Image src="/bot.png" alt="chair" width={67} height={67} />
+</div>
+<div className="font-normal text-[#151875]">
+  <p className="text-base">Executive Seat chair</p>
+  <span className="text-xs line-through">$32.00</span>
+</div>{" "}
+    </div>
+  </div>
+</div> */}
+
           </>
           {/* Discount Item */}
           <>
@@ -658,7 +668,7 @@ category
                     </li>
                   </ul>
                 </div>
-                <Button/>
+                <Button />
               </div>
               {/* Right Section */}
               <div>
@@ -683,22 +693,21 @@ category
                     key={product._id}
                     className="flex flex-col items-center justify-center gap-4"
                   >
-                    {/* Image container */}
-                    <div className="flex items-center justify-center rounded-full bg-[#F6F7FB]">
-                      <img
-                        src={urlFor(product.image.asset).url()}
-                        alt={product.name}
-                        width={269}
-                        height={269}
-                        loading="lazy"
-                      />
-                    </div>
-                    <span className="text-xl font-normal text-[#151875]">
-                      {product.name}
-                    </span>
-                    <span className="text-base font-normal text-[#151875]">
-                      ${product.price}
-                    </span>
+                    <Link href={`/${product._id}`} key={product._id}>
+                      {/* Image container */}
+                      <div className="flex items-center justify-center rounded-full bg-[#F6F7FB]">
+                        <img
+                          src={urlFor(product.image.asset).url()}
+                          alt={product.name}
+                          width={269}
+                          height={269}
+                          loading="lazy"
+                        />
+                      </div>
+                      <span className="text-xl font-normal text-[#151875]">
+                        {product.name}
+                      </span>
+                    </Link>
                   </div>
                 ))}
               </div>
@@ -714,7 +723,7 @@ category
               <h1 className="mb-[28px] w-[1/2] text-center text-[35px] font-bold text-[#1A0B5B] md:w-[574px]">
                 Get Leatest Update By Subscribe 0ur Newslater
               </h1>
-            < Button/>
+              <Button />
             </div>
           </>
           <div className="my-[96px] flex items-center justify-center">
@@ -733,331 +742,9 @@ category
               className="m-4 h-[60px] w-[260px] md:hidden"
             />
           </div>
-          <h1 className="mb-[80px] text-center text-[42px] font-bold text-[#1A0B5B]">
-            Leatest Blog{" "}
-          </h1>
-          <ul className="hidden flex-col items-center justify-center gap-14 md:flex md:flex-row">
-            <li>
-              <div className="h-[493px] w-[370px] overflow-hidden rounded-lg bg-white shadow-lg">
-                <Image
-                  src="/livi.png"
-                  alt="Living Room"
-                  width={370}
-                  height={255}
-                  className="rounded-lg"
-                />
-
-                {/* Content Section */}
-                <div className="p-6">
-                  {/* Meta Info */}
-                  <div className="mb-3 flex items-center space-x-4 text-sm text-gray-400">
-                    <span className="flex items-center">
-                      <Image
-                        src="/vector.png"
-                        alt="pen"
-                        width={11.33}
-                        height={11.33}
-                        className="mr-2"
-                      />
-                      Surfauxion
-                    </span>
-                    <span className="flex items-center">
-                      <Image
-                        src="/calendar.png"
-                        alt="pen"
-                        width={11}
-                        height={11}
-                        className="mr-2"
-                      />
-                      21 August, 2020
-                    </span>
-                  </div>
-                  <div className="flex flex-col gap-4">
-                    <h2 className="mb-2 text-xl font-bold text-[#1A0B5B]">
-                      Top essential trends in 2021{" "}
-                    </h2>
-
-                    {/* Description */}
-                    <p className="text-base font-normal text-[#72718F]">
-                      More off this less hello samlande lied much over tightly
-                      circa horse taped mightly
-                    </p>
-
-                    {/* Read More */}
-                    <span className="text-sm font-semibold text-[#1A0B5B] underline">
-                      Read More
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div className="h-[493px] w-[370px] overflow-hidden rounded-lg bg-white shadow-lg">
-                <Image
-                  src="/livi2.png"
-                  alt="Living Room"
-                  width={370}
-                  height={255}
-                  className="rounded-lg"
-                />
-
-                {/* Content Section */}
-                <div className="p-6">
-                  {/* Meta Info */}
-                  <div className="mb-3 flex items-center space-x-4 text-sm text-gray-400">
-                    <span className="flex items-center">
-                      <Image
-                        src="/vector.png"
-                        alt="pen"
-                        width={11.33}
-                        height={11.33}
-                        className="mr-2"
-                      />
-                      Surfauxion
-                    </span>
-                    <span className="flex items-center">
-                      <Image
-                        src="/calendar.png"
-                        alt="pen"
-                        width={11}
-                        height={11}
-                        className="mr-2"
-                      />
-                      21 August, 2020
-                    </span>
-                  </div>
-                  <div className="flex flex-col gap-4">
-                    <h2 className="mb-2 text-xl font-bold text-[#FB2E86]">
-                      Top essential trends in 2021{" "}
-                    </h2>
-
-                    {/* Description */}
-                    <p className="text-base font-normal text-[#72718F]">
-                      More off this less hello samlande lied much over tightly
-                      circa horse taped mightly
-                    </p>
-
-                    {/* Read More */}
-                    <span className="text-sm font-semibold text-[#FB2E86] underline">
-                      Read More
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div className="h-[493px] w-[370px] overflow-hidden rounded-lg bg-white shadow-lg">
-                <Image
-                  src="/livi3.png"
-                  alt="Living Room"
-                  width={370}
-                  height={255}
-                  className="rounded-lg"
-                />
-
-                {/* Content Section */}
-                <div className="p-6">
-                  {/* Meta Info */}
-                  <div className="mb-3 flex items-center space-x-4 text-sm text-gray-400">
-                    <span className="flex items-center">
-                      <Image
-                        src="/vector.png"
-                        alt="pen"
-                        width={11.33}
-                        height={11.33}
-                        className="mr-2"
-                      />
-                      Surfauxion
-                    </span>
-                    <span className="flex items-center">
-                      <Image
-                        src="/calendar.png"
-                        alt="pen"
-                        width={11}
-                        height={11}
-                        className="mr-2"
-                      />
-                      21 August, 2020
-                    </span>
-                  </div>
-                  <div className="flex flex-col gap-4">
-                    <h2 className="mb-2 text-xl font-bold text-[#1A0B5B]">
-                      Top essential trends in 2021{" "}
-                    </h2>
-
-                    {/* Description */}
-                    <p className="text-base font-normal text-[#72718F]">
-                      More off this less hello samlande lied much over tightly
-                      circa horse taped mightly
-                    </p>
-
-                    {/* Read More */}
-                    <span className="text-sm font-semibold text-[#1A0B5B] underline">
-                      Read More
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </li>
-          </ul>
-          <ul className="flex flex-col items-center justify-center gap-10 px-4 sm:gap-6 md:hidden">
-            <li>
-              <div className="h-[350px] w-[280px] overflow-hidden rounded-lg bg-white shadow-lg sm:h-[400px] sm:w-[320px]">
-                <Image
-                  src="/livi.png"
-                  alt="Living Room"
-                  width={320}
-                  height={220}
-                  className="rounded-lg"
-                />
-                {/* Content Section */}
-                <div className="p-4 sm:p-6">
-                  {/* Meta Info */}
-                  <div className="mb-2 flex items-center space-x-3 text-sm text-gray-400">
-                    <span className="flex items-center">
-                      <Image
-                        src="/vector.png"
-                        alt="pen"
-                        width={11.33}
-                        height={11.33}
-                        className="mr-2"
-                      />
-                      Surfauxion
-                    </span>
-                    <span className="flex items-center">
-                      <Image
-                        src="/calendar.png"
-                        alt="calendar"
-                        width={11}
-                        height={11}
-                        className="mr-2"
-                      />
-                      21 August, 2020
-                    </span>
-                  </div>
-                  <div className="flex flex-col gap-3">
-                    <h2 className="mb-2 text-lg font-bold text-[#1A0B5B] sm:text-xl">
-                      Top essential trends in 2021
-                    </h2>
-                    {/* Description */}
-                    <p className="text-sm font-normal text-[#72718F] sm:text-base">
-                      More off this less hello samlande lied much over tightly
-                      circa horse taped mightly
-                    </p>
-                    {/* Read More */}
-                    <span className="text-sm font-semibold text-[#1A0B5B] underline">
-                      Read More
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div className="h-[350px] w-[280px] overflow-hidden rounded-lg bg-white shadow-lg sm:h-[400px] sm:w-[320px]">
-                <Image
-                  src="/livi2.png"
-                  alt="Living Room"
-                  width={320}
-                  height={220}
-                  className="rounded-lg"
-                />
-                {/* Content Section */}
-                <div className="p-4 sm:p-6">
-                  {/* Meta Info */}
-                  <div className="mb-2 flex items-center space-x-3 text-sm text-gray-400">
-                    <span className="flex items-center">
-                      <Image
-                        src="/vector.png"
-                        alt="pen"
-                        width={11.33}
-                        height={11.33}
-                        className="mr-2"
-                      />
-                      Surfauxion
-                    </span>
-                    <span className="flex items-center">
-                      <Image
-                        src="/calendar.png"
-                        alt="calendar"
-                        width={11}
-                        height={11}
-                        className="mr-2"
-                      />
-                      21 August, 2020
-                    </span>
-                  </div>
-                  <div className="flex flex-col gap-3">
-                    <h2 className="mb-2 text-lg font-bold text-[#FB2E86] sm:text-xl">
-                      Top essential trends in 2021
-                    </h2>
-                    {/* Description */}
-                    <p className="text-sm font-normal text-[#72718F] sm:text-base">
-                      More off this less hello samlande lied much over tightly
-                      circa horse taped mightly
-                    </p>
-                    {/* Read More */}
-                    <span className="text-sm font-semibold text-[#FB2E86] underline">
-                      Read More
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div className="h-[350px] w-[280px] overflow-hidden rounded-lg bg-white shadow-lg sm:h-[400px] sm:w-[320px]">
-                <Image
-                  src="/livi3.png"
-                  alt="Living Room"
-                  width={320}
-                  height={220}
-                  className="rounded-lg"
-                />
-                {/* Content Section */}
-                <div className="p-4 sm:p-6">
-                  {/* Meta Info */}
-                  <div className="mb-2 flex items-center space-x-3 text-sm text-gray-400">
-                    <span className="flex items-center">
-                      <Image
-                        src="/vector.png"
-                        alt="pen"
-                        width={11.33}
-                        height={11.33}
-                        className="mr-2"
-                      />
-                      Surfauxion
-                    </span>
-                    <span className="flex items-center">
-                      <Image
-                        src="/calendar.png"
-                        alt="calendar"
-                        width={11}
-                        height={11}
-                        className="mr-2"
-                      />
-                      21 August, 2020
-                    </span>
-                  </div>
-                  <div className="flex flex-col gap-3">
-                    <h2 className="mb-2 text-lg font-bold text-[#1A0B5B] sm:text-xl">
-                      Top essential trends in 2021
-                    </h2>
-                    {/* Description */}
-                    <p className="text-sm font-normal text-[#72718F] sm:text-base">
-                      More off this less hello samlande lied much over tightly
-                      circa horse taped mightly
-                    </p>
-                    {/* Read More */}
-                    <span className="text-sm font-semibold text-[#1A0B5B] underline">
-                      Read More
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </li>
-          </ul>
         </div>
       </div>
-      <div className="mt-[11500px] sm:mt-[12000px] md:mt-[5400px] lg:mt-0">
+      <div className="mt-[7000px] sm:mt-[6000] md:mt-[5400px] lg:mt-0">
         <Footer />
         <Mi />
       </div>
