@@ -39,6 +39,11 @@ export default {
                 Rule.min(0).max(100).warning("Discount must be between 0 and 100."),
         },
         {
+            name: "listProduct",
+            type: "boolean",
+            title: "Shop List Product",
+        },
+        {
             name: "isFeaturedProduct",
             type: "boolean",
             title: "Is Featured Product",
