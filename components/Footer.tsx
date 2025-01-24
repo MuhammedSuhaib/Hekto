@@ -14,8 +14,7 @@ function Footer() {
       <footer className="text-ç px-6 py-10 text-base font-normal">
         {/* Hekto Section */}
         <div className="mb-10 flex flex-col items-center justify-center gap-6 p-4 text-center">
-          <h2 className="text-[38px] font-bold text-black">
-            {" "}
+          <h2 className="text-[38px] font-bold text-black transition-transform duration-300 hover:scale-105">
             <Link href="/">Hekto</Link>
           </h2>
 
