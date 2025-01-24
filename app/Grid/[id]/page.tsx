@@ -1,3 +1,5 @@
+"use client"
+
 import Bredcrumb from "@/components/Bredcrumb";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
@@ -8,7 +10,7 @@ import { urlFor } from "@/sanity/lib/image";
 import Image from "next/image";
 import Link from "next/link";
 
-interface Product {
+export interface Product {
   _id: string;
   name: string;
   image: { asset: { url: string } } | null;
@@ -17,14 +19,45 @@ interface Product {
   discountPercentage: number;
   isFeaturedProduct: boolean;
   stockLevel: number;
-  category: "Chair" | "Sofa"; 
+  category: "Chair" | "Sofa";
 }
 
-interface Params {
+export interface Params {
   params: {
     id: string;
   };
 }
+const addToCart = (product: Product) => {
+  const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+  const updatedCart = [...cart, { ...product, quantity: 1 }];
+  localStorage.setItem("cart", JSON.stringify(updatedCart));
+  alert(`${product.name} added to cart! go to cart page to see your cart /cart`);
+};
+
+const addToWishlist = (product: Product) => {
+  // Retrieve existing wishlist from localStorage, or initialize it as an empty array
+  const wishlist = JSON.parse(localStorage.getItem("wishlist") || "[]");
+
+  // Check if the product already exists in the wishlist
+  const existingProductIndex = wishlist.findIndex(
+    (item: Product) => item._id === product._id
+  );
+
+  if (existingProductIndex !== -1) {
+    // If the product already exists, increase its quantity
+    wishlist[existingProductIndex].quantity += 1;
+  } else {
+    // If the product doesn't exist, add it with quantity 1
+    wishlist.push({ ...product, quantity: 1 });
+  }
+
+  // Save the updated wishlist to localStorage
+  localStorage.setItem("wishlist", JSON.stringify(wishlist));
+
+  alert(`${product.name} added to Wishlist!
+    go to Wishlist page to see your wishlist
+    /wishlist`);
+};
 
 async function page({ params }: Params) {
   const resp: Product = await client.fetch(
@@ -38,7 +71,7 @@ async function page({ params }: Params) {
         stockLevel,
         category
     }`,
-    { id: params.id },
+    { id: params.id }
   );
 
   const similarProducts: Product[] = await client.fetch(
@@ -49,7 +82,7 @@ async function page({ params }: Params) {
         price,
         discountPercentage
     }`,
-    { category: resp.category, id: params.id },
+    { category: resp.category, id: params.id }
   );
 
   return (
@@ -71,9 +104,7 @@ async function page({ params }: Params) {
 
           {/* mid: Product Details */}
           <div className="flex-1">
-            <h1 className="mb-4 text-2xl font-bold text-gray-800">
-              {resp.name}
-            </h1>
+            <h1 className="mb-4 text-2xl font-bold text-gray-800">{resp.name}</h1>
             <p className="mb-2 text-xl text-gray-700">
               Price:{" "}
               <span className="font-bold text-[#FB2E86]">
@@ -101,7 +132,10 @@ async function page({ params }: Params) {
             <p className="mt-4 text-gray-600">{resp.description}</p>
             {/* Buttons */}
             <div className="mt-6 flex gap-4">
-              <button className="mx-auto flex h-[39px] w-full rounded-lg bg-[#FB2E86] px-6 py-2 font-medium text-white transition duration-300 hover:scale-105 hover:bg-[#e02121] focus:outline-none focus:ring-2 focus:ring-[#e033e0] lg:mx-0 lg:w-[135px]">
+              <button
+                onClick={() => addToCart(resp)}
+                className="mx-auto flex h-[39px] w-full rounded-lg bg-[#FB2E86] px-6 py-2 font-medium text-white transition duration-300 hover:scale-105 hover:bg-[#e02121] focus:outline-none focus:ring-2 focus:ring-[#e033e0] lg:mx-0 lg:w-[135px]"
+              >
                 Add to
                 <Image
                   width={20}
@@ -117,9 +151,13 @@ async function page({ params }: Params) {
               </button>
             </div>
           </div>
-          {/* Right:  Buttons */}
+          {/* Right: Buttons */}
           <div className="flex flex-1 flex-row items-center gap-4 md:flex-col">
-            <button className="flex items-center gap-2 rounded-lg bg-[#FB2E86] px-4 py-2 text-white transition hover:bg-[#e02174]">
+            <button
+                onClick={() => addToWishlist(resp)}
+
+              className="flex items-center gap-2 rounded-lg bg-[#FB2E86] px-4 py-2 text-white transition hover:bg-[#e02174]"
+            >
               Add to
               <Image
                 width={20}
@@ -152,49 +190,48 @@ async function page({ params }: Params) {
 
         {/* Similar Products Section */}
         <div className="mt-12">
-  <h2 className="mb-6 text-xl font-bold text-gray-800">Similar Products</h2>
-  <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-    {similarProducts.slice(0, 4).map((product) => (
-      <div
-        key={product._id}
-        className="flex flex-col items-center rounded-lg bg-white p-4 shadow-md transition hover:shadow-xl"
-      >
-        <img
-          src={
-            product.image
-              ? urlFor(product.image).url()
-              : "/placeholder.png"
-          }
-          alt={product.name}
-          className="h-48 w-full rounded-t-lg object-cover"
-        />
-        <h3 className="mt-4 text-lg font-bold text-gray-800">
-          {product.name}
-        </h3>
-        <p className="text-gray-700">
-          Price: ${parseFloat(product.price).toFixed(2)}
-        </p>
-        {product.discountPercentage > 0 && (
-          <p className="text-sm text-gray-500 line-through">
-            $
-            {(
-              parseFloat(product.price) *
-              (1 + product.discountPercentage / 100)
-            ).toFixed(2)}
-          </p>
-        )}
-        
-        <Link
-          href={`/${product._id}`}
-          className="mt-4 rounded-lg bg-[#FB2E86] px-4 py-2 text-white transition hover:bg-[#e02174]"
-        >
-          View Details
-        </Link>
-      </div>
-    ))}
-  </div>
-</div>
+          <h2 className="mb-6 text-xl font-bold text-gray-800">Similar Products</h2>
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+            {similarProducts.slice(0, 4).map((product) => (
+              <div
+                key={product._id}
+                className="flex flex-col items-center rounded-lg bg-white p-4 shadow-md transition hover:shadow-xl"
+              >
+                <img
+                  src={
+                    product.image
+                      ? urlFor(product.image).url()
+                      : "/placeholder.png"
+                  }
+                  alt={product.name}
+                  className="h-48 w-full rounded-t-lg object-cover"
+                />
+                <h3 className="mt-4 text-lg font-bold text-gray-800">
+                  {product.name}
+                </h3>
+                <p className="text-gray-700">
+                  Price: ${parseFloat(product.price).toFixed(2)}
+                </p>
+                {product.discountPercentage > 0 && (
+                  <p className="text-sm text-gray-500 line-through">
+                    $
+                    {(
+                      parseFloat(product.price) *
+                      (1 + product.discountPercentage / 100)
+                    ).toFixed(2)}
+                  </p>
+                )}
 
+                <Link
+                  href={`/${product._id}`}
+                  className="mt-4 rounded-lg bg-[#FB2E86] px-4 py-2 text-white transition hover:bg-[#e02174]"
+                >
+                  View Details
+                </Link>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
       <Footer />
       <Mi />
