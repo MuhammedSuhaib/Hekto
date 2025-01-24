@@ -15,8 +15,7 @@ function Mi() {
           <div className="mx-auto mr-[446px] mt-[94px] flex max-w-full gap-12 sm:grid-cols-4">
             {/* Hekto Section */}
             <div>
-              <h2 className="mb-4 text-[38px] font-bold text-black">           <Link href="/" >Hekto</Link>
-              </h2>
+              <h2 className="mb-4 text-[38px] font-bold text-black transition-transform duration-300 hover:scale-105"><Link href="/" >Hekto</Link></h2>
               <div className="mt-4 flex w-[300px] items-center justify-end gap-4 rounded-[3px] bg-white lg:h-[44px] lg:w-[377px]">
                 <input
                   type="email"
