@@ -71,6 +71,9 @@ function Nvbr() {
                             <Link href="/Shopping">Shopping Cart</Link>
                           </li>
                           <li className="hover:text-[#FB2E86]">
+                            <Link href="/Wishlist">Wishlist</Link>
+                          </li>
+                          <li className="hover:text-[#FB2E86]">
                             <Link href="/Grid">Shop Grid page</Link>
                           </li>
                           <li className="hover:text-[#FB2E86]">
@@ -140,6 +143,9 @@ function Nvbr() {
                   </li>
                   <li className="hover:text-[#FB2E86]">
                     <Link href="/Shopping">Shopping Cart</Link>
+                  </li>
+                  <li className="hover:text-[#FB2E86]">
+                    <Link href="/Wishlist">Wishlist</Link>
                   </li>
                   <li className="hover:text-[#FB2E86]">
                     <Link href="/Grid">Shop Grid page</Link>
