@@ -53,15 +53,15 @@ function Header() {
             height={16}
           />
         </li>
-        <li className="flex items-center gap-[0.052%]">
+          <Link href="/Wishlist" className="flex items-center justify-center ">
+        <li className="flex items-center justify-center gap-[0.052%] ">
           Wishlist
           <Image
             src="/uil_heart-alt.png"
             alt="Heart Icon"
             width={16}
             height={16}
-          />
-        </li>
+          /></li> </Link>
         <li className="ml-2 flex items-center gap-5">
           <Link href="/Shopping">
             <Image src="/crt.png" alt="Cart Icon" width={16} height={16} />
