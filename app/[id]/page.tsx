@@ -83,6 +83,7 @@ async function page({ params }: Params) {
               src={resp.image ? urlFor(resp.image).url() : "/placeholder.png"}
               alt={resp.name}
               className="size-[325px] rounded-lg object-cover shadow-md"
+              loading="lazy"
             />
           </div>
 
@@ -138,7 +139,7 @@ async function page({ params }: Params) {
           {/* Right: Buttons */}
           <div className="flex flex-1 flex-row items-center gap-4 md:flex-col">
             <button
-                onClick={() => addToWishlist(resp)}
+              onClick={() => addToWishlist(resp)}
 
               className="flex items-center gap-2 rounded-lg bg-[#FB2E86] px-4 py-2 text-white transition hover:bg-[#e02174]"
             >
@@ -151,7 +152,10 @@ async function page({ params }: Params) {
                 className="h-5 w-5"
               />
             </button>
-            <button className="flex items-center gap-2 rounded-lg bg-[#FB2E86] px-4 py-2 text-white transition hover:bg-[#e02174]">
+            <button
+              onClick={() => { navigator.clipboard.writeText(window.location.href); document.getElementById('copyMessage')!.style.display = 'block'; setTimeout(() => document.getElementById('copyMessage')!.style.display = 'none', 5000); }}
+              className="relative flex items-center gap-2 rounded-lg bg-[#FB2E86] px-4 py-2 text-white transition hover:bg-[#e02174]"
+            >
               <Image
                 width={20}
                 height={20}
@@ -160,6 +164,9 @@ async function page({ params }: Params) {
                 className="h-5 w-5"
               />
               share
+              <div id="copyMessage" className="absolute left-1/2 transform -translate-x-1/2 top-full mt-2 text-[#e02174] text-lg" style={{ display: 'none' }}>
+                Link copied to clipboard!
+              </div>
             </button>
           </div>
         </div>
@@ -189,6 +196,7 @@ async function page({ params }: Params) {
                   }
                   alt={product.name}
                   className="h-48 w-full rounded-t-lg object-cover"
+                  loading="lazy"
                 />
                 <h3 className="mt-4 text-lg font-bold text-gray-800">
                   {product.name}

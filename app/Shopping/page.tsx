@@ -89,6 +89,7 @@ function ShoppingCurtPage() {
                       width={83}
                       height={87}
                       className="rounded-[3px]"
+                      loading="lazy"
                     />
                     <div className="hidden md:block text-[#A1A8C1]">
                       <p className="text-black">{item.name}</p>

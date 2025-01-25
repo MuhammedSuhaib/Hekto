@@ -124,6 +124,7 @@ async function ShopList() {
                     width={313.63}
                     height={217.56}
                     className="h-[217.56px] w-[313.63px] rounded-[10px] object-cover"
+                    loading="lazy"
                   />
                 </div>
                 <div className="px-[4vh] md:px-0">
@@ -135,6 +136,7 @@ async function ShopList() {
                       width={42}
                       height={10}
                       className="h-[10px] w-[42px]"
+                      loading="lazy"
                     />
                   </div>
                   <div className="flex items-center gap-2">
@@ -150,7 +152,7 @@ async function ShopList() {
                         </span>
                       )}
                     </span>{" "}
-                    <img src="/s.png" alt="5s" width={70} height={17.25} />
+                    <img src="/s.png" alt="5s" width={70} height={17.25} loading="lazy" />
                   </div>
                   <p
                     className="md:w-[591px] text-base font-normal text-[#9295AA]"
@@ -163,6 +165,7 @@ async function ShopList() {
                     width={144.67}
                     height={34.23}
                     className="-ml-5"
+                    loading="lazy"
                   />
                 </div>
               </div>
