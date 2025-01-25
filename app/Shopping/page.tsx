@@ -7,7 +7,7 @@ import Nvbr from "@/components/Navbar";
 import Bredcrumb from "@/components/Bredcrumb";
 import { Lato } from "next/font/google";
 import { urlFor } from "@/sanity/lib/image";
-import Image from "next/image";
+
 
 const lato = Lato({ subsets: ["latin"], weight: ["400", "700"] });
 
