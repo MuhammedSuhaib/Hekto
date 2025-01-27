@@ -23,21 +23,21 @@ const addToCart = (product: Product) => {
     alert(`${product.name} added to cart! Go to the cart page to see your cart (/cart).`);
 };
 
-const addToWishlist = (product: Product) => {
-    const wishlist = JSON.parse(localStorage.getItem("wishlist") || "[]");
-    const existingProductIndex = wishlist.findIndex(
-        (item: Product) => item._id === product._id
-    );
+// const addToWishlist = (product: Product) => {
+//     const wishlist = JSON.parse(localStorage.getItem("wishlist") || "[]");
+//     const existingProductIndex = wishlist.findIndex(
+//         (item: Product) => item._id === product._id
+//     );
 
-    if (existingProductIndex !== -1) {
-        wishlist[existingProductIndex].quantity += 1;
-    } else {
-        wishlist.push({ ...product, quantity: 1 });
-    }
+//     if (existingProductIndex !== -1) {
+//         wishlist[existingProductIndex].quantity += 1;
+//     } else {
+//         wishlist.push({ ...product, quantity: 1 });
+//     }
 
-    localStorage.setItem("wishlist", JSON.stringify(wishlist));
-    alert(`${product.name} added to Wishlist! Go to the Wishlist page to see your wishlist (/wishlist).`);
-};
+//     localStorage.setItem("wishlist", JSON.stringify(wishlist));
+//     alert(`${product.name} added to Wishlist! Go to the Wishlist page to see your wishlist (/wishlist).`);
+// };
 
 export default function ProductDetails({ product, similarProducts }: ProductDetailsProps) {
     return (
