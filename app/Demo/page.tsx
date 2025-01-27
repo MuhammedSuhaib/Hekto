@@ -34,81 +34,81 @@ function DemoPage() {
                 {/* Contact Information */}
                 <>
                   <div className="flex flex-col justify-between px-[30px] sm:px-0 md:flex-row">
- <h3 className="text-lg font-bold text-[#1D3178]">
-   Contact Information
- </h3>
- <p
-   className={`text-sm font-medium text-[#C1C8E1] ${lato.className}`}
- >
-   Already have an account? Log in
- </p>
+                    <h3 className="text-lg font-bold text-[#1D3178]">
+                      Contact Information
+                    </h3>
+                    <p
+                      className={`text-sm font-medium text-[#C1C8E1] ${lato.className}`}
+                    >
+                      Already have an account? Log in
+                    </p>
                   </div>
 
                   <input
- type="email"
- placeholder="Email or mobile phone number"
- className={`mt-10 w-full border-b-[2px] bg-[#F6F5FF] p-1 px-[30px] text-sm font-medium text-[#C1C8E1] sm:px-0 ${lato.className}`}
+                    type="email"
+                    placeholder="Email or mobile phone number"
+                    className={`mt-10 w-full border-b-[2px] bg-[#F6F5FF] p-1 px-[30px] text-sm font-medium text-[#C1C8E1] sm:px-0 ${lato.className}`}
                   />
 
                   <div className="mb-[109px] mt-[32px] flex items-center gap-2 px-[30px] sm:px-0">
- <input
-   type="checkbox"
-   id="updates"
-   className="size-2 rounded-[1px]"
- />
- <label
-   htmlFor="updates"
-   className={`w-full bg-[#F6F5FF] p-1 text-xs font-medium text-[#C1C8E1] ${lato.className}`}
- >
-   Keep me up to date on news and excluive offers{" "}
- </label>
+                    <input
+                      type="checkbox"
+                      id="updates"
+                      className="size-2 rounded-[1px]"
+                    />
+                    <label
+                      htmlFor="updates"
+                      className={`w-full bg-[#F6F5FF] p-1 text-xs font-medium text-[#C1C8E1] ${lato.className}`}
+                    >
+                      Keep me up to date on news and excluive offers{" "}
+                    </label>
                   </div>
                 </>
                 {/* Shipping Address */}
 
                 <div className="mb-[117px] flex flex-col gap-10 px-[30px] sm:px-0">
                   <h3 className="text-lg font-bold text-[#1D3178]">
- Shipping address
+                    Shipping address
                   </h3>
                   <div className="flex gap-[30px]">
- <input
-   type="text"
-   placeholder="First name"
-   className={`w-full border-b-[2px] bg-[#F6F5FF] p-1 text-sm font-medium text-[#C1C8E1] ${lato.className}`}
- />
- <input
-   type="text"
-   placeholder="Last name (optional)"
-   className={`w-full border-b-[2px] bg-[#F6F5FF] p-1 text-sm font-medium text-[#C1C8E1] ${lato.className}`}
- />
+                    <input
+                      type="text"
+                      placeholder="First name"
+                      className={`w-full border-b-[2px] bg-[#F6F5FF] p-1 text-sm font-medium text-[#C1C8E1] ${lato.className}`}
+                    />
+                    <input
+                      type="text"
+                      placeholder="Last name (optional)"
+                      className={`w-full border-b-[2px] bg-[#F6F5FF] p-1 text-sm font-medium text-[#C1C8E1] ${lato.className}`}
+                    />
                   </div>
 
                   <input
- type="text"
- placeholder="Address"
- className={`w-full border-b-[2px] bg-[#F6F5FF] p-1 text-sm font-medium text-[#C1C8E1] ${lato.className}`}
+                    type="text"
+                    placeholder="Address"
+                    className={`w-full border-b-[2px] bg-[#F6F5FF] p-1 text-sm font-medium text-[#C1C8E1] ${lato.className}`}
                   />
                   <input
- type="text"
- placeholder="Appaetnentment,suit,e.t.c (optinal)"
- className={`w-full border-b-[2px] bg-[#F6F5FF] p-1 text-sm font-medium text-[#C1C8E1] ${lato.className}`}
+                    type="text"
+                    placeholder="Appaetnentment,suit,e.t.c (optinal)"
+                    className={`w-full border-b-[2px] bg-[#F6F5FF] p-1 text-sm font-medium text-[#C1C8E1] ${lato.className}`}
                   />
                   <input
- type="text"
- placeholder="City"
- className={`w-full border-b-[2px] bg-[#F6F5FF] p-1 text-sm font-medium text-[#C1C8E1] ${lato.className}`}
+                    type="text"
+                    placeholder="City"
+                    className={`w-full border-b-[2px] bg-[#F6F5FF] p-1 text-sm font-medium text-[#C1C8E1] ${lato.className}`}
                   />
                   <div className="flex gap-[30px]">
- <input
-   type="text"
-   placeholder="Bangladesh"
-   className={`w-full border-b-[2px] bg-[#F6F5FF] p-1 text-sm font-medium text-[#C1C8E1] ${lato.className}`}
- />
- <input
-   type="number"
-   placeholder="Postal Code"
-   className={`w-full border-b-[2px] bg-[#F6F5FF] p-1 text-sm font-medium text-[#C1C8E1] ${lato.className}`}
- />
+                    <input
+                      type="text"
+                      placeholder="Bangladesh"
+                      className={`w-full border-b-[2px] bg-[#F6F5FF] p-1 text-sm font-medium text-[#C1C8E1] ${lato.className}`}
+                    />
+                    <input
+                      type="number"
+                      placeholder="Postal Code"
+                      className={`w-full border-b-[2px] bg-[#F6F5FF] p-1 text-sm font-medium text-[#C1C8E1] ${lato.className}`}
+                    />
                   </div>
                 </div>
                 {/* Continue Shipping */}
@@ -116,9 +116,9 @@ function DemoPage() {
                 <div className="px-[30px] sm:px-0">
                   {" "}
                   <button
- className={`h-[39px] w-full rounded-[3px] bg-[#FB2E86] font-medium text-white transition-transform duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#7E33E0] lg:mx-0 lg:w-[182px]`}
+                    className={`h-[39px] w-full rounded-[3px] bg-[#FB2E86] font-medium text-white transition-transform duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#7E33E0] lg:mx-0 lg:w-[182px]`}
                   >
- <Link href="/Grid">Continue Shipping</Link>
+                    <Link href="/Grid">Continue Shipping</Link>
                   </button>
                 </div>
               </div>
@@ -214,15 +214,15 @@ function DemoPage() {
                 </div>
                 <div className="flex items-center gap-2 p-3">
                   <input
- type="checkbox"
- id="updates"
- className="size-2 rounded-[1px]"
+                    type="checkbox"
+                    id="updates"
+                    className="size-2 rounded-[1px]"
                   />
                   <label
- htmlFor="updates"
- className={`w-ful p-1 text-xs font-medium text-[#C1C8E1] ${lato.className}`}
+                    htmlFor="updates"
+                    className={`w-ful p-1 text-xs font-medium text-[#C1C8E1] ${lato.className}`}
                   >
- Shipping & taxes calculated at checkout
+                    Shipping & taxes calculated at checkout
                   </label>
                 </div>
                 <button
