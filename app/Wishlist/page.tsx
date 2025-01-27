@@ -50,7 +50,7 @@ function WishlistPage() {
         <div className="container mx-auto my-12 text-center">
           <h2 className="text-2xl font-bold text-[#1D3178]">Your Wishlist is empty!</h2>
           <button
-            onClick={() => (window.location.href = "/Grid")}
+            onClick={() => (window.location.href = "/")}
             className="mt-4 rounded bg-[#FB2E86] px-6 py-2 text-white"
           >
             Back to Shop

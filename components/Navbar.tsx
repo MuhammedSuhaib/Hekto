@@ -12,8 +12,6 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useRouter } from "next/navigation";
-import { Product } from "@/app/Grid/[id]/page";
-
 const lato = Lato({ subsets: ["latin"], weight: ["400", "700"] });
 
 function Nvbr() {
