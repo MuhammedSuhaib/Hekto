@@ -1,7 +1,7 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import Image from "next/image";
 import { Lato } from "next/font/google";
-const lato = Lato({ subsets: ["latin"], weight: ["400", "700"] });
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
 import Link from "next/link";
@@ -11,8 +11,24 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { useRouter } from "next/navigation";
+import { Product } from "@/app/Grid/[id]/page";
+
+const lato = Lato({ subsets: ["latin"], weight: ["400", "700"] });
 
 function Nvbr() {
+  const [query, setQuery] = useState<string>("");
+  const router = useRouter();
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setQuery(e.target.value);
+  };
+
+  const handleSearch = () => {
+    if (query) {
+      router.push(`/search?query=${query}`);
+    }
+  };
   return (
     <div>
       <nav className="flex flex-col p-4 sm:flex-col sm:items-center sm:gap-7 lg:flex-row lg:justify-center xl:ml-[28vh] xl:justify-normal">
@@ -168,16 +184,26 @@ function Nvbr() {
             <Link href="/Cont">Contact</Link>
           </li>
         </ul>
-        {/* Search bar  */}
-        <div className="flex items-center justify-between border-[2px] border-[#E7E6EF] sm:justify-end">
+        {/* Search bar */}
+        <div className="flex items-center justify-between border-[2px] rounded-[7px] border-[#E7E6EF] sm:justify-end">
           <div className="w-full px-4">
-            {" "}
             <input
               type="text"
-              className={`${lato.className} w-full lg:pl-[50px] 2xl:pl-[110px] `}
+              value={query}
+              placeholder="Search"
+              onChange={handleChange} // Capture search input
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  handleSearch(); // Trigger search on Enter key press
+                }
+              }}
+              className={`${lato.className} w-full lg:pl-[10px] 2xl:pl-[110px] `}
             />
           </div>
-          <div className="flex size-[40px] items-center justify-center bg-[#FB2E86]">
+          <div
+            onClick={handleSearch} // Trigger search on click
+            className="flex h-10 w-11 items-center justify-center rounded-[4px] bg-[#FB2E86]"
+          >
             <Image
               src="/uil_search.png"
               alt="Search Icon"

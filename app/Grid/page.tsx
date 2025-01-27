@@ -9,20 +9,18 @@ import { Lato } from "next/font/google";
 import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
 import Link from "next/link";
-
-interface Product {
+export interface Product {
   _id: string;
   name: string;
-  image: { asset: { url: string } };
+  image: { asset: { url: string } } | null;
   price: string;
   description: string;
   discountPercentage: number;
   isFeaturedProduct: boolean;
   stockLevel: number;
-  category: "Chair" | "Sofa";
+  category: "Chair" | "Sofa" | null | string;
 }
 const lato = Lato({ subsets: ["latin"], weight: ["400", "700"] });
-
 async function Shop_Grid_page() {
   const data: Product[] = await client.fetch(`*[_type == "product"]{
       _id,
@@ -35,6 +33,7 @@ async function Shop_Grid_page() {
       stockLevel,
       category
     }`);
+    
   return (
     <div>
       <Header />

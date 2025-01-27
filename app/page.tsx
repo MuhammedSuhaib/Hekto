@@ -22,7 +22,7 @@ interface Product {
   isLeatestProduct: boolean;
   isTrendingProduct: boolean;
   stockLevel: number;
-  category: "Chair" | "Sofa";
+  category: "Chair" | "Sofa" | null | string;
 }
 
 export default async function Home() {

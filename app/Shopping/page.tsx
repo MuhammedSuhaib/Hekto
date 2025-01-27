@@ -8,7 +8,6 @@ import Bredcrumb from "@/components/Bredcrumb";
 import { Lato } from "next/font/google";
 import { urlFor } from "@/sanity/lib/image";
 
-
 const lato = Lato({ subsets: ["latin"], weight: ["400", "700"] });
 
 interface CartProduct {
@@ -43,6 +42,12 @@ function ShoppingCurtPage() {
     localStorage.removeItem("cart"); // Remove from localStorage
   };
 
+  // Calculate total
+  const total = cartItems.reduce(
+    (sum, item) => sum + parseFloat(item.price) * item.quantity,
+    0
+  );
+
   if (cartItems.length === 0) {
     return (
       <div>
@@ -50,7 +55,9 @@ function ShoppingCurtPage() {
         <Nvbr />
         <Bredcrumb pageName="Shopping Cart" />
         <div className="container mx-auto my-12 text-center">
-          <h2 className="text-2xl font-bold text-[#1D3178]">Your cart is empty!</h2>
+          <h2 className="text-2xl font-bold text-[#1D3178]">
+            Your cart is empty!
+          </h2>
         </div>
         <Footer />
         <Mi />
@@ -84,7 +91,7 @@ function ShoppingCurtPage() {
                 >
                   <div className="flex items-center gap-4">
                     <img
-                      src={item.image ? urlFor(item.image).url() : "/placeholder.png"}
+                      src={item.image?.asset ? urlFor(item.image.asset).url() : "/placeholder.png"}
                       alt={item.name}
                       width={83}
                       height={87}
@@ -93,13 +100,18 @@ function ShoppingCurtPage() {
                     />
                     <div className="hidden md:block text-[#A1A8C1]">
                       <p className="text-black">{item.name}</p>
-                      <p>Quantity: 
-                        <input 
+                      <p>
+                        Quantity:{" "}
+                        <input
                           type="number"
                           value={item.quantity}
-                          onChange={(e) => handleQuantityChange(item._id, parseInt(e.target.value))}
+                          onChange={(e) => {
+                            const value = Math.max(1, parseInt(e.target.value) || 1);
+                            handleQuantityChange(item._id, value);
+                          }}
                           className="w-16 p-1 border border-gray-300"
                           min="1"
+                          aria-label={`Quantity for ${item.name}`}
                         />
                       </p>
                     </div>
@@ -115,6 +127,7 @@ function ShoppingCurtPage() {
               <button
                 onClick={clearCart}
                 className="rounded bg-[#FB2E86] px-6 py-2 text-white"
+                aria-label="Clear cart"
               >
                 Clear Cart
               </button>
@@ -125,18 +138,16 @@ function ShoppingCurtPage() {
           <div className="w-full xl:w-1/3 space-y-8">
             {/* Cart Totals */}
             <div className="rounded bg-[#F4F4FC] p-6">
-              <h2 className="mb-4 text-2xl font-bold text-[#1D3178]">Cart Totals</h2>
+              <h2 className="mb-4 text-2xl font-bold text-[#1D3178]">
+                Cart Totals
+              </h2>
               <div className="flex justify-between border-b pb-2">
                 <p>Subtotals:</p>
-                <p>
-                  ${cartItems.reduce((sum, item) => sum + parseFloat(item.price) * item.quantity, 0).toFixed(2)}
-                </p>
+                <p>${total.toFixed(2)}</p>
               </div>
               <div className="flex justify-between border-b pb-2">
                 <p>Totals:</p>
-                <p>
-                  ${cartItems.reduce((sum, item) => sum + parseFloat(item.price) * item.quantity, 0).toFixed(2)}
-                </p>
+                <p>${total.toFixed(2)}</p>
               </div>
               <p className={`${lato.className} mt-4 text-xs text-[#C1C8E1]`}>
                 Shipping & taxes calculated at checkout
