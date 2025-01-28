@@ -59,12 +59,12 @@
 //     </div>
 //   );
 // }
-import React from 'react'
+// import React from 'react'
 
 function page() {
   return (
     <div>
-      
+      fixing some bugs here
     </div>
   )
 }
