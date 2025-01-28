@@ -24,7 +24,7 @@ function Nvbr() {
 
   const handleSearch = () => {
     if (query) {
-      router.push(`/search?query=${query}`);
+      router.push(`/Search?query=${query}`);
     }
   };
   return (
