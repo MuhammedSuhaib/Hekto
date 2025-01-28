@@ -23,21 +23,12 @@ const addToCart = (product: Product) => {
     alert(`${product.name} added to cart! Go to the cart page to see your cart (/cart).`);
 };
 
-// const addToWishlist = (product: Product) => {
-//     const wishlist = JSON.parse(localStorage.getItem("wishlist") || "[]");
-//     const existingProductIndex = wishlist.findIndex(
-//         (item: Product) => item._id === product._id
-//     );
-
-//     if (existingProductIndex !== -1) {
-//         wishlist[existingProductIndex].quantity += 1;
-//     } else {
-//         wishlist.push({ ...product, quantity: 1 });
-//     }
-
-//     localStorage.setItem("wishlist", JSON.stringify(wishlist));
-//     alert(`${product.name} added to Wishlist! Go to the Wishlist page to see your wishlist (/wishlist).`);
-// };
+const addToWishlist = (product: Product) => {
+    const wishlist = JSON.parse(localStorage.getItem("wishlist") || "[]");
+    const wish = [...wishlist, { ...product, quantity: 1 }];
+    localStorage.setItem("wishlist", JSON.stringify(wish));
+    alert(`${product.name} added to Wishlist! Go to the Wishlist page to see your wishlist (/wishlist).`);
+};
 
 export default function ProductDetails({ product, similarProducts }: ProductDetailsProps) {
     return (
@@ -58,33 +49,15 @@ export default function ProductDetails({ product, similarProducts }: ProductDeta
                         />
                     </div>
 
-                    {/* Right: Product Details */}
+                    {/* mid: Product Details */}
                     <div className="flex-1">
                         <h1 className="mb-4 text-2xl font-bold text-gray-800">{product.name}</h1>
-                        <p className="mb-2 text-xl text-gray-700">
-                            Price:{" "}
-                            <span className="font-bold text-[#FB2E86]">
-                                ${parseFloat(product.price).toFixed(2)}
-                            </span>
-                        </p>
-                        {product.discountPercentage > 0 && (
-                            <p className="text-md text-gray-600 line-through">
-                                Original Price: $
-                                {(
-                                    parseFloat(product.price) *
-                                    (1 + product.discountPercentage / 100)
-                                ).toFixed(2)}
-                            </p>
-                        )}
-                        <p className="mb-4 text-sm text-green-600">
-                            Discount: {product.discountPercentage}% off
-                        </p>
-                        <p className="text-gray-700">
-                            <span className="font-bold">Stock:</span> {product.stockLevel}
-                        </p>
-                        <p className="text-gray-700">
-                            <span className="font-bold">Category:</span> {product.category}
-                        </p>
+                        <p className="mb-2 text-xl text-gray-700">Price:<span className="font-bold text-[#FB2E86]">${parseFloat(product.price).toFixed(2)}</span></p>
+                        {product.discountPercentage > 0 && (<p className="text-md text-gray-600 line-through">Original Price: ${(
+                            parseFloat(product.price) * (1 + product.discountPercentage / 100)).toFixed(2)}</p>)}
+                        <p className="mb-4 text-sm text-green-600">Discount: {product.discountPercentage}% off</p>
+                        <p className="text-gray-700"><span className="font-bold">Stock:</span> {product.stockLevel}</p>
+                        <p className="text-gray-700"><span className="font-bold">Category:</span> {product.category}</p>
                         <p className="mt-4 text-gray-600">{product.description}</p>
                         {/* Buttons */}
                         <div className="mt-6 flex gap-4">
@@ -97,7 +70,7 @@ export default function ProductDetails({ product, similarProducts }: ProductDeta
                                     width={20}
                                     height={20}
                                     src="/crt.png"
-                                    alt="Wishlist"
+                                    alt="cart"
                                     className="h-5 w-5"
                                 />
                             </button>
@@ -107,6 +80,42 @@ export default function ProductDetails({ product, similarProducts }: ProductDeta
                             </button>
                         </div>
                     </div>
+
+                    {/* Right: Buttons */}
+                    <div className="flex flex-1 flex-row items-center gap-4 md:flex-col">
+                        <button
+                            onClick={() => addToWishlist(product)}
+
+                            className="flex items-center gap-2 rounded-lg bg-[#FB2E86] px-4 py-2 text-white transition hover:bg-[#e02174]"
+                        >
+                            Add to
+                            <Image
+                                width={20}
+                                height={20}
+                                src="/uil_heart-alt.png"
+                                alt="Wishlist"
+                                className="h-5 w-5"
+                            />
+                        </button>
+                        <button
+                            onClick={() => { navigator.clipboard.writeText(window.location.href); document.getElementById('copyMessage')!.style.display = 'block'; setTimeout(() => document.getElementById('copyMessage')!.style.display = 'none', 5000); }}
+                            className="relative flex items-center gap-2 rounded-lg bg-[#FB2E86] px-4 py-2 text-white transition hover:bg-[#e02174]"
+                        >
+                            <Image
+                                width={20}
+                                height={20}
+                                src="/share.png"
+                                alt="Wishlist"
+                                className="h-5 w-5"
+                            />
+                            share
+                            <div id="copyMessage" className="absolute left-1/2 transform -translate-x-1/2 top-full mt-2 text-[#e02174] text-lg" style={{ display: 'none' }}>
+                                Link copied to clipboard!
+                            </div>
+                        </button>
+
+                    </div>
+
                 </div>
 
                 {/* Similar Products Section */}
@@ -118,33 +127,35 @@ export default function ProductDetails({ product, similarProducts }: ProductDeta
                                 key={product._id}
                                 className="flex flex-col items-center rounded-lg bg-white p-4 shadow-md transition hover:shadow-xl"
                             >
-                                <img
-                                    src={product.image ? urlFor(product.image).url() : "/placeholder.png"}
-                                    alt={product.name}
-                                    className="h-48 w-full rounded-t-lg object-cover"
-                                    loading="lazy"
-                                />
-                                <h3 className="mt-4 text-lg font-bold text-gray-800">
-                                    {product.name}
-                                </h3>
-                                <p className="text-gray-700">
-                                    Price: ${parseFloat(product.price).toFixed(2)}
-                                </p>
-                                {product.discountPercentage > 0 && (
-                                    <p className="text-sm text-gray-500 line-through">
-                                        $
-                                        {(
-                                            parseFloat(product.price) *
-                                            (1 + product.discountPercentage / 100)
-                                        ).toFixed(2)}
-                                    </p>
-                                )}
-
                                 <Link
-                                    href={`/${product._id}`}
-                                    className="mt-4 rounded-lg bg-[#FB2E86] px-4 py-2 text-white transition hover:bg-[#e02174]"
-                                >
-                                    View Details
+                                    href={`/${product._id}`}>
+                                    <img
+                                        src={product.image ? urlFor(product.image).url() : "/placeholder.png"}
+                                        alt={product.name}
+                                        className="h-48 w-full rounded-t-lg object-cover"
+                                        loading="lazy"
+                                    />
+                                    <h3 className="mt-4 text-lg font-bold text-gray-800">
+                                        {product.name}
+                                    </h3>
+                                    <p className="text-gray-700">
+                                        Price: ${parseFloat(product.price).toFixed(2)}
+                                    </p>
+                                    {product.discountPercentage > 0 && (
+                                        <p className="text-sm text-gray-500 line-through">
+                                            $
+                                            {(
+                                                parseFloat(product.price) *
+                                                (1 + product.discountPercentage / 100)
+                                            ).toFixed(2)}
+                                        </p>
+                                    )}
+
+                                    <div
+                                        className="mt-4 rounded-lg bg-[#FB2E86] px-4 py-2 text-white transition hover:bg-[#e02174] text-center "
+                                    >
+                                        View Details
+                                    </div>
                                 </Link>
                             </div>
                         ))}

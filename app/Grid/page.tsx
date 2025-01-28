@@ -103,7 +103,7 @@ async function Shop_Grid_page() {
           <div className="mt-4 grid grid-cols-1 gap-6 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4">
             {data.slice(0, 12).map((product) => (
               <Link
-                href={`/Grid/${product._id}`}
+                href={`/${product._id}`}
                 key={product._id}
                 className="flex w-[270px] flex-col items-center p-4 transition duration-300 ease-in-out hover:shadow-xl hover:bg-[#51d0f715]"
               >
