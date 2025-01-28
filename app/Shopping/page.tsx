@@ -7,6 +7,7 @@ import Nvbr from "@/components/Navbar";
 import Bredcrumb from "@/components/Bredcrumb";
 import { Lato } from "next/font/google";
 import { urlFor } from "@/sanity/lib/image";
+import Link from "next/link";
 
 const lato = Lato({ subsets: ["latin"], weight: ["400", "700"] });
 
@@ -35,7 +36,12 @@ function ShoppingCurtPage() {
     setCartItems(updatedCart); // Update state
     localStorage.setItem("cart", JSON.stringify(updatedCart)); // Sync with localStorage
   };
-
+  // Remove product from wishlist
+  const removeFromCart = (id: string) => {
+    const updatedWishlist = cartItems.filter((item) => item._id !== id);
+    setCartItems(updatedWishlist);
+    localStorage.setItem("cart", JSON.stringify(updatedWishlist));
+  };
   // Clear cart
   const clearCart = () => {
     setCartItems([]); // Clear cart items
@@ -89,35 +95,44 @@ function ShoppingCurtPage() {
                   key={item._id}
                   className="flex items-center justify-between border-b pb-4"
                 >
-                  <div className="flex items-center gap-4">
-                    <img
-                      src={item.image?.asset ? urlFor(item.image.asset).url() : "/placeholder.png"}
-                      alt={item.name}
-                      width={83}
-                      height={87}
-                      className="rounded-[3px]"
-                      loading="lazy"
-                    />
-                    <div className="hidden md:block text-[#A1A8C1]">
-                      <p className="text-black">{item.name}</p>
-                      <p>
-                        Quantity:{" "}
-                        <input
-                          type="number"
-                          value={item.quantity}
-                          onChange={(e) => {
-                            const value = Math.max(1, parseInt(e.target.value) || 1);
-                            handleQuantityChange(item._id, value);
-                          }}
-                          className="w-16 p-1 border border-gray-300"
-                          min="1"
-                          aria-label={`Quantity for ${item.name}`}
-                        />
-                      </p>
-                    </div>
+                  <div className="flex items-center gap-4 ">
+                    <Link href={`/${item._id}`} className="flex items-center gap-4 ">
+                      <img
+                        src={item.image?.asset ? urlFor(item.image.asset).url() : "/placeholder.png"}
+                        alt={item.name}
+                        width={83}
+                        height={87}
+                        className="rounded-[3px]"
+                        loading="lazy"
+                      />
+                      <div className="hidden md:block text-[#A1A8C1]">
+                        <p className="text-black">{item.name}</p>
+                        <p>
+                          Quantity:{" "}
+                          <input
+                            type="number"
+                            value={item.quantity}
+                            onChange={(e) => {
+                              const value = Math.max(1, parseInt(e.target.value) || 1);
+                              handleQuantityChange(item._id, value);
+                            }}
+                            className="w-16 p-1 border border-gray-300"
+                            min="1"
+                            aria-label={`Quantity for ${item.name}`}
+                          />
+                        </p>
+                      </div>
+                    </Link>
                   </div>
                   <p>${parseFloat(item.price).toFixed(2)}</p>
                   <p>${(parseFloat(item.price) * item.quantity).toFixed(2)}</p>
+                  <button
+                    onClick={() => removeFromCart(item._id)}
+                    className="text-red-600 hover:text-red-800"
+                    aria-label={`Remove ${item.name} from wishlist`}
+                  >
+                    Remove
+                  </button>
                 </div>
               ))}
             </div>

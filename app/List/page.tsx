@@ -101,7 +101,7 @@ async function ShopList() {
         <div className="flex flex-col gap-8" >
           <div>
             {dataLP.map((product) => (
-              <Link href={`/Grid/${product._id}`} key={product._id}>
+              <Link href={`/${product._id}`} key={product._id}>
                 <div className="flex flex-col md:flex-row px-[4vh] md:px-0 items-center justify-center gap-8">
                   <div>
                     <img

@@ -6,6 +6,7 @@ import Mi from "@/components/Mi";
 import Nvbr from "@/components/Navbar";
 import Bredcrumb from "@/components/Bredcrumb";
 import { urlFor } from "@/sanity/lib/image";
+import Link from "next/link";
 
 interface WishlistProduct {
   _id: string;
@@ -30,9 +31,9 @@ function WishlistPage() {
 
   // Remove product from wishlist
   const removeFromWishlist = (id: string) => {
-    const updatedWishlist = wishlistItems.filter((item) => item._id !== id);
-    setWishlistItems(updatedWishlist);
-    localStorage.setItem("wishlist", JSON.stringify(updatedWishlist));
+    const updatedWishlis = wishlistItems.filter((item) => item._id !== id);
+    setWishlistItems(updatedWishlis);
+    localStorage.setItem("wishlist", JSON.stringify(updatedWishlis));
   };
 
   // Clear wishlist
@@ -84,17 +85,20 @@ function WishlistPage() {
                 className="flex items-center justify-between border-b pb-4"
               >
                 <div className="flex items-center gap-4">
-                  <img
-                    src={item.image?.asset ? urlFor(item.image.asset).url() : "/placeholder.png"}
-                    alt={item.name}
-                    width={83}
-                    height={87}
-                    className="rounded-[3px]"
-                    loading="lazy"
-                  />
-                  <div className="hidden md:block text-[#A1A8C1]">
-                    <p className="text-black">{item.name}</p>
-                  </div>
+                  <Link href={`/${item._id}`} className="flex items-center gap-4 ">
+
+                    <img
+                      src={item.image?.asset ? urlFor(item.image.asset).url() : "/placeholder.png"}
+                      alt={item.name}
+                      width={83}
+                      height={87}
+                      className="rounded-[3px]"
+                      loading="lazy"
+                    />
+                    <div className="hidden md:block text-[#A1A8C1]">
+                      <p className="text-black">{item.name}</p>
+                    </div>
+                  </Link>
                 </div>
                 <p>${parseFloat(item.price || "0").toFixed(2)}</p>
                 <button

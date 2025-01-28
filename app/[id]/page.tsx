@@ -9,8 +9,10 @@ export interface Params {
 }
 
 export default async function Page({ params }: Params) {
-  const resp: Product = await client.fetch(
+  // Fetch the product details
+  const resp: Product | null = await client.fetch(
     `*[_type == "product" && _id == $id][0]{
+        _id,
         name,
         image,
         price,
@@ -23,16 +25,26 @@ export default async function Page({ params }: Params) {
     { id: params.id }
   );
 
-  const similarProducts: Product[] = await client.fetch(
-    `*[_type == "product" && category == $category && _id != $id]{
-        _id,
-        name,
-        image,
-        price,
-        discountPercentage
-    }`,
-    { category: resp.category, id: params.id }
-  );
+  // Handle case where product is not found
+  if (!resp) {
+    return <div>Product not found</div>;
+  }
+
+  // Handle case where `category` is null
+  let similarProducts: Product[] = [];
+  if (resp.category) {
+    // Fetch similar products only if `category` exists
+    similarProducts = await client.fetch(
+      `*[_type == "product" && category == $category && _id != $id]{
+          _id,
+          name,
+          image,
+          price,
+          discountPercentage
+      }`,
+      { category: resp.category, id: params.id }
+    );
+  }
 
   return <ProductDetails product={resp} similarProducts={similarProducts} />;
 }
