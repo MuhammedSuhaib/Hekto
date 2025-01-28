@@ -1,7 +1,9 @@
+import React from 'react'
+
 function page() {
   return (
     <div>
-      Test Page
+      Testing page
     </div>
   )
 }

@@ -166,7 +166,7 @@ category
                   {data.map((product, index) => (
                     <CarouselItem
                       key={product._id}
-                      className={`flex flex-col items-stretch p-4 transition duration-300 ease-in-out hover:bg-[#f599c15b] hover:shadow-2xl md:basis-1/2 lg:basis-1/3 xl:basis-1/4 ${index === 0 ? "animate-nudge" : ""
+                      className={`flex flex-col h-fit items-stretch p-4 transition duration-300 ease-in-out hover:shadow-2xl hover:shadow-[#9950f8b4] md:basis-1/2 lg:basis-1/3 xl:basis-1/4 ${index === 0 ? "animate-nudge" : ""
                         } `}
                     >
                       <Link href={`/${product._id}`} key={product._id}>
@@ -247,7 +247,7 @@ category
                   {dataL.map((product) => (
                     <CarouselItem
                       key={product._id}
-                      className={`flex flex-col items-stretch p-4 transition duration-300 ease-in-out hover:bg-[#f599c15b] hover:shadow-2xl md:basis-1/2 lg:basis-1/3 xl:basis-1/4`}
+                      className={`flex flex-col items-stretch p-4 transition duration-300 ease-in-out hover:shadow-2xl hover:shadow-[#9950f8be] md:basis-1/2 lg:basis-1/3 xl:basis-1/4 h-fit`}
                     >
                       <Link href={`/${product._id}`} key={product._id}>
                         <div className="flex h-full items-center justify-center">
@@ -296,7 +296,7 @@ category
                   {dataL.toReversed().map((product, index) => (
                     <CarouselItem
                       key={product._id}
-                      className={`flex flex-col items-stretch p-4 transition duration-300 ease-in-out hover:bg-[#f599c15b] hover:shadow-2xl md:basis-1/2 lg:basis-1/3 xl:basis-1/4 ${index === 0 ? "animate-nudge" : ""
+                      className={`flex flex-col items-stretch p-4 transition duration-300 ease-in-out hover:shadow-2xl hover:shadow-[#9950f8c2] h-fit md:basis-1/2 lg:basis-1/3 xl:basis-1/4 ${index === 0 ? "animate-nudge" : ""
                         }`}
                     >
                       <Link href={`/${product._id}`} key={product._id}>
@@ -475,7 +475,7 @@ category
                 {dataT.map((product) => (
                   <div
                     key={product._id}
-                    className="flexh-fit w-fit flex-col items-center transition duration-300 ease-in-out hover:bg-[#51d0f715] hover:shadow-xl"
+                    className="flexh-fit w-fit flex-col items-center transition duration-300 ease-in-out hover:shadow-2xl hover:shadow-[#9950f8c4]"
                   >
                     <Link href={`/${product._id}`} key={product._id}>
                       {/* head of card with img */}
@@ -692,7 +692,7 @@ View Collection{" "}
                   >
                     <Link href={`/${product._id}`} key={product._id}>
                       {/* Image container */}
-                      <div className="flex items-center justify-center rounded-full bg-[#F6F7FB]">
+                      <div className="flex items-center justify-center rounded-full hover:shadow-2xl hover:shadow-[#9950f896] bg-[#F6F7FB]">
                         <img
                           src={urlFor(product.image.asset).url()}
                           alt={product.name}

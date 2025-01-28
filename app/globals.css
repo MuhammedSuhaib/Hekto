@@ -99,7 +99,7 @@ body {
 }
 
 @media (max-width: 768px) {
-  .animate-nudge:hover {
+  .animate-nudge {
     animation: nudge 1.5s ease-in-out;
   }
 }

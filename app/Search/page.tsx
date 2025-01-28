@@ -54,11 +54,11 @@ function SearchPage() {
         )}
 
         {!loading && results.length > 0 ? (
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4  ">
             {results.map((product) => (
               <div
                 key={product._id}
-                className="relative flex flex-col items-center rounded-lg bg-white p-4 shadow-md hover:shadow-lg transition-transform hover:-translate-y-1"
+                className="relative flex flex-col items-center rounded-lg bg-white p-4 shadow-xl shadow-[#9950f896] transition-transform hover:-translate-y-1 hover:shadow-inner  hover:shadow-[#9950f896]  " 
               >
                 <Link href={`/${product._id}`}>
                   {/* Product Image */}
