@@ -1,6 +1,7 @@
 import { client } from "@/sanity/lib/client";
 import ProductDetails from "@/components/ProductDetails";
 import { Product } from "../Grid/page";
+import ErrorPage from "../not-found";
 
 export interface Params {
   params: {
@@ -27,7 +28,7 @@ export default async function Page({ params }: Params) {
 
   // Handle case where product is not found
   if (!resp) {
-    return <div>Product not found</div>;
+    return <><ErrorPage/></>;
   }
 
   // Handle case where `category` is null
