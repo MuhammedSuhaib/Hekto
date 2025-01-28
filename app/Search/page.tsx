@@ -10,7 +10,7 @@
 //   price: string;
 // }
 
-// export default function SearchPage() {
+// export default function logicPage() {
 //   const searchParams = useSearchParams();
 //   const query = searchParams.get("query") || "";
 //   const [results, setResults] = useState<Product[]>([]);
@@ -59,7 +59,6 @@
 //     </div>
 //   );
 // }
-// import React from 'react'
 
 function page() {
   return (
