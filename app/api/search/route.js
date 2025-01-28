@@ -18,7 +18,9 @@ export async function GET(req) {
         name,
         description,
         price,
-        category
+        category,
+        image 
+
       }`,
       { query }
     );
