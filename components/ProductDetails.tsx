@@ -10,6 +10,7 @@ import { urlFor } from "@/sanity/lib/image";
 import Image from "next/image";
 import Link from "next/link";
 import { Product } from "@/app/Grid/page";
+import Swal from 'sweetalert2'
 
 export interface ProductDetailsProps {
     product: Product;
@@ -20,14 +21,24 @@ const addToCart = (product: Product) => {
     const cart = JSON.parse(localStorage.getItem("cart") || "[]");
     const updatedCart = [...cart, { ...product, quantity: 1 }];
     localStorage.setItem("cart", JSON.stringify(updatedCart));
-    alert(`${product.name} added to cart! Go to the cart page to see your cart (/cart).`);
+    Swal.fire({
+        title: `🥳 ${product.name} added to Cart! 🥳`,
+        text: 'Click on the cart icon 🛒 at the top right to see your cart .',
+        icon: 'success',
+        confirmButtonText: 'OK'
+    });
 };
 
 const addToWishlist = (product: Product) => {
     const wishlist = JSON.parse(localStorage.getItem("wishlist") || "[]");
     const wish = [...wishlist, { ...product, quantity: 1 }];
     localStorage.setItem("wishlist", JSON.stringify(wish));
-    alert(`${product.name} added to Wishlist! Go to the Wishlist page to see your wishlist (/wishlist).`);
+    Swal.fire({
+        title: `💖${product.name} added to Wishlist!💖`,
+        text: 'Click on the heart icon 💖 at the top right to see your wishlist..',
+        icon: 'success',
+        confirmButtonText: 'OK'
+    });
 };
 
 export default function ProductDetails({ product, similarProducts }: ProductDetailsProps) {

@@ -27,6 +27,7 @@
     "react-dom": "^18",
     "sanity": "^3.70.0",
     "styled-components": "^6.1.14",
+    "sweetalert2": "^11.15.10",
     "tailwind-merge": "^2.5.5",
     "tailwindcss-animate": "^1.0.7"
   },

@@ -139,6 +139,7 @@ category
                 alt="sofa"
                 width={706}
                 height={689}
+                priority // this will make sure the image is not lazily loaded
                 className="h-auto w-[300px] md:w-[500px] lg:w-[706px]"
               />
             </div>

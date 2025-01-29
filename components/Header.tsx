@@ -55,7 +55,6 @@ function Header() {
         </li>
           <Link href="/Wishlist" className="flex items-center justify-center ">
         <li className="flex items-center justify-center gap-[0.052%] ">
-          Wishlist
           <Image
             src="/uil_heart-alt.png"
             alt="Heart Icon"
