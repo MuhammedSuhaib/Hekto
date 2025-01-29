@@ -5,7 +5,6 @@ import Link from "next/link";
 import { client } from "@/sanity/lib/client";
 import { Product } from "@/app/Grid/page";
 import { urlFor } from "@/sanity/lib/image";
-import { Skeleton } from "@/components/ui/skeleton"
 import SkeletonProductCard from "./SkeletonProductCard";
 
 export default function ProductGrid() {
