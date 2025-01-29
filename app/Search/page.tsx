@@ -10,6 +10,7 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState, Suspense } from "react";
 import { Product } from "../Grid/page";
+import SkeletonProductCard from "@/components/SkeletonProductCard";
 
 function SearchPage() {
   const searchParams = useSearchParams();
@@ -48,11 +49,15 @@ function SearchPage() {
         </h1>
 
         {loading && (
-          <div className="flex justify-center items-center h-40">
-            <p className="text-lg text-gray-500">Loading...</p>
-          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {Array.from({ length: 12 }).map((_, index) => (
+              <SkeletonProductCard key={index} />
+          ))}
+      </div>
+          // <div className="flex justify-center items-center h-40">
+          //   <p className="text-lg text-gray-500">Loading...</p>
+          // </div>
         )}
-
         {!loading && results.length > 0 ? (
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4  ">
             {results.map((product) => (
