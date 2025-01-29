@@ -296,7 +296,7 @@ category
                   {dataL.toReversed().map((product, index) => (
                     <CarouselItem
                       key={product._id}
-                      className={`flex flex-col items-stretch p-4 transition duration-300 ease-in-out hover:shadow-2xl hover:shadow-[#9950f8c2] h-fit md:basis-1/2 lg:basis-1/3 xl:basis-1/4 ${index === 0 ? "animate-nudge" : ""
+                      className={`flex flex-col transition duration-300 ease-in-out hover:shadow-2xl hover:shadow-[#9950f8c2] h-fit md:basis-1/2  items-center justify-center lg:basis-1/3 xl:basis-1/4 ${index === 0 ? "animate-nudge" : ""
                         }`}
                     >
                       <Link href={`/${product._id}`} key={product._id}>
@@ -475,7 +475,7 @@ category
                 {dataT.map((product) => (
                   <div
                     key={product._id}
-                    className="flexh-fit w-fit flex-col items-center transition duration-300 ease-in-out hover:shadow-2xl hover:shadow-[#9950f8c4]"
+                    className="flex h-fit flex-col items-center transition duration-300 ease-in-out hover:shadow-2xl hover:shadow-[#9950f8c4] rounded-br-xl "
                   >
                     <Link href={`/${product._id}`} key={product._id}>
                       {/* head of card with img */}
@@ -512,7 +512,7 @@ category
               </div>
             </div>
 
-{/* <div className="mt-4 hidden flex-col items-center justify-center gap-7 md:flex md:flex-row">
+            {/* <div className="mt-4 hidden flex-col items-center justify-center gap-7 md:flex md:flex-row">
   <div className="h-[270px] w-[420px] bg-[#FFF6FB] p-6">
     {" "}
     <p className="text-[26px] font-semibold text-[#151875]">

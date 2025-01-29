@@ -5,6 +5,8 @@ import Link from "next/link";
 import { client } from "@/sanity/lib/client";
 import { Product } from "@/app/Grid/page";
 import { urlFor } from "@/sanity/lib/image";
+import { Skeleton } from "@/components/ui/skeleton"
+import SkeletonProductCard from "./SkeletonProductCard";
 
 export default function ProductGrid() {
     const [products, setProducts] = useState<Product[]>([]);
@@ -59,14 +61,17 @@ export default function ProductGrid() {
                     </select>
                 </div>
             </div>
-
             {/* Products Grid / List */}
             {loading ? (
-                <p className="text-center text-gray-600">Loading...</p>
+                <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    {Array.from({ length: 12 }).map((_, index) => (
+                        <SkeletonProductCard key={index} />
+                    ))}
+                </div>
             ) : (
-                <div className={`grid ${viewMode === "grid" ? "grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4" : "grid-cols-2 gap-x-44"} gap-6`}>
+                <div className={`grid ${viewMode === "grid" ? "grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4" : "grid-cols-1"} gap-6`}>
                     {sortedProducts.slice(0, perPage).map((product) => (
-                        <Link href={`/${product._id}`} key={product._id} className="flex flex-col items-center p-4 hover:shadow-2xl hover:shadow-[#9950f896]">
+                        <Link href={`/${product._id}`} key={product._id} className={`flex ${viewMode === "grid" ? "flex-col" : "flex-row justify-around"} items-center p-4 shadow-md hover:shadow-2xl hover:shadow-[#9950f896] rounded-lg`}>
 
                             {/* Image */}
                             <div className="flex items-center justify-center">
@@ -83,6 +88,7 @@ export default function ProductGrid() {
                             </div>
                             {/* Name & Price */}
                             <span className="mt-4 text-lg font-bold text-gray-800">{product.name}</span>
+                            <span className={`mt-2 text-sm text-gray-600 w-1/3  ${viewMode === "grid" ? "hidden" : "flex"} `}>{product.description}</span>
                             <Image src="/Group44.png" alt="Stars" width={42} height={10} />
                             <div className="mt-2 flex items-center">
                                 <span className="text-lg font-bold text-gray-800">${parseFloat(product.price).toFixed(2)}</span>
@@ -93,7 +99,7 @@ export default function ProductGrid() {
                 </div>
             )}
             {/* Per Page */}
-            <div className="flex items-center gap-2 justify-end ">
+            <div className="flex items-center gap-2 justify-end mt-4">
                 <label className="text-gray-700  text-nowrap">Per Page:</label>
                 <input
                     type="number"
