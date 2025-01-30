@@ -11,37 +11,50 @@ import Image from "next/image";
 import Link from "next/link";
 import { Product } from "@/app/Grid/page";
 import Swal from 'sweetalert2'
+import { useRouter } from "next/navigation"; // ✅ Import useRouter
 
 export interface ProductDetailsProps {
     product: Product;
     similarProducts: Product[];
 }
 
-const addToCart = (product: Product) => {
-    const cart = JSON.parse(localStorage.getItem("cart") || "[]");
-    const updatedCart = [...cart, { ...product, quantity: 1 }];
-    localStorage.setItem("cart", JSON.stringify(updatedCart));
-    Swal.fire({
-        title: `🥳 ${product.name} added to Cart! 🥳`,
-        text: 'Click on the cart icon 🛒 at the top right to see your cart .',
-        icon: 'success',
-        confirmButtonText: 'OK'
-    });
-};
 
-const addToWishlist = (product: Product) => {
-    const wishlist = JSON.parse(localStorage.getItem("wishlist") || "[]");
-    const wish = [...wishlist, { ...product, quantity: 1 }];
-    localStorage.setItem("wishlist", JSON.stringify(wish));
-    Swal.fire({
-        title: `💖${product.name} added to Wishlist!💖`,
-        text: 'Click on the heart icon 💖 at the top right to see your wishlist..',
-        icon: 'success',
-        confirmButtonText: 'OK'
-    });
-};
 
 export default function ProductDetails({ product, similarProducts }: ProductDetailsProps) {
+    
+    const router = useRouter(); // ✅ Initialize useRouter
+
+    const addToCart = (product: Product) => {
+        const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+        const updatedCart = [...cart, { ...product, quantity: 1 }];
+        localStorage.setItem("cart", JSON.stringify(updatedCart));
+        Swal.fire({
+            title: `🥳 ${product.name} added to Cart! 🥳`,
+            text: 'Click on the cart icon 🛒 at the top right to see your cart .',
+            icon: 'success',
+            confirmButtonText: 'OK'
+        });
+    };
+    
+    const addToWishlist = (product: Product) => {
+        const wishlist = JSON.parse(localStorage.getItem("wishlist") || "[]");
+        const wish = [...wishlist, { ...product, quantity: 1 }];
+        localStorage.setItem("wishlist", JSON.stringify(wish));
+        Swal.fire({
+            title: `💖${product.name} added to Wishlist!💖`,
+            text: 'Click on the heart icon 💖 at the top right to see your wishlist..',
+            icon: 'success',
+            confirmButtonText: 'OK'
+        });
+    };
+    const handleBuyNow = (product: Product) => {
+        if (!product) {
+            console.error("Product data is missing!");
+            return;
+        }
+        router.push("/Demo"); // ✅ Navigate to checkout page
+        localStorage.setItem("checkoutItems", JSON.stringify([product])); // Save product to localStorage
+    };
     return (
         <div>
             <Header />
@@ -85,8 +98,7 @@ export default function ProductDetails({ product, similarProducts }: ProductDeta
                                     className="h-5 w-5"
                                 />
                             </button>
-
-                            <button className="bg-gray-200 rounded-lg flex px-6 mx-auto h-[39px] w-full font-medium duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#e033e0] lg:mx-0 lg:w-[135px] py-2 text-gray-800 transition hover:bg-gray-300">
+                            <button onClick={() => handleBuyNow(product)} className="bg-gray-200 rounded-lg flex px-6 mx-auto h-[39px] w-full font-medium duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#e033e0] lg:mx-0 lg:w-[135px] py-2 text-gray-800 transition hover:bg-gray-300">
                                 Buy Now
                             </button>
                         </div>
