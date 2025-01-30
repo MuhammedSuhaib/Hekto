@@ -74,14 +74,11 @@ export default function ProductGrid() {
 
                             {/* Image */}
                             <div className="flex items-center justify-center">
-                                <img
-                                    src={product.image && product.image.asset
-                                        ? urlFor(product.image.asset).url()
-                                        : "/placeholder.png"
-                                    }
+                                <img src={product.image && product.image.asset ? urlFor(product.image.asset).url() : "/placeholder.png"}
                                     alt={product.name}
                                     width={201}
                                     height={201}
+                                    loading="lazy"
                                     className="h-56 w-full rounded-t-lg object-cover"
                                 />
                             </div>
