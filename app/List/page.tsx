@@ -53,13 +53,12 @@ async function ShopList() {
                   <div className="px-[4vh] md:px-0">
                     <div className="flex items-center gap-5 text-2xl md:text-4xl font-semibold text-[#111C85]">
                       {product.name}
-                      <img
+                      <Image
                         src="/Group44.png"
                         alt="circles"
                         width={42}
                         height={10}
                         className="h-[10px] w-[42px]"
-                        loading="lazy"
                       />
                     </div>
                     <div className="flex items-center gap-2">

@@ -177,7 +177,7 @@ category
                               {/* head of card with img */}
                               <div className="flex items-center justify-center bg-[#F6F7FB]">
                                 <img
-                                  src={urlFor(product.image.asset).url()}
+                                  src={product.image.asset ? urlFor(product.image.asset).url() : '/placeholder.png'}
                                   alt={product.name}
                                   width={201}
                                   height={201}
@@ -257,7 +257,7 @@ category
                               {/* head of card with img */}
                               <div className="flex items-center justify-center bg-[#F6F7FB]">
                                 <img
-                                  src={urlFor(product.image.asset).url()}
+                                  src={product.image.asset ? urlFor(product.image.asset).url() : '/placeholder.png'}
                                   alt={product.name}
                                   width={201}
                                   height={201}
@@ -307,7 +307,7 @@ category
                               {/* head of card with img */}
                               <div className="flex items-center justify-center bg-[#F6F7FB]">
                                 <img
-                                  src={urlFor(product.image.asset).url()}
+                                  src={product.image.asset ? urlFor(product.image.asset).url() : '/placeholder.png'}
                                   alt={product.name}
                                   width={201}
                                   height={201}
@@ -482,7 +482,7 @@ category
                       {/* head of card with img */}
                       <div className="flex items-center justify-center">
                         <img
-                          src={urlFor(product.image.asset).url()}
+                          src={product.image.asset ? urlFor(product.image.asset).url() : '/placeholder.png'}
                           alt={product.name}
                           width={201}
                           height={201}
@@ -695,7 +695,7 @@ View Collection{" "}
                       {/* Image container */}
                       <div className="flex items-center justify-center rounded-full hover:shadow-2xl hover:shadow-[#9950f896] bg-[#F6F7FB]">
                         <img
-                          src={urlFor(product.image.asset).url()}
+                          src={product.image.asset ? urlFor(product.image.asset).url() : '/placeholder.png'}
                           alt={product.name}
                           width={269}
                           height={269}

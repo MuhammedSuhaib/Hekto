@@ -82,6 +82,7 @@ export default function CheckoutPage() {
                     width={100}
                     height={100}
                     className="rounded-lg"
+                    loading="lazy"
                   />
                   <div>
                     <p className="text-lg font-semibold">{item.name}</p>
