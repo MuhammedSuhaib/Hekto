@@ -21,7 +21,7 @@ export interface ProductDetailsProps {
 
 
 export default function ProductDetails({ product, similarProducts }: ProductDetailsProps) {
-    
+
     const router = useRouter(); // ✅ Initialize useRouter
 
     const addToCart = (product: Product) => {
@@ -47,13 +47,32 @@ export default function ProductDetails({ product, similarProducts }: ProductDeta
             confirmButtonText: 'OK'
         });
     };
-    const handleBuyNow = (product: Product) => {
+    const  handleBuyNow = async (product: Product) => {
         if (!product) {
             console.error("Product data is missing!");
             return;
         }
-        router.push("/api/checkout?productId="+ product._id); // ✅ Navigate to checkout page
-        localStorage.setItem("checkoutItems", JSON.stringify([product])); // Save product to localStorage
+        // router.push("/api/checkout?productId="+ product._id); // ✅ Navigate to checkout page
+        // localStorage.setItem("checkoutItems", JSON.stringify([product])); // Save product to localStorage
+        const res = await fetch('/api/stripe/checkout', {
+            method: 'POST',
+            body: JSON.stringify({
+                items: [
+                    {
+                        price_data: {
+                            currency: 'usd',
+                            product_data: { name: product.name },
+                            unit_amount: Math.round(parseFloat(product.price) * 100),
+                        },
+                        quantity: 1,
+                    },
+                ],
+            }),
+        });
+
+        const data = await res.json();
+        window.location.href = data.url;
+
     };
     return (
         <div>

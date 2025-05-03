@@ -31,15 +31,39 @@ function ShoppingCurtPage() {
   }, []);
 
   // Handle Proceed to Checkout
-  const handleProceedNow = () => {
+  // const handleProceedNow = () => {
+  //   if (cartItems.length === 0) {
+  //     alert("Your cart is empty! Add items before proceeding.");
+  //     return;
+  //   }
+
+  //   localStorage.setItem("checkoutItems", JSON.stringify(cartItems)); // ✅ Save cart data
+  //   router.push("/Demo"); // ✅ Navigate to checkout page
+  // };
+  const handleProceedNow = async () => {
     if (cartItems.length === 0) {
       alert("Your cart is empty! Add items before proceeding.");
       return;
     }
-
-    localStorage.setItem("checkoutItems", JSON.stringify(cartItems)); // ✅ Save cart data
-    router.push("/Demo"); // ✅ Navigate to checkout page
+  
+    const res = await fetch("/api/stripe/checkout", {
+      method: "POST",
+      body: JSON.stringify({
+        items: cartItems.map((item) => ({
+          price_data: {
+            currency: "usd",
+            product_data: { name: item.name },
+            unit_amount: Math.round(parseFloat(item.price) * 100),
+          },
+          quantity: item.quantity,
+        })),
+      }),
+    });
+  
+    const data = await res.json();
+    window.location.href = data.url;
   };
+  
 
   // Handle quantity change
   const handleQuantityChange = (id: string, quantity: number) => {
