@@ -18,7 +18,7 @@ export default function Error({
 
     return (
         <div className="flex min-h-screen items-center justify-center bg-[#F6F5FF] p-6">
-            <div className="max-w-md rounded-lg bg-white p-8 text-center shadow-lg">
+            <div className="max-w-md rounded-lg     bg-white p-8 text-center shadow-lg">
                 <h2 className={`mb-4 text-2xl font-bold text-[#1D3178] ${lato.className}`}>
                     Oops! Something went wrong 😢
                 </h2>

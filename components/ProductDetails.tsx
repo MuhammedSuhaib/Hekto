@@ -52,7 +52,7 @@ export default function ProductDetails({ product, similarProducts }: ProductDeta
             console.error("Product data is missing!");
             return;
         }
-        router.push("/Demo"); // ✅ Navigate to checkout page
+        router.push("/api/checkout?productId="+ product._id); // ✅ Navigate to checkout page
         localStorage.setItem("checkoutItems", JSON.stringify([product])); // Save product to localStorage
     };
     return (
