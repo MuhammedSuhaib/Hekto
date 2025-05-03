@@ -14,7 +14,8 @@ export async function POST(req: NextRequest) {
         line_items: body.items,
         mode: 'payment',
         success_url: `${req.nextUrl.origin}/Order`,
-        cancel_url: `${req.nextUrl.origin}/cancel`,
+        cancel_url: req.headers.get("referer") || `${req.nextUrl.origin}/`,
+
     });
 
     return NextResponse.json({ url: session.url });
