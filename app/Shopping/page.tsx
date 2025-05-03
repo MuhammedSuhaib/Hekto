@@ -1,6 +1,5 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { useRouter } from "next/navigation"; // ✅ Import useRouter
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Mi from "@/components/Mi";
@@ -21,7 +20,6 @@ export interface CartProduct {
 }
 
 function ShoppingCurtPage() {
-  const router = useRouter(); // ✅ Initialize useRouter
   const [cartItems, setCartItems] = useState<CartProduct[]>([]);
 
   // Load cart items from localStorage when the component mounts
@@ -30,22 +28,12 @@ function ShoppingCurtPage() {
     setCartItems(cart);
   }, []);
 
-  // Handle Proceed to Checkout
-  // const handleProceedNow = () => {
-  //   if (cartItems.length === 0) {
-  //     alert("Your cart is empty! Add items before proceeding.");
-  //     return;
-  //   }
-
-  //   localStorage.setItem("checkoutItems", JSON.stringify(cartItems)); // ✅ Save cart data
-  //   router.push("/Demo"); // ✅ Navigate to checkout page
-  // };
   const handleProceedNow = async () => {
     if (cartItems.length === 0) {
       alert("Your cart is empty! Add items before proceeding.");
       return;
     }
-  
+
     const res = await fetch("/api/stripe/checkout", {
       method: "POST",
       body: JSON.stringify({
@@ -59,11 +47,11 @@ function ShoppingCurtPage() {
         })),
       }),
     });
-  
+
     const data = await res.json();
     window.location.href = data.url;
   };
-  
+
 
   // Handle quantity change
   const handleQuantityChange = (id: string, quantity: number) => {

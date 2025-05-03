@@ -11,7 +11,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { Product } from "@/app/Grid/page";
 import Swal from 'sweetalert2'
-import { useRouter } from "next/navigation"; // ✅ Import useRouter
 
 export interface ProductDetailsProps {
     product: Product;
@@ -21,8 +20,6 @@ export interface ProductDetailsProps {
 
 
 export default function ProductDetails({ product, similarProducts }: ProductDetailsProps) {
-
-    const router = useRouter(); // ✅ Initialize useRouter
 
     const addToCart = (product: Product) => {
         const cart = JSON.parse(localStorage.getItem("cart") || "[]");
@@ -35,7 +32,7 @@ export default function ProductDetails({ product, similarProducts }: ProductDeta
             confirmButtonText: 'OK'
         });
     };
-    
+
     const addToWishlist = (product: Product) => {
         const wishlist = JSON.parse(localStorage.getItem("wishlist") || "[]");
         const wish = [...wishlist, { ...product, quantity: 1 }];
@@ -47,13 +44,11 @@ export default function ProductDetails({ product, similarProducts }: ProductDeta
             confirmButtonText: 'OK'
         });
     };
-    const  handleBuyNow = async (product: Product) => {
+    const handleBuyNow = async (product: Product) => {
         if (!product) {
             console.error("Product data is missing!");
             return;
         }
-        // router.push("/api/checkout?productId="+ product._id); // ✅ Navigate to checkout page
-        // localStorage.setItem("checkoutItems", JSON.stringify([product])); // Save product to localStorage
         const res = await fetch('/api/stripe/checkout', {
             method: 'POST',
             body: JSON.stringify({
