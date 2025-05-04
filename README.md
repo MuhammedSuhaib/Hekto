@@ -16,6 +16,7 @@ This project is a dynamic e-commerce marketplace, initially built as a UI clone 
 - **Search Functionality**: Advanced product filtering and searching.
 - **Sanity CMS**: Headless CMS used as the backend for managing products.
 - **Best Practices**: Clean code structure and reusable components.
+- **Stripe Integration**: Secure payment processing for transactions.
 
 ## Technologies Used
 - **Next.js**
@@ -59,7 +60,6 @@ This project helped enhance my skills in:
 - Building a seamless and scalable e-commerce experience.
 
 ## Future Improvements
-- Integrate a payment gateway for real transactions.
 - Implement user authentication and profiles.
 - Enhance animations and user interactions.
 
