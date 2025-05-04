@@ -4,6 +4,7 @@ import Link from "next/link";
 function Header() {
   return (
     <header className="flex h-11 w-full justify-center bg-[#7E33E0] p-4 sm:p-0 md:justify-normal md:gap-[23.15%] md:pl-[19%]">
+      {/* Left Section */}
       <ul className="flex items-center justify-center gap-7">
         <li className="hidden items-center gap-[0.104%] md:flex">
           <Image
@@ -22,12 +23,12 @@ function Header() {
         <li className="hidden items-center gap-[0.104%] md:flex text-[14px] font-semibold text-white sm:text-[16px]">
           <a href="tel:+1234567890">
             <Image
-            src="/bx_bx-phone-call.png"
-            alt="Phone Icon"
-            width={16}
-            height={16}
-            className="w-5 h-5"
-          />
+              src="/bx_bx-phone-call.png"
+              alt="Phone Icon"
+              width={16}
+              height={16}
+              className="w-5 h-5"
+            />
           </a>
           or
           <a href="https://wa.me/1234567890">

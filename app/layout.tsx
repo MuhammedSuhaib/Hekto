@@ -1,4 +1,7 @@
 import type { Metadata } from "next";
+import {
+  ClerkProvider,//wrap whole app and provide necessary functions 
+  } from '@clerk/nextjs'
 import localFont from "next/font/local";
 import "./globals.css";
 import { Josefin_Sans } from "next/font/google";
@@ -26,6 +29,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    <ClerkProvider>
     <html lang="en">
       <body
         className={`${josef.className} ${geistSans.variable} ${geistMono.variable} antialiased w-screen overflow-x-hidden`}
@@ -33,5 +37,6 @@ export default function RootLayout({
         {children}
       </body>
     </html>
+    </ClerkProvider>
   );
 }

@@ -1,4 +1,10 @@
-
+import {
+  SignInButton,// singn in button
+  SignUpButton,// tells is sign up or not ?
+  SignedIn,
+  SignedOut,
+  UserButton,
+} from '@clerk/nextjs'
 import React from "react";
 import Image from "next/image";
 import Header from "@/components/Header";
@@ -8,7 +14,10 @@ import Nvbr from "@/components/Navbar";
 import Bredcrumb from "@/components/Bredcrumb";
 import { Lato } from "next/font/google";
 const lato = Lato({ subsets: ["latin"], weight: ["400", "700"] });
-
+{/* <SignedOut>
+            <SignInButton />
+            <SignUpButton />
+          </SignedOut> */}
 function AccountPage() {
   return (
     <div>
@@ -49,7 +58,10 @@ function AccountPage() {
               Forgot your password?
             </p>
           </form>
-
+          
+          <SignedIn>
+            <UserButton />
+          </SignedIn>
           <button
             type="submit"
             className={`mb-[28px] mt-[23px] h-[52px] rounded-[3px] bg-[#FB2E86] px-10 py-2 text-[17px] font-normal text-white md:w-[445px] ${lato.className} `}
