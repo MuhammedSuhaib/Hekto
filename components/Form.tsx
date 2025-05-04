@@ -49,8 +49,8 @@ function ContactForm() {
             <div className="mt-6 rounded-md bg-red-100 p-4 text-center text-red-800 shadow-md">
                 <h2 className="text-lg font-semibold">Error Sending Message</h2>
                 <p className="mt-2 text-sm">Please check your input and try again.</p>
-                {Object.entries(state.errors).map(([field, error], index) => (
-                    <p key={index}>{error.message}</p>
+                {Object.entries(state.errors).map(([error], index) => (
+                    <p key={index}>{error}</p>
                 ))}
             </div>
         );
