@@ -19,18 +19,24 @@ function Header() {
             mhhasanul@gmail.com
           </a>
         </li>
-        <li className="hidden items-center gap-[0.104%] md:flex">
-          <Image
+        <li className="hidden items-center gap-[0.104%] md:flex text-[14px] font-semibold text-white sm:text-[16px]">
+          <a href="tel:+1234567890">
+            <Image
             src="/bx_bx-phone-call.png"
             alt="Phone Icon"
             width={16}
             height={16}
+            className="w-5 h-5"
           />
-          <a
-            className="text-[14px] font-semibold text-white sm:text-[16px]"
-            href="tel:+ (12345)67890"
-          >
-            (12345)67890
+          </a>
+          or
+          <a href="https://wa.me/1234567890">
+            <Image
+              src="/whatsupp.png"
+              alt="Whatsapp Icon"
+              width={25}
+              height={25}
+            />
           </a>
         </li>
       </ul>
@@ -53,14 +59,14 @@ function Header() {
             height={16}
           />
         </li>
-          <Link href="/Wishlist" className="flex items-center justify-center ">
-        <li className="flex items-center justify-center gap-[0.052%] ">
-          <Image
-            src="/uil_heart-alt.png"
-            alt="Heart Icon"
-            width={16}
-            height={16}
-          /></li> </Link>
+        <Link href="/Wishlist" className="flex items-center justify-center ">
+          <li className="flex items-center justify-center gap-[0.052%] ">
+            <Image
+              src="/uil_heart-alt.png"
+              alt="Heart Icon"
+              width={16}
+              height={16}
+            /></li> </Link>
         <li className="ml-2 flex items-center gap-5">
           <Link href="/Shopping">
             <Image src="/crt.png" alt="Cart Icon" width={16} height={16} />
