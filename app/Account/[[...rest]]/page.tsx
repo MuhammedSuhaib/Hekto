@@ -24,6 +24,7 @@ function AccountPage() {
           {/* show this to user if is currently signed Out */}
           <SignedOut>
             <h2 className="mb-6 text-center text-[32px] font-bold">Login</h2>
+            <p>You need to log in to access this page.</p>
             <SignIn path="/account" routing="path" />
           </SignedOut>
           {/* if user is signed in, show the UserButton */}
