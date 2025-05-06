@@ -17,13 +17,16 @@ This project is a dynamic e-commerce marketplace, initially built as a UI clone 
 - **Sanity CMS**: Headless CMS used as the backend for managing products.
 - **Best Practices**: Clean code structure and reusable components.
 - **Stripe Integration**: Secure payment processing for transactions.
-
+- **Clerk** : Used Clerk for auth and user management.
 ## Technologies Used
 - **Next.js**
 - **Tailwind CSS**
 - **Shadcn/ui**
 - **Sanity CMS** (Headless CMS for dynamic backend)
 - **Vercel**: Deployed for fast and reliable hosting.
+- **formspree**: For form handling and submissions.
+- **Stripe**: Payment processing for secure transactions.
+- **Clerk**: For Auth and user management.
 - **Other npm Packages**
 
 ## Installation
@@ -60,7 +63,6 @@ This project helped enhance my skills in:
 - Building a seamless and scalable e-commerce experience.
 
 ## Future Improvements
-- Implement user authentication and profiles.
 - Enhance animations and user interactions.
 
 ## Credits
