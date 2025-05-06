@@ -6,7 +6,23 @@ const isProtectedRoute = createRouteMatcher([
   '/checkout(.*)', '/studio(.*)'
 ]);
 
+const isAdminRoute = createRouteMatcher(["/studio(.*)"]);
+
+
 export default clerkMiddleware(async (auth, req) => {
+  type SessionClaims = {
+    metadata?: {
+      role?: string;
+    };
+  };
+
+  const { sessionClaims } = await auth() as { sessionClaims?: SessionClaims };
+
+  if (isAdminRoute(req) && sessionClaims?.metadata?.role !== "admin") {
+    // here
+    return NextResponse.redirect(new URL('/404', req.url));
+  }
+
   if (isProtectedRoute(req)) {
     const { userId } = await auth();
     if (!userId) {
@@ -15,6 +31,7 @@ export default clerkMiddleware(async (auth, req) => {
   }
   return NextResponse.next();
 });
+
 
 export const config = {
   matcher: [
