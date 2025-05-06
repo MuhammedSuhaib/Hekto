@@ -1,5 +1,5 @@
-import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server'
-import { NextResponse } from 'next/server'
+import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server';
+import { NextResponse } from 'next/server';
 
 const isProtectedRoute = createRouteMatcher([
   '/Wishlist(.*)', '/Cont(.*)', '/Order(.*)', '/shopping(.*)',
@@ -8,34 +8,23 @@ const isProtectedRoute = createRouteMatcher([
 
 const isAdminRoute = createRouteMatcher(["/studio(.*)"]);
 
-
 export default clerkMiddleware(async (auth, req) => {
-  type SessionClaims = {
-    metadata?: {
-      role?: string;
-    };
-  };
+  const { userId } = await auth();
 
-  const { sessionClaims } = await auth() as { sessionClaims?: SessionClaims };
-
-  if (isAdminRoute(req) && sessionClaims?.metadata?.role !== "admin") {
-    // here
-    return NextResponse.redirect(new URL('/404', req.url));
+  if (isAdminRoute(req) && userId !== "user_2wdlqKpqYGdQn6iPa3ZnxO2jw8J") {
+    return new NextResponse("Forbidden", { status: 403 });
   }
 
-  if (isProtectedRoute(req)) {
-    const { userId } = await auth();
-    if (!userId) {
-      return NextResponse.redirect(new URL('/Account', req.url));
-    }
+  if (isProtectedRoute(req) && !userId) {
+    return NextResponse.redirect(new URL('/Account', req.url));
   }
+
   return NextResponse.next();
 });
-
 
 export const config = {
   matcher: [
     '/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)',
     '/(api|trpc)(.*)',
   ],
-}
+};
